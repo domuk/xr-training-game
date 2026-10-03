@@ -1,0 +1,217 @@
+<!--
+  Lab tablet screen (landscape). The scene scales it down; tablet.ts builds
+  the device body and side grips around it. Pages are shown/hidden by id.
+-->
+<style>
+  .screen {
+    flex-direction: column;
+    width: 600px;
+    height: 340px;
+    padding-top: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 12px;
+    background-color: #16181c;
+    border-width: 1px;
+    border-color: #2c3038;
+    border-radius: 10px;
+  }
+
+  .top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .brand {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f2f2f0;
+  }
+
+  .tabs {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .page {
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .h {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f2f2f0;
+    margin-bottom: 4px;
+  }
+
+  .lbl {
+    font-size: 11px;
+    color: #8f95a1;
+    margin-bottom: 4px;
+  }
+
+  .txt {
+    font-size: 13px;
+    line-height: 1.4;
+    color: #c9ccd3;
+  }
+
+  .status {
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #f5b041;
+  }
+
+  .row {
+    flex-direction: row;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .cols {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .col {
+    flex-direction: column;
+    flex-grow: 1;
+    flex-basis: 0;
+    gap: 3px;
+  }
+
+  .k {
+    font-size: 12px;
+    font-weight: 700;
+    color: #8fb8ff;
+  }
+
+  .center {
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 6px;
+  }
+</style>
+<div class="screen">
+  <div class="top">
+    <div class="brand">Server Explorer</div>
+    <div id="tabs" class="tabs" style="display: none">
+      <Button id="tab-lab" size="sm"><ButtonLabel id="tab-lab-label">Lab</ButtonLabel></Button>
+      <Button id="tab-server" size="sm"><ButtonLabel id="tab-server-label">Server</ButtonLabel></Button>
+      <Button id="tab-explode" size="sm"><ButtonLabel id="tab-explode-label">Explode</ButtonLabel></Button>
+      <Button id="tab-controls" size="sm"><ButtonLabel id="tab-controls-label">Controls</ButtonLabel></Button>
+      <Button id="tab-debug" size="sm"><ButtonLabel id="tab-debug-label">Debug</ButtonLabel></Button>
+    </div>
+  </div>
+
+  <div id="page-safety" class="page">
+    <div class="h">Safety brief</div>
+    <div class="txt">1. Wear your ESD wrist strap, clipped to bare metal.</div>
+    <div class="txt">2. Shut the server down properly. Check with the site team first.</div>
+    <div class="txt">3. Unplug all power cords before opening the lid.</div>
+    <div class="txt">4. Heatsinks and drives can be hot. Let them cool.</div>
+    <div class="txt">5. Watch for sharp edges inside the chassis.</div>
+    <div class="txt">6. Never lift a server alone. Use a lift or a second person.</div>
+    <div class="txt">7. Handle parts by the edges. Use anti-static bags.</div>
+    <div class="txt">8. If unsure, stop and ask.</div>
+    <div class="center">
+      <Button id="btn-start-lab" variant="primary"><ButtonLabel id="btn-start-lab-label">Start lab</ButtonLabel></Button>
+    </div>
+  </div>
+
+  <div id="page-lab" class="page" style="display: none">
+    <div class="lbl">Current part</div>
+    <div id="info-title" class="h">Ready</div>
+    <div id="info-body" class="txt">Click tabs and buttons with the laser or a finger. Screws need the screwdriver. Pull parts by pointing and holding the trigger, or grip / pinch them up close.</div>
+    <div id="info-status" class="status">Next steps show here.</div>
+    <div class="row">
+      <Button id="btn-reset"><ButtonLabel>Reset lab</ButtonLabel></Button>
+      <Button id="btn-safety"><ButtonLabel>Safety brief</ButtonLabel></Button>
+      <Button id="btn-hud"><ButtonLabel id="btn-hud-label">Heads-up: off</ButtonLabel></Button>
+      <Button id="btn-recall"><ButtonLabel>Bring all here</ButtonLabel></Button>
+    </div>
+  </div>
+
+  <div id="page-server" class="page" style="display: none">
+    <div class="lbl">Place the server</div>
+    <div class="row">
+      <Button id="srv-move"><ButtonLabel id="srv-move-label">Move server</ButtonLabel></Button>
+      <Button id="srv-here"><ButtonLabel>Bring here</ButtonLabel></Button>
+      <Button id="srv-rotate"><ButtonLabel>Rotate 90°</ButtonLabel></Button>
+    </div>
+    <div class="lbl" style="margin-top: 10px">Nudge</div>
+    <div class="row">
+      <Button id="srv-up"><ButtonLabel>Up</ButtonLabel></Button>
+      <Button id="srv-down"><ButtonLabel>Down</ButtonLabel></Button>
+      <Button id="srv-closer"><ButtonLabel>Closer</ButtonLabel></Button>
+      <Button id="srv-further"><ButtonLabel>Further</ButtonLabel></Button>
+    </div>
+    <div id="srv-status" class="status">Use Move server, then Done moving.</div>
+  </div>
+
+  <div id="page-explode" class="page" style="display: none">
+    <div id="exp-status" class="lbl">Explode parts out so you can see and grab them. Grabbed parts refit like normal.</div>
+    <div class="row">
+      <Button id="exp-all" variant="primary"><ButtonLabel id="exp-all-label">Explode all</ButtonLabel></Button>
+      <Button id="exp-lid"><ButtonLabel>Lid</ButtonLabel></Button>
+      <Button id="exp-drives"><ButtonLabel>Drives</ButtonLabel></Button>
+      <Button id="exp-fans"><ButtonLabel>Fans</ButtonLabel></Button>
+    </div>
+    <div class="row">
+      <Button id="exp-dimms"><ButtonLabel>DIMMs</ButtonLabel></Button>
+      <Button id="exp-heatsinks"><ButtonLabel>Heatsinks</ButtonLabel></Button>
+      <Button id="exp-cpus"><ButtonLabel>CPUs</ButtonLabel></Button>
+      <Button id="exp-cards"><ButtonLabel>Cards</ButtonLabel></Button>
+    </div>
+  </div>
+
+  <div id="page-controls" class="page" style="display: none">
+    <div class="cols">
+      <div class="col">
+        <div class="h">Controllers</div>
+        <div class="k">Trigger (point)</div>
+        <div class="txt">Click tabs, buttons and the tablet (screws: screwdriver only).</div>
+        <div class="k">Trigger hold on a part</div>
+        <div class="txt">Pull it out along its path, then move it.</div>
+        <div class="k">Right stick up / down (holding)</div>
+        <div class="txt">Push the part or server away / bring it back.</div>
+        <div class="k">Grip (up close)</div>
+        <div class="txt">Grab a part, the tablet or the screwdriver.</div>
+        <div class="k">Sticks</div>
+        <div class="txt">Left: walk. Right: teleport / turn. Double-click a stick: bring everything back.</div>
+        <div class="k">Holding the screwdriver</div>
+        <div class="txt">X / A: unscrew. Y / B: screw in (holding hand). 2 s between turns.</div>
+      </div>
+      <div class="col">
+        <div class="h">Hands</div>
+        <div class="k">Pinch (point)</div>
+        <div class="txt">Click, like the trigger.</div>
+        <div class="k">Pinch and hold on a part</div>
+        <div class="txt">Pull it out, then move it.</div>
+        <div class="k">Pinch up close</div>
+        <div class="txt">Grab a part, the tablet or the screwdriver.</div>
+        <div class="k">Fingertip</div>
+        <div class="txt">Press tabs, buttons and the tablet (screws: screwdriver only). Lost things: Lab, Bring all here.</div>
+        <div class="k">Screwdriver in hand</div>
+        <div class="txt">Touch a screw to undo it, or do it up.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-debug" class="page" style="display: none">
+    <div id="dbg-status" class="lbl">Debug tools.</div>
+    <div class="row">
+      <Button id="dbg-lid"><ButtonLabel id="dbg-lid-label">Lid off</ButtonLabel></Button>
+      <Button id="dbg-remove"><ButtonLabel id="dbg-remove-label">Remove one of each</ButtonLabel></Button>
+      <Button id="dbg-controls"><ButtonLabel id="dbg-controls-label">Open all controls</ButtonLabel></Button>
+    </div>
+    <div class="row">
+      <Button id="dbg-slots"><ButtonLabel id="dbg-slots-label">Show slots</ButtonLabel></Button>
+      <Button id="dbg-teleport"><ButtonLabel id="dbg-teleport-label">Movement: on</ButtonLabel></Button>
+    </div>
+  </div>
+</div>

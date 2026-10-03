@@ -1,0 +1,3961 @@
+{
+ "file": "server.glb",
+ "units": "metres",
+ "up": "+Y (glTF); Blender source is Z-up",
+ "note": "pull steps / axes / slot positions below are in Blender axes (X right, Y back, Z up). glTF conversion: (x, y, z)_blender -> (x, z, -y)_gltf",
+ "assets": {
+  "asset_accel": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "accel_screw",
+   "tip": "accel_card",
+   "note": "K2T-QB: RJ45 + QSFP; remove bracket screw, lift straight up"
+  },
+  "asset_backplane": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "backplane_screw_1,backplane_screw_2,backplane_screw_3,backplane_screw_4,asset_cable_sata,pwr_1_plug,pwr_2_plug,pwr_3_plug,pwr_4_plug,fan_01_plug,fan_02_plug,fan_03_plug",
+   "tip": "backplane",
+   "note": "all drives pulled out ~2 cm first"
+  },
+  "asset_blank_3": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "blank_3_screw",
+   "tip": "blank_bracket"
+  },
+  "asset_blank_4": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "blank_4_screw",
+   "tip": "blank_bracket"
+  },
+  "asset_blank_5": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "blank_5_screw",
+   "tip": "blank_bracket"
+  },
+  "asset_blank_6": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "blank_6_screw",
+   "tip": "blank_bracket"
+  },
+  "asset_blank_7": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "blank_7_screw",
+   "tip": "blank_bracket"
+  },
+  "asset_board": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.0003
+    ],
+    [
+     0.0,
+     -0.01,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "board_screw_1,board_screw_2,board_screw_3,board_screw_4,board_screw_5,board_screw_6,board_screw_7,board_screw_8,board_screw_9,board_screw_10,asset_shroud,asset_nic,asset_accel,asset_cable_sata,atx_plug_24,atx_plug_8",
+   "carries": "asset_dimm_*,asset_cpu_*,asset_hs_*,asset_battery",
+   "tip": "motherboard"
+  },
+  "asset_battery": {
+   "parent_asset": "asset_board",
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.02
+    ]
+   ],
+   "requires": "battery_clip",
+   "tip": "cmos_battery"
+  },
+  "asset_cable_sata": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.12
+    ]
+   ],
+   "tip": "sata_cable",
+   "note": "unplug both ends: press the latch, pull straight out"
+  },
+  "asset_caddy_01": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_01_button,caddy_01_handle",
+   "tip": "drive_caddy",
+   "bay": 0
+  },
+  "asset_drive_01": {
+   "parent_asset": "asset_caddy_01",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_01_screw_1,caddy_01_screw_2,caddy_01_screw_3,caddy_01_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_02": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_02_button,caddy_02_handle",
+   "tip": "drive_caddy",
+   "bay": 1
+  },
+  "asset_drive_02": {
+   "parent_asset": "asset_caddy_02",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_02_screw_1,caddy_02_screw_2,caddy_02_screw_3,caddy_02_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_03": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_03_button,caddy_03_handle",
+   "tip": "drive_caddy",
+   "bay": 2
+  },
+  "asset_drive_03": {
+   "parent_asset": "asset_caddy_03",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_03_screw_1,caddy_03_screw_2,caddy_03_screw_3,caddy_03_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_04": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_04_button,caddy_04_handle",
+   "tip": "drive_caddy",
+   "bay": 3
+  },
+  "asset_drive_04": {
+   "parent_asset": "asset_caddy_04",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_04_screw_1,caddy_04_screw_2,caddy_04_screw_3,caddy_04_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_05": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_05_button,caddy_05_handle",
+   "tip": "drive_caddy",
+   "bay": 4
+  },
+  "asset_drive_05": {
+   "parent_asset": "asset_caddy_05",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_05_screw_1,caddy_05_screw_2,caddy_05_screw_3,caddy_05_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_06": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_06_button,caddy_06_handle",
+   "tip": "drive_caddy",
+   "bay": 5
+  },
+  "asset_drive_06": {
+   "parent_asset": "asset_caddy_06",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_06_screw_1,caddy_06_screw_2,caddy_06_screw_3,caddy_06_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_07": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_07_button,caddy_07_handle",
+   "tip": "drive_caddy",
+   "bay": 6
+  },
+  "asset_drive_07": {
+   "parent_asset": "asset_caddy_07",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_07_screw_1,caddy_07_screw_2,caddy_07_screw_3,caddy_07_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_08": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_08_button,caddy_08_handle",
+   "tip": "drive_caddy",
+   "bay": 7
+  },
+  "asset_drive_08": {
+   "parent_asset": "asset_caddy_08",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_08_screw_1,caddy_08_screw_2,caddy_08_screw_3,caddy_08_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_09": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_09_button,caddy_09_handle",
+   "tip": "drive_caddy",
+   "bay": 8
+  },
+  "asset_drive_09": {
+   "parent_asset": "asset_caddy_09",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_09_screw_1,caddy_09_screw_2,caddy_09_screw_3,caddy_09_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_10": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_10_button,caddy_10_handle",
+   "tip": "drive_caddy",
+   "bay": 9
+  },
+  "asset_drive_10": {
+   "parent_asset": "asset_caddy_10",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_10_screw_1,caddy_10_screw_2,caddy_10_screw_3,caddy_10_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_11": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_11_button,caddy_11_handle",
+   "tip": "drive_caddy",
+   "bay": 10
+  },
+  "asset_drive_11": {
+   "parent_asset": "asset_caddy_11",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_11_screw_1,caddy_11_screw_2,caddy_11_screw_3,caddy_11_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_12": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_12_button,caddy_12_handle",
+   "tip": "drive_caddy",
+   "bay": 11
+  },
+  "asset_drive_12": {
+   "parent_asset": "asset_caddy_12",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_12_screw_1,caddy_12_screw_2,caddy_12_screw_3,caddy_12_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_13": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_13_button,caddy_13_handle",
+   "tip": "drive_caddy",
+   "bay": 12
+  },
+  "asset_drive_13": {
+   "parent_asset": "asset_caddy_13",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_13_screw_1,caddy_13_screw_2,caddy_13_screw_3,caddy_13_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_14": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_14_button,caddy_14_handle",
+   "tip": "drive_caddy",
+   "bay": 13
+  },
+  "asset_drive_14": {
+   "parent_asset": "asset_caddy_14",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_14_screw_1,caddy_14_screw_2,caddy_14_screw_3,caddy_14_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_15": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_15_button,caddy_15_handle",
+   "tip": "drive_caddy",
+   "bay": 14
+  },
+  "asset_drive_15": {
+   "parent_asset": "asset_caddy_15",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_15_screw_1,caddy_15_screw_2,caddy_15_screw_3,caddy_15_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_16": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_16_button,caddy_16_handle",
+   "tip": "drive_caddy",
+   "bay": 15
+  },
+  "asset_drive_16": {
+   "parent_asset": "asset_caddy_16",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_16_screw_1,caddy_16_screw_2,caddy_16_screw_3,caddy_16_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_17": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_17_button,caddy_17_handle",
+   "tip": "drive_caddy",
+   "bay": 16
+  },
+  "asset_drive_17": {
+   "parent_asset": "asset_caddy_17",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_17_screw_1,caddy_17_screw_2,caddy_17_screw_3,caddy_17_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_18": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_18_button,caddy_18_handle",
+   "tip": "drive_caddy",
+   "bay": 17
+  },
+  "asset_drive_18": {
+   "parent_asset": "asset_caddy_18",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_18_screw_1,caddy_18_screw_2,caddy_18_screw_3,caddy_18_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_19": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_19_button,caddy_19_handle",
+   "tip": "drive_caddy",
+   "bay": 18
+  },
+  "asset_drive_19": {
+   "parent_asset": "asset_caddy_19",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_19_screw_1,caddy_19_screw_2,caddy_19_screw_3,caddy_19_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_20": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_20_button,caddy_20_handle",
+   "tip": "drive_caddy",
+   "bay": 19
+  },
+  "asset_drive_20": {
+   "parent_asset": "asset_caddy_20",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_20_screw_1,caddy_20_screw_2,caddy_20_screw_3,caddy_20_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_21": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_21_button,caddy_21_handle",
+   "tip": "drive_caddy",
+   "bay": 20
+  },
+  "asset_drive_21": {
+   "parent_asset": "asset_caddy_21",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_21_screw_1,caddy_21_screw_2,caddy_21_screw_3,caddy_21_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_22": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_22_button,caddy_22_handle",
+   "tip": "drive_caddy",
+   "bay": 21
+  },
+  "asset_drive_22": {
+   "parent_asset": "asset_caddy_22",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_22_screw_1,caddy_22_screw_2,caddy_22_screw_3,caddy_22_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_23": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_23_button,caddy_23_handle",
+   "tip": "drive_caddy",
+   "bay": 22
+  },
+  "asset_drive_23": {
+   "parent_asset": "asset_caddy_23",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_23_screw_1,caddy_23_screw_2,caddy_23_screw_3,caddy_23_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_caddy_24": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     -0.13,
+     0.0
+    ]
+   ],
+   "requires": "caddy_24_button,caddy_24_handle",
+   "tip": "drive_caddy",
+   "bay": 23
+  },
+  "asset_drive_24": {
+   "parent_asset": "asset_caddy_24",
+   "role": "asset",
+   "pull": [
+    [
+     0.015,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "caddy_24_screw_1,caddy_24_screw_2,caddy_24_screw_3,caddy_24_screw_4",
+   "tip": "drive_in_caddy"
+  },
+  "asset_cord_1": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.03,
+     0.0
+    ]
+   ],
+   "tip": "power_cord"
+  },
+  "asset_cord_2": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.03,
+     0.0
+    ]
+   ],
+   "tip": "power_cord"
+  },
+  "asset_cpu_1": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.05
+    ]
+   ],
+   "requires": "asset_hs_1,socket_1_lever,socket_1_plate",
+   "tip": "cpu",
+   "check": "triangle to the socket triangle; notches on the keys; hold by the edges"
+  },
+  "asset_cpu_2": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.05
+    ]
+   ],
+   "requires": "asset_hs_2,socket_2_lever,socket_2_plate",
+   "tip": "cpu",
+   "check": "triangle to the socket triangle; notches on the keys; hold by the edges"
+  },
+  "asset_dimm_01": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.06
+    ]
+   ],
+   "requires": "dimm_slot_01_clipF,dimm_slot_01_clipR",
+   "tip": "dimm",
+   "check": "notch lines up with the slot key; press both corners until the ejectors click"
+  },
+  "asset_dimm_02": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.06
+    ]
+   ],
+   "requires": "dimm_slot_02_clipF,dimm_slot_02_clipR",
+   "tip": "dimm",
+   "check": "notch lines up with the slot key; press both corners until the ejectors click"
+  },
+  "asset_dimm_03": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.06
+    ]
+   ],
+   "requires": "dimm_slot_03_clipF,dimm_slot_03_clipR",
+   "tip": "dimm",
+   "check": "notch lines up with the slot key; press both corners until the ejectors click"
+  },
+  "asset_dimm_04": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.06
+    ]
+   ],
+   "requires": "dimm_slot_04_clipF,dimm_slot_04_clipR",
+   "tip": "dimm",
+   "check": "notch lines up with the slot key; press both corners until the ejectors click"
+  },
+  "asset_dimm_05": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.06
+    ]
+   ],
+   "requires": "dimm_slot_05_clipF,dimm_slot_05_clipR",
+   "tip": "dimm",
+   "check": "notch lines up with the slot key; press both corners until the ejectors click"
+  },
+  "asset_dimm_06": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.06
+    ]
+   ],
+   "requires": "dimm_slot_06_clipF,dimm_slot_06_clipR",
+   "tip": "dimm",
+   "check": "notch lines up with the slot key; press both corners until the ejectors click"
+  },
+  "asset_dimm_07": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.06
+    ]
+   ],
+   "requires": "dimm_slot_07_clipF,dimm_slot_07_clipR",
+   "tip": "dimm",
+   "check": "notch lines up with the slot key; press both corners until the ejectors click"
+  },
+  "asset_dimm_08": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.06
+    ]
+   ],
+   "requires": "dimm_slot_08_clipF,dimm_slot_08_clipR",
+   "tip": "dimm",
+   "check": "notch lines up with the slot key; press both corners until the ejectors click"
+  },
+  "asset_fan_01": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "fan_01_release_tab",
+   "tip": "fan",
+   "check": "airflow arrow points to the rear; plug drops into the holder socket"
+  },
+  "asset_fan_02": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "fan_02_release_tab",
+   "tip": "fan",
+   "check": "airflow arrow points to the rear; plug drops into the holder socket"
+  },
+  "asset_fan_03": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "fan_03_release_tab",
+   "tip": "fan",
+   "check": "airflow arrow points to the rear; plug drops into the holder socket"
+  },
+  "asset_hs_1": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "hs_1_screw_4,hs_1_screw_3,hs_1_screw_2,hs_1_screw_1",
+   "order_out": "4,3,2,1",
+   "order_in": "1,2,3,4",
+   "tip": "heatsink",
+   "warn": "may be hot"
+  },
+  "asset_hs_2": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "hs_2_screw_4,hs_2_screw_3,hs_2_screw_2,hs_2_screw_1",
+   "order_out": "4,3,2,1",
+   "order_in": "1,2,3,4",
+   "tip": "heatsink",
+   "warn": "may be hot"
+  },
+  "asset_lid": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.015,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.06
+    ]
+   ],
+   "requires": "lid_tab_L,lid_tab_R,lid_screw",
+   "tip": "lid"
+  },
+  "asset_nic": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "requires": "nic_screw",
+   "tip": "nic",
+   "check": "slide the bracket into opening 1 (peg in the slit) while pressing the card into the slot; refit the screw"
+  },
+  "asset_psu_1": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.35,
+     0.0
+    ]
+   ],
+   "requires": "asset_cord_1,psu_1_tab",
+   "tip": "psu",
+   "note": "hot-swap; unplug the cord, squeeze the release paddle, pull by the handle"
+  },
+  "asset_psu_2": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.35,
+     0.0
+    ]
+   ],
+   "requires": "asset_cord_2,psu_2_tab",
+   "tip": "psu",
+   "note": "hot-swap; unplug the cord, squeeze the release paddle, pull by the handle"
+  },
+  "asset_shroud": {
+   "parent_asset": null,
+   "role": "asset",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.1
+    ]
+   ],
+   "tip": "air_shroud"
+  }
+ },
+ "moving": {
+  "battery_clip": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "press",
+   "axis": "X",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "battery_clip"
+  },
+  "dimm_slot_01_clipF": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_01_clipR": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_02_clipF": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_02_clipR": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_03_clipF": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_03_clipR": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_04_clipF": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_04_clipR": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_05_clipF": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_05_clipR": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_06_clipF": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_06_clipR": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_07_clipF": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_07_clipR": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_08_clipF": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "dimm_slot_08_clipR": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -40.0
+   ],
+   "tip": "dimm_ejector"
+  },
+  "io_uid_button": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    -0.0012
+   ],
+   "tip": "uid_button",
+   "note": "lights the blue UID LED front and rear"
+  },
+  "socket_1_lever": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -100.0
+   ],
+   "requires": "asset_hs_1",
+   "tip": "socket_lever",
+   "note": "push down and out from the hook, then lift"
+  },
+  "socket_1_plate": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -110.0
+   ],
+   "requires": "socket_1_lever",
+   "tip": "load_plate"
+  },
+  "socket_2_lever": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -100.0
+   ],
+   "requires": "asset_hs_2",
+   "tip": "socket_lever",
+   "note": "push down and out from the hook, then lift"
+  },
+  "socket_2_plate": {
+   "asset": "asset_board",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -110.0
+   ],
+   "requires": "socket_2_lever",
+   "tip": "load_plate"
+  },
+  "caddy_01_button": {
+   "asset": "asset_caddy_01",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_01_handle": {
+   "asset": "asset_caddy_01",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_02_button": {
+   "asset": "asset_caddy_02",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_02_handle": {
+   "asset": "asset_caddy_02",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_03_button": {
+   "asset": "asset_caddy_03",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_03_handle": {
+   "asset": "asset_caddy_03",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_04_button": {
+   "asset": "asset_caddy_04",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_04_handle": {
+   "asset": "asset_caddy_04",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_05_button": {
+   "asset": "asset_caddy_05",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_05_handle": {
+   "asset": "asset_caddy_05",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_06_button": {
+   "asset": "asset_caddy_06",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_06_handle": {
+   "asset": "asset_caddy_06",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_07_button": {
+   "asset": "asset_caddy_07",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_07_handle": {
+   "asset": "asset_caddy_07",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_08_button": {
+   "asset": "asset_caddy_08",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_08_handle": {
+   "asset": "asset_caddy_08",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_09_button": {
+   "asset": "asset_caddy_09",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_09_handle": {
+   "asset": "asset_caddy_09",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_10_button": {
+   "asset": "asset_caddy_10",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_10_handle": {
+   "asset": "asset_caddy_10",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_11_button": {
+   "asset": "asset_caddy_11",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_11_handle": {
+   "asset": "asset_caddy_11",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_12_button": {
+   "asset": "asset_caddy_12",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_12_handle": {
+   "asset": "asset_caddy_12",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_13_button": {
+   "asset": "asset_caddy_13",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_13_handle": {
+   "asset": "asset_caddy_13",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_14_button": {
+   "asset": "asset_caddy_14",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_14_handle": {
+   "asset": "asset_caddy_14",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_15_button": {
+   "asset": "asset_caddy_15",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_15_handle": {
+   "asset": "asset_caddy_15",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_16_button": {
+   "asset": "asset_caddy_16",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_16_handle": {
+   "asset": "asset_caddy_16",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_17_button": {
+   "asset": "asset_caddy_17",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_17_handle": {
+   "asset": "asset_caddy_17",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_18_button": {
+   "asset": "asset_caddy_18",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_18_handle": {
+   "asset": "asset_caddy_18",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_19_button": {
+   "asset": "asset_caddy_19",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_19_handle": {
+   "asset": "asset_caddy_19",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_20_button": {
+   "asset": "asset_caddy_20",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_20_handle": {
+   "asset": "asset_caddy_20",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_21_button": {
+   "asset": "asset_caddy_21",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_21_handle": {
+   "asset": "asset_caddy_21",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_22_button": {
+   "asset": "asset_caddy_22",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_22_handle": {
+   "asset": "asset_caddy_22",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_23_button": {
+   "asset": "asset_caddy_23",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_23_handle": {
+   "asset": "asset_caddy_23",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "caddy_24_button": {
+   "asset": "asset_caddy_24",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0015
+   ],
+   "tip": "caddy_button"
+  },
+  "caddy_24_handle": {
+   "asset": "asset_caddy_24",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -60.0
+   ],
+   "tip": "caddy_handle"
+  },
+  "lid_tab_L": {
+   "asset": "asset_lid",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Z",
+   "limits": [
+    0.0,
+    -0.0008
+   ],
+   "tip": "lid_tab"
+  },
+  "lid_tab_R": {
+   "asset": "asset_lid",
+   "role": "moving",
+   "motion": "press",
+   "axis": "Z",
+   "limits": [
+    0.0,
+    -0.0008
+   ],
+   "tip": "lid_tab"
+  },
+  "psu_1_handle": {
+   "asset": "asset_psu_1",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    90.0
+   ],
+   "tip": "psu_handle",
+   "note": "swing out, then pull"
+  },
+  "psu_1_tab": {
+   "asset": "asset_psu_1",
+   "role": "moving",
+   "motion": "press",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.002
+   ],
+   "tip": "psu_release_tab",
+   "note": "squeeze toward the inlet"
+  },
+  "psu_2_handle": {
+   "asset": "asset_psu_2",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0.0,
+    90.0
+   ],
+   "tip": "psu_handle",
+   "note": "swing out, then pull"
+  },
+  "psu_2_tab": {
+   "asset": "asset_psu_2",
+   "role": "moving",
+   "motion": "press",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.002
+   ],
+   "tip": "psu_release_tab",
+   "note": "squeeze toward the inlet"
+  },
+  "atx_plug_24": {
+   "asset": null,
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Z",
+   "limits": [
+    0.0,
+    0.015
+   ],
+   "tip": "atx_plug",
+   "note": "squeeze the latch, pull straight up"
+  },
+  "atx_plug_8": {
+   "asset": null,
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Z",
+   "limits": [
+    0.0,
+    0.015
+   ],
+   "tip": "atx_plug",
+   "note": "squeeze the latch, pull straight up"
+  },
+  "pwr_1_plug": {
+   "asset": null,
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.008
+   ],
+   "tip": "power_plug",
+   "note": "press the latch, pull straight out"
+  },
+  "pwr_2_plug": {
+   "asset": null,
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.008
+   ],
+   "tip": "power_plug",
+   "note": "press the latch, pull straight out"
+  },
+  "pwr_3_plug": {
+   "asset": null,
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.008
+   ],
+   "tip": "power_plug",
+   "note": "press the latch, pull straight out"
+  },
+  "pwr_4_plug": {
+   "asset": null,
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.008
+   ],
+   "tip": "power_plug",
+   "note": "press the latch, pull straight out"
+  },
+  "ctrl_power_button": {
+   "asset": null,
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0012
+   ],
+   "tip": "ctrl_power"
+  },
+  "ctrl_reset_button": {
+   "asset": null,
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.0006
+   ],
+   "tool": "pin",
+   "tip": "ctrl_reset"
+  },
+  "fan_01_plug": {
+   "asset": null,
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.008
+   ],
+   "tip": "fan_cable_plug",
+   "note": "only needed for backplane removal; press the latch, pull straight out"
+  },
+  "fan_01_release_tab": {
+   "asset": null,
+   "role": "moving",
+   "motion": "press",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.0015
+   ],
+   "tip": "fan_release_tab"
+  },
+  "fan_02_plug": {
+   "asset": null,
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.008
+   ],
+   "tip": "fan_cable_plug",
+   "note": "only needed for backplane removal; press the latch, pull straight out"
+  },
+  "fan_02_release_tab": {
+   "asset": null,
+   "role": "moving",
+   "motion": "press",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.0015
+   ],
+   "tip": "fan_release_tab"
+  },
+  "fan_03_plug": {
+   "asset": null,
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.008
+   ],
+   "tip": "fan_cable_plug",
+   "note": "only needed for backplane removal; press the latch, pull straight out"
+  },
+  "fan_03_release_tab": {
+   "asset": null,
+   "role": "moving",
+   "motion": "press",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.0015
+   ],
+   "tip": "fan_release_tab"
+  }
+ },
+ "fasteners": {
+  "accel_screw": {
+   "asset": "asset_accel",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1080.0
+   ],
+   "rise": 0.003
+  },
+  "backplane_screw_1": {
+   "asset": "asset_backplane",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "backplane_screw_2": {
+   "asset": "asset_backplane",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "backplane_screw_3": {
+   "asset": "asset_backplane",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "backplane_screw_4": {
+   "asset": "asset_backplane",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "blank_3_screw": {
+   "asset": "asset_blank_3",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1080.0
+   ],
+   "rise": 0.003
+  },
+  "blank_4_screw": {
+   "asset": "asset_blank_4",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1080.0
+   ],
+   "rise": 0.003
+  },
+  "blank_5_screw": {
+   "asset": "asset_blank_5",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1080.0
+   ],
+   "rise": 0.003
+  },
+  "blank_6_screw": {
+   "asset": "asset_blank_6",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1080.0
+   ],
+   "rise": 0.003
+  },
+  "blank_7_screw": {
+   "asset": "asset_blank_7",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1080.0
+   ],
+   "rise": 0.003
+  },
+  "board_screw_1": {
+   "asset": "asset_board",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1800.0
+   ],
+   "rise": 0.006
+  },
+  "board_screw_10": {
+   "asset": "asset_board",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1800.0
+   ],
+   "rise": 0.006
+  },
+  "board_screw_2": {
+   "asset": "asset_board",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1800.0
+   ],
+   "rise": 0.006
+  },
+  "board_screw_3": {
+   "asset": "asset_board",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1800.0
+   ],
+   "rise": 0.006
+  },
+  "board_screw_4": {
+   "asset": "asset_board",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1800.0
+   ],
+   "rise": 0.006
+  },
+  "board_screw_5": {
+   "asset": "asset_board",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1800.0
+   ],
+   "rise": 0.006
+  },
+  "board_screw_6": {
+   "asset": "asset_board",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1800.0
+   ],
+   "rise": 0.006
+  },
+  "board_screw_7": {
+   "asset": "asset_board",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1800.0
+   ],
+   "rise": 0.006
+  },
+  "board_screw_8": {
+   "asset": "asset_board",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1800.0
+   ],
+   "rise": 0.006
+  },
+  "board_screw_9": {
+   "asset": "asset_board",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1800.0
+   ],
+   "rise": 0.006
+  },
+  "caddy_01_screw_1": {
+   "asset": "asset_caddy_01",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_01_screw_2": {
+   "asset": "asset_caddy_01",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_01_screw_3": {
+   "asset": "asset_caddy_01",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_01_screw_4": {
+   "asset": "asset_caddy_01",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_02_screw_1": {
+   "asset": "asset_caddy_02",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_02_screw_2": {
+   "asset": "asset_caddy_02",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_02_screw_3": {
+   "asset": "asset_caddy_02",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_02_screw_4": {
+   "asset": "asset_caddy_02",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_03_screw_1": {
+   "asset": "asset_caddy_03",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_03_screw_2": {
+   "asset": "asset_caddy_03",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_03_screw_3": {
+   "asset": "asset_caddy_03",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_03_screw_4": {
+   "asset": "asset_caddy_03",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_04_screw_1": {
+   "asset": "asset_caddy_04",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_04_screw_2": {
+   "asset": "asset_caddy_04",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_04_screw_3": {
+   "asset": "asset_caddy_04",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_04_screw_4": {
+   "asset": "asset_caddy_04",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_05_screw_1": {
+   "asset": "asset_caddy_05",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_05_screw_2": {
+   "asset": "asset_caddy_05",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_05_screw_3": {
+   "asset": "asset_caddy_05",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_05_screw_4": {
+   "asset": "asset_caddy_05",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_06_screw_1": {
+   "asset": "asset_caddy_06",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_06_screw_2": {
+   "asset": "asset_caddy_06",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_06_screw_3": {
+   "asset": "asset_caddy_06",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_06_screw_4": {
+   "asset": "asset_caddy_06",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_07_screw_1": {
+   "asset": "asset_caddy_07",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_07_screw_2": {
+   "asset": "asset_caddy_07",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_07_screw_3": {
+   "asset": "asset_caddy_07",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_07_screw_4": {
+   "asset": "asset_caddy_07",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_08_screw_1": {
+   "asset": "asset_caddy_08",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_08_screw_2": {
+   "asset": "asset_caddy_08",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_08_screw_3": {
+   "asset": "asset_caddy_08",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_08_screw_4": {
+   "asset": "asset_caddy_08",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_09_screw_1": {
+   "asset": "asset_caddy_09",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_09_screw_2": {
+   "asset": "asset_caddy_09",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_09_screw_3": {
+   "asset": "asset_caddy_09",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_09_screw_4": {
+   "asset": "asset_caddy_09",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_10_screw_1": {
+   "asset": "asset_caddy_10",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_10_screw_2": {
+   "asset": "asset_caddy_10",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_10_screw_3": {
+   "asset": "asset_caddy_10",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_10_screw_4": {
+   "asset": "asset_caddy_10",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_11_screw_1": {
+   "asset": "asset_caddy_11",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_11_screw_2": {
+   "asset": "asset_caddy_11",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_11_screw_3": {
+   "asset": "asset_caddy_11",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_11_screw_4": {
+   "asset": "asset_caddy_11",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_12_screw_1": {
+   "asset": "asset_caddy_12",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_12_screw_2": {
+   "asset": "asset_caddy_12",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_12_screw_3": {
+   "asset": "asset_caddy_12",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_12_screw_4": {
+   "asset": "asset_caddy_12",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_13_screw_1": {
+   "asset": "asset_caddy_13",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_13_screw_2": {
+   "asset": "asset_caddy_13",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_13_screw_3": {
+   "asset": "asset_caddy_13",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_13_screw_4": {
+   "asset": "asset_caddy_13",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_14_screw_1": {
+   "asset": "asset_caddy_14",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_14_screw_2": {
+   "asset": "asset_caddy_14",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_14_screw_3": {
+   "asset": "asset_caddy_14",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_14_screw_4": {
+   "asset": "asset_caddy_14",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_15_screw_1": {
+   "asset": "asset_caddy_15",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_15_screw_2": {
+   "asset": "asset_caddy_15",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_15_screw_3": {
+   "asset": "asset_caddy_15",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_15_screw_4": {
+   "asset": "asset_caddy_15",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_16_screw_1": {
+   "asset": "asset_caddy_16",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_16_screw_2": {
+   "asset": "asset_caddy_16",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_16_screw_3": {
+   "asset": "asset_caddy_16",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_16_screw_4": {
+   "asset": "asset_caddy_16",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_17_screw_1": {
+   "asset": "asset_caddy_17",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_17_screw_2": {
+   "asset": "asset_caddy_17",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_17_screw_3": {
+   "asset": "asset_caddy_17",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_17_screw_4": {
+   "asset": "asset_caddy_17",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_18_screw_1": {
+   "asset": "asset_caddy_18",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_18_screw_2": {
+   "asset": "asset_caddy_18",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_18_screw_3": {
+   "asset": "asset_caddy_18",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_18_screw_4": {
+   "asset": "asset_caddy_18",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_19_screw_1": {
+   "asset": "asset_caddy_19",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_19_screw_2": {
+   "asset": "asset_caddy_19",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_19_screw_3": {
+   "asset": "asset_caddy_19",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_19_screw_4": {
+   "asset": "asset_caddy_19",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_20_screw_1": {
+   "asset": "asset_caddy_20",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_20_screw_2": {
+   "asset": "asset_caddy_20",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_20_screw_3": {
+   "asset": "asset_caddy_20",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_20_screw_4": {
+   "asset": "asset_caddy_20",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_21_screw_1": {
+   "asset": "asset_caddy_21",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_21_screw_2": {
+   "asset": "asset_caddy_21",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_21_screw_3": {
+   "asset": "asset_caddy_21",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_21_screw_4": {
+   "asset": "asset_caddy_21",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_22_screw_1": {
+   "asset": "asset_caddy_22",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_22_screw_2": {
+   "asset": "asset_caddy_22",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_22_screw_3": {
+   "asset": "asset_caddy_22",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_22_screw_4": {
+   "asset": "asset_caddy_22",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_23_screw_1": {
+   "asset": "asset_caddy_23",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_23_screw_2": {
+   "asset": "asset_caddy_23",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_23_screw_3": {
+   "asset": "asset_caddy_23",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_23_screw_4": {
+   "asset": "asset_caddy_23",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_24_screw_1": {
+   "asset": "asset_caddy_24",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_24_screw_2": {
+   "asset": "asset_caddy_24",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_24_screw_3": {
+   "asset": "asset_caddy_24",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "caddy_24_screw_4": {
+   "asset": "asset_caddy_24",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "X",
+   "tool": "phillips_1",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.004
+  },
+  "hs_1_screw_1": {
+   "asset": "asset_hs_1",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "torx_t20",
+   "limits": [
+    0.0,
+    2160.0
+   ],
+   "rise": 0.006,
+   "captive": true,
+   "seq": 1
+  },
+  "hs_1_screw_2": {
+   "asset": "asset_hs_1",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "torx_t20",
+   "limits": [
+    0.0,
+    2160.0
+   ],
+   "rise": 0.006,
+   "captive": true,
+   "seq": 2
+  },
+  "hs_1_screw_3": {
+   "asset": "asset_hs_1",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "torx_t20",
+   "limits": [
+    0.0,
+    2160.0
+   ],
+   "rise": 0.006,
+   "captive": true,
+   "seq": 3
+  },
+  "hs_1_screw_4": {
+   "asset": "asset_hs_1",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "torx_t20",
+   "limits": [
+    0.0,
+    2160.0
+   ],
+   "rise": 0.006,
+   "captive": true,
+   "seq": 4
+  },
+  "hs_2_screw_1": {
+   "asset": "asset_hs_2",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "torx_t20",
+   "limits": [
+    0.0,
+    2160.0
+   ],
+   "rise": 0.006,
+   "captive": true,
+   "seq": 1
+  },
+  "hs_2_screw_2": {
+   "asset": "asset_hs_2",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "torx_t20",
+   "limits": [
+    0.0,
+    2160.0
+   ],
+   "rise": 0.006,
+   "captive": true,
+   "seq": 2
+  },
+  "hs_2_screw_3": {
+   "asset": "asset_hs_2",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "torx_t20",
+   "limits": [
+    0.0,
+    2160.0
+   ],
+   "rise": 0.006,
+   "captive": true,
+   "seq": 3
+  },
+  "hs_2_screw_4": {
+   "asset": "asset_hs_2",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "torx_t20",
+   "limits": [
+    0.0,
+    2160.0
+   ],
+   "rise": 0.006,
+   "captive": true,
+   "seq": 4
+  },
+  "lid_screw": {
+   "asset": "asset_lid",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1440.0
+   ],
+   "rise": 0.005,
+   "optional": true
+  },
+  "nic_screw": {
+   "asset": "asset_nic",
+   "role": "fastener",
+   "motion": "screw",
+   "axis": "Z",
+   "tool": "phillips_2",
+   "limits": [
+    0.0,
+    1080.0
+   ],
+   "rise": 0.003
+  }
+ },
+ "indicators": {
+  "nic_led_1": {
+   "asset": "asset_nic",
+   "role": "indicator",
+   "tip": "nic_led",
+   "states": "link/activity"
+  },
+  "nic_led_2": {
+   "asset": "asset_nic",
+   "role": "indicator",
+   "tip": "nic_led",
+   "states": "link/activity"
+  },
+  "psu_1_led": {
+   "asset": "asset_psu_1",
+   "role": "indicator",
+   "tip": "psu_led",
+   "states": "green=on,amber=off"
+  },
+  "psu_2_led": {
+   "asset": "asset_psu_2",
+   "role": "indicator",
+   "tip": "psu_led",
+   "states": "green=on,amber=off"
+  },
+  "ctrl_led_hdd": {
+   "asset": null,
+   "role": "indicator",
+   "tip": "led_hdd"
+  },
+  "ctrl_led_nic1": {
+   "asset": null,
+   "role": "indicator",
+   "tip": "led_nic1"
+  },
+  "ctrl_led_nic2": {
+   "asset": null,
+   "role": "indicator",
+   "tip": "led_nic2"
+  },
+  "ctrl_led_overheat": {
+   "asset": null,
+   "role": "indicator",
+   "tip": "led_overheat"
+  },
+  "ctrl_led_power": {
+   "asset": null,
+   "role": "indicator",
+   "tip": "led_power"
+  },
+  "ctrl_led_powerfail": {
+   "asset": null,
+   "role": "indicator",
+   "tip": "led_powerfail"
+  }
+ },
+ "slots": {
+  "slot_blank_3": [
+   -0.12375,
+   0.639,
+   0.045
+  ],
+  "slot_blank_4": [
+   -0.14405,
+   0.639,
+   0.045
+  ],
+  "slot_blank_5": [
+   -0.16435,
+   0.639,
+   0.045
+  ],
+  "slot_blank_6": [
+   -0.18465,
+   0.639,
+   0.045
+  ],
+  "slot_blank_7": [
+   -0.20495,
+   0.639,
+   0.045
+  ],
+  "slot_caddy_01": [
+   -0.20425,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_02": [
+   -0.18675,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_03": [
+   -0.16925,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_04": [
+   -0.15175,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_05": [
+   -0.13425,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_06": [
+   -0.11675,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_07": [
+   -0.09925,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_08": [
+   -0.08175,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_09": [
+   -0.06225,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_10": [
+   -0.04475,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_11": [
+   -0.02725,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_12": [
+   -0.00975,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_13": [
+   0.00775,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_14": [
+   0.02525,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_15": [
+   0.04275,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_16": [
+   0.06025,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_17": [
+   0.08075,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_18": [
+   0.09825,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_19": [
+   0.11575,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_20": [
+   0.13325,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_21": [
+   0.15075,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_22": [
+   0.16825,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_23": [
+   0.18575,
+   0.0,
+   0.044
+  ],
+  "slot_caddy_24": [
+   0.20325,
+   0.0,
+   0.044
+  ],
+  "slot_cpu_1": [
+   -0.024,
+   0.27,
+   0.0094
+  ],
+  "slot_cpu_2": [
+   0.064,
+   0.285,
+   0.0094
+  ],
+  "slot_dimm_01": [
+   0.02325,
+   0.431,
+   0.0096
+  ],
+  "slot_dimm_02": [
+   0.03375,
+   0.431,
+   0.0096
+  ],
+  "slot_dimm_03": [
+   0.04425,
+   0.431,
+   0.0096
+  ],
+  "slot_dimm_04": [
+   0.05475,
+   0.431,
+   0.0096
+  ],
+  "slot_dimm_05": [
+   0.06525,
+   0.431,
+   0.0096
+  ],
+  "slot_dimm_06": [
+   0.07575,
+   0.431,
+   0.0096
+  ],
+  "slot_dimm_07": [
+   0.08625,
+   0.431,
+   0.0096
+  ],
+  "slot_dimm_08": [
+   0.09675,
+   0.431,
+   0.0096
+  ],
+  "slot_fan_01": [
+   -0.112,
+   0.1825,
+   0.085
+  ],
+  "slot_fan_02": [
+   -0.022,
+   0.1825,
+   0.085
+  ],
+  "slot_fan_03": [
+   0.068,
+   0.1825,
+   0.085
+  ],
+  "slot_hs_1": [
+   -0.024,
+   0.27,
+   0.0139
+  ],
+  "slot_hs_2": [
+   0.064,
+   0.285,
+   0.0139
+  ],
+  "slot_lid": [
+   0.0,
+   0.0,
+   0.0892
+  ],
+  "slot_nic": [
+   -0.0765,
+   0.5845,
+   0.0106
+  ],
+  "slot_pcie_1": [
+   -0.0765,
+   0.5845,
+   0.0076
+  ],
+  "slot_pcie_2": [
+   -0.0968,
+   0.5845,
+   0.0076
+  ],
+  "slot_pcie_3": [
+   -0.1171,
+   0.5845,
+   0.0076
+  ],
+  "slot_shroud": [
+   -0.0715,
+   0.42,
+   0.086
+  ]
+ }
+}

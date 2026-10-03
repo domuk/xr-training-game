@@ -1,0 +1,449 @@
+{
+ "file": "screwdriver.glb",
+ "units": "metres",
+ "up": "+Y (glTF); Blender source is Z-up",
+ "note": "tool axis = Blender Z (glTF +Y), origin = fitted bit tip. Vectors in Blender axes: (x,y,z) -> (x,z,-y) glTF",
+ "bits": {
+  "phillips_0": "phillips",
+  "phillips_1": "phillips",
+  "phillips_2": "phillips",
+  "hex_2": "hex",
+  "hex_2.5": "hex",
+  "hex_4": "hex",
+  "slot_2": "slot",
+  "slot_4": "slot",
+  "slot_6": "slot",
+  "robertson_1": "robertson",
+  "robertson_2": "robertson",
+  "magnet": "magnet"
+ },
+ "nodes": {
+  "asset_screwdriver": {
+   "parent": null,
+   "role": "asset",
+   "tool": "screwdriver",
+   "tip": "screwdriver",
+   "note": "ratcheting 12-bit screwdriver; tool axis Z, origin = bit tip",
+   "fitted_bit": "asset_sd_bit",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_sd_bit": {
+   "parent": "asset_screwdriver",
+   "role": "asset",
+   "bit": "phillips_2",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     -0.025
+    ]
+   ],
+   "check": "push the hex end into the holder until the magnet takes it",
+   "pos": [
+    0.0,
+    0.0,
+    0.01
+   ]
+  },
+  "asset_sd_storage": {
+   "parent": "asset_screwdriver",
+   "role": "asset",
+   "tip": "sd_storage",
+   "pull": [
+    [
+     0.0,
+     0.0,
+     0.047
+    ]
+   ],
+   "check": "line the bits up with the bore and push the cap home",
+   "pos": [
+    0.0,
+    0.0,
+    0.21253
+   ]
+  },
+  "asset_sd_bit_hex_2": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "hex_2",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     -0.012,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    -0.0086,
+    0.0,
+    0.177
+   ]
+  },
+  "asset_sd_bit_hex_2_5": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "hex_2.5",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     -0.006,
+     -0.01039,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    -0.0043,
+    -0.00745,
+    0.177
+   ]
+  },
+  "asset_sd_bit_hex_4": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "hex_4",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     0.006,
+     -0.01039,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    0.0043,
+    -0.00745,
+    0.177
+   ]
+  },
+  "asset_sd_bit_magnet": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "magnet",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     0.006,
+     -0.01039,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    0.0043,
+    -0.00745,
+    0.2
+   ]
+  },
+  "asset_sd_bit_phillips_0": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "phillips_0",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     0.012,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    0.0086,
+    0.0,
+    0.177
+   ]
+  },
+  "asset_sd_bit_phillips_1": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "phillips_1",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     0.006,
+     0.01039,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    0.0043,
+    0.00745,
+    0.177
+   ]
+  },
+  "asset_sd_bit_robertson_1": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "robertson_1",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     -0.012,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    -0.0086,
+    0.0,
+    0.2
+   ]
+  },
+  "asset_sd_bit_robertson_2": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "robertson_2",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     -0.006,
+     -0.01039,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    -0.0043,
+    -0.00745,
+    0.2
+   ]
+  },
+  "asset_sd_bit_slot_2": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "slot_2",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     0.012,
+     0.0,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    0.0086,
+    0.0,
+    0.2
+   ]
+  },
+  "asset_sd_bit_slot_4": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "slot_4",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     0.006,
+     0.01039,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    0.0043,
+    0.00745,
+    0.2
+   ]
+  },
+  "asset_sd_bit_slot_6": {
+   "parent": "asset_sd_storage",
+   "role": "asset",
+   "bit": "slot_6",
+   "tip": "sd_bit",
+   "pull": [
+    [
+     -0.006,
+     0.01039,
+     0.0
+    ]
+   ],
+   "requires": "asset_sd_storage",
+   "pos": [
+    -0.0043,
+    0.00745,
+    0.2
+   ]
+  },
+  "slot_sd_store_01": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    0.0086,
+    0.0,
+    0.2
+   ]
+  },
+  "slot_sd_store_02": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    0.0043,
+    0.00745,
+    0.2
+   ]
+  },
+  "slot_sd_store_03": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    -0.0043,
+    0.00745,
+    0.2
+   ]
+  },
+  "slot_sd_store_04": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    -0.0086,
+    0.0,
+    0.2
+   ]
+  },
+  "slot_sd_store_05": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    -0.0043,
+    -0.00745,
+    0.2
+   ]
+  },
+  "slot_sd_store_06": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    0.0043,
+    -0.00745,
+    0.2
+   ]
+  },
+  "slot_sd_store_07": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    0.0086,
+    0.0,
+    0.177
+   ]
+  },
+  "slot_sd_store_08": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    0.0043,
+    0.00745,
+    0.177
+   ]
+  },
+  "slot_sd_store_09": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    -0.0043,
+    0.00745,
+    0.177
+   ]
+  },
+  "slot_sd_store_10": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    -0.0086,
+    0.0,
+    0.177
+   ]
+  },
+  "slot_sd_store_11": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    -0.0043,
+    -0.00745,
+    0.177
+   ]
+  },
+  "slot_sd_store_12": {
+   "parent": "asset_sd_storage",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    0.0043,
+    -0.00745,
+    0.177
+   ]
+  },
+  "sd_grip": {
+   "parent": "asset_screwdriver",
+   "role": "anchor",
+   "note": "palm centre on the handle",
+   "pos": [
+    0.0,
+    0.0,
+    0.168
+   ]
+  },
+  "sd_ratchet_ring": {
+   "parent": "asset_screwdriver",
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -20,
+    20
+   ],
+   "states": "anticlockwise (undo),locked,clockwise (tighten)",
+   "tip": "sd_ratchet",
+   "note": "turn to < to undo, > to tighten, | for a fixed driver",
+   "pos": [
+    0.0,
+    0.0,
+    0.09405
+   ]
+  },
+  "sd_tip": {
+   "parent": "asset_screwdriver",
+   "role": "anchor",
+   "note": "bit tip; touch to the screw head",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "slot_sd_bit": {
+   "parent": "asset_screwdriver",
+   "role": "slot",
+   "accepts": "bit",
+   "pos": [
+    0.0,
+    0.0,
+    0.01
+   ]
+  }
+ }
+}

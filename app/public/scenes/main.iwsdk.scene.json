@@ -1,0 +1,153 @@
+{
+  "version": "iwsdk.scene.v1",
+  "units": "meters",
+  "components": {
+    "com.iwsdk.components.IBLGradient": {
+      "sky": [
+        0.6902,
+        0.749,
+        0.7843,
+        1
+      ],
+      "equator": [
+        0.6584,
+        0.7084,
+        0.7913,
+        1
+      ],
+      "ground": [
+        0.807,
+        0.7758,
+        0.7454,
+        1
+      ],
+      "intensity": 1
+    }
+  },
+  "resources": {},
+  "nodes": [
+    {
+      "id": "server",
+      "name": "2U Server",
+      "metadata": {
+        "iwsdk.validation": {
+          "allowFloating": true
+        }
+      },
+      "content": {
+        "type": "asset",
+        "asset": "server"
+      },
+      "transform": {
+        "position": [
+          0,
+          0.55,
+          -0.6
+        ]
+      },
+      "components": {}
+    },
+    {
+      "id": "screwdriver",
+      "name": "Screwdriver",
+      "metadata": {
+        "iwsdk.validation": {
+          "allowFloating": true
+        }
+      },
+      "content": {
+        "type": "asset",
+        "asset": "screwdriver"
+      },
+      "transform": {
+        "position": [
+          0.35,
+          1.0,
+          -0.4
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          90
+        ]
+      },
+      "components": {}
+    },
+    {
+      "id": "tablet",
+      "name": "Lab Tablet",
+      "metadata": {
+        "iwsdk.validation": {
+          "allowFloating": true
+        }
+      },
+      "content": {
+        "type": "asset",
+        "asset": "tablet"
+      },
+      "transform": {
+        "position": [
+          0.25,
+          1.0,
+          -0.45
+        ],
+        "rotationDeg": [
+          -25,
+          -20,
+          0
+        ],
+        "scale": 0.07
+      },
+      "components": {
+        "RayInteractable": {}
+      }
+    },
+    {
+      "id": "hud",
+      "name": "Heads-up",
+      "metadata": {
+        "iwsdk.validation": {
+          "allowFloating": true
+        }
+      },
+      "content": {
+        "type": "asset",
+        "asset": "hud"
+      },
+      "transform": {
+        "position": [
+          0,
+          1.6,
+          -0.5
+        ],
+        "scale": 0.07
+      },
+      "components": {}
+    },
+    {
+      "id": "welcome-panel",
+      "name": "Welcome Panel",
+      "content": {
+        "type": "asset",
+        "asset": "welcome-panel"
+      },
+      "transform": {
+        "position": [
+          0,
+          1.6,
+          -2
+        ],
+        "scale": 0.4
+      },
+      "components": {
+        "RayInteractable": {},
+        "ScreenSpace": {
+          "top": "20px",
+          "left": "20px",
+          "width": "25vw",
+          "height": "40%"
+        }
+      }
+    }
+  ]
+}

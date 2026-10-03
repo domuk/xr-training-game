@@ -1,0 +1,41 @@
+<!--
+  Heads-up instructions: a black box fixed to the top-left of the view.
+  Same text as the tablet's Lab page; toggled from the tablet.
+-->
+<style>
+  .hud {
+    flex-direction: column;
+    width: 320px;
+    padding-top: 10px;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+  }
+
+  .t {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .b {
+    margin-top: 4px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #e8e8e6;
+  }
+
+  .s {
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fbbf24;
+  }
+</style>
+<div class="hud">
+  <div id="hud-title" class="t">Ready</div>
+  <div id="hud-body" class="b">Instructions appear here.</div>
+  <div id="hud-status" class="s">Next steps show here.</div>
+</div>
