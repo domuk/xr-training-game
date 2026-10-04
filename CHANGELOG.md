@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.1.2 (2026-10-04)
+
+- Server comes out of the rack: grab its side (or hold the trigger on its case) and it slides out along the rails; line it up in front of a slot and it slides back in
+- One hand carries the server (two-handed lifting is off for now); the tablet's Move server button is gone
+- No gravity for now: things float where you let go, and held things stop at furniture, the server and each other
+- Blanking panels removed for now
+- Cabinet drawers only open with both cabinet doors open
+- The drawer screwdriver can be grabbed and moved, including pushing it away / pulling it closer with the right stick
+- Left hand: pinch (or grip) on nothing to swap between hand and screwdriver
+- Menu with hands: show the back of your open right hand for 3 s (the pinch clashed with the Quest menu)
+- Lasers reach as far as they point; the laser dot shows on the tablet and buttons light up clearly when pointed at
+- The tablet's Server buttons work when the server is racked
+- Website card shows the version as the release badge only
+
 ## v1.1.1 (2026-10-04)
 
 - Fixes the 1.1.0 release, which went out with an out-of-date README, website card and in-app help

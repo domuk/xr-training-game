@@ -105,16 +105,10 @@ export class LabRoom {
       if (obj == null) continue;
       if (RACK_SLOT.test(name)) {
         this.slots.push({ name, obj, blanks: (n.requires ?? '').split(',').map((t) => t.trim()).filter(Boolean) });
-      } else if (BLANK.test(name) && n.pull_world?.[0] != null) {
-        const pw = n.pull_world[0];
-        const out = new Vector3(pw[0], pw[2], -pw[1]);
-        this.blankRest.set(name, { obj, pos: obj.position.clone(), parent: obj.parent });
-        (obj as unknown as {
-          addEventListener: (t: string, f: (e: { stopPropagation?: () => void }) => void) => void;
-        }).addEventListener('pointerdown', (e) => {
-          e.stopPropagation?.();
-          this.pullBlank(name, out);
-        });
+      } else if (BLANK.test(name)) {
+        // Owner: no blanking panels for now (added back later).
+        obj.visible = false;
+        (obj as Object3D & { pointerEvents?: string }).pointerEvents = 'none';
       }
     }
     if (toolModel != null) this.addProp(toolModel);
@@ -151,9 +145,40 @@ export class LabRoom {
 
   private blankTweens: ((dt: number) => boolean)[] = [];
 
+  /** Called with a short message when a move isn't allowed. */
+  onRefuse?: (title: string, text: string) => void;
+
+  /** Is this object (or one of its parents) a door / drawer of the room? */
+  isMover(obj: Object3D): boolean {
+    for (let o: Object3D | null = obj; o != null; o = o.parent) {
+      for (const m of this.movers.values()) if (m.obj === o) return true;
+    }
+    return false;
+  }
+
+  /** Doors / drawers move: not solid for collisions. */
+  moverObjects(): Object3D[] {
+    return [...this.movers.values()].map((m) => m.obj);
+  }
+
   toggle(name: string): void {
     const m = this.movers.get(name);
-    if (m != null) m.target = m.target > 0.5 ? 0 : 1;
+    if (m == null) return;
+    const opening = m.target <= 0.5;
+    const open = (n: string) => (this.movers.get(n)?.target ?? 0) > 0.5;
+    if (opening && /^lab_cabinet_drawer_\d+$/.test(name) && !(open('lab_cabinet_door_L') && open('lab_cabinet_door_R'))) {
+      this.onRefuse?.('Tool cabinet', 'Open both cabinet doors first.');
+      return;
+    }
+    if (!opening && /^lab_cabinet_door_[LR]$/.test(name)) {
+      for (const n of this.movers.keys()) {
+        if (/^lab_cabinet_drawer_\d+$/.test(n) && open(n)) {
+          this.onRefuse?.('Tool cabinet', 'Close the drawers first.');
+          return;
+        }
+      }
+    }
+    m.target = opening ? 1 : 0;
   }
 
   update(delta: number): void {

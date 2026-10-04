@@ -38,5 +38,5 @@ export const MOVE_TEXT =
   'Point at the server and hold the trigger to drag it, or grip / pinch it up close. Press Done moving when it is on the table.';
 
 export const READY_TEXT =
-  'The server is in rack 3. Pull its blanking panels, then carry it to the table with both hands on its sides. Click or press tabs and buttons; pull parts by holding the trigger or a pinch; screws need your left hand (the screwdriver).';
+  'The server is in rack 3. Grab its side (or hold the trigger on its case) and slide it out along the rails, then carry it to the table. Click or press tabs and buttons; pull parts by holding the trigger or a pinch; screws need your left hand (pinch it to swap hand / screwdriver).';
 

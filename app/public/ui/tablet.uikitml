@@ -100,11 +100,11 @@
   <div class="top">
     <div id="app-title" class="brand">Server Explorer</div>
     <div id="tabs" class="tabs" style="display: none">
-      <Button id="tab-lab" size="sm"><ButtonLabel id="tab-lab-label">Lab</ButtonLabel></Button>
-      <Button id="tab-server" size="sm"><ButtonLabel id="tab-server-label">Server</ButtonLabel></Button>
-      <Button id="tab-explode" size="sm"><ButtonLabel id="tab-explode-label">Explode</ButtonLabel></Button>
-      <Button id="tab-controls" size="sm"><ButtonLabel id="tab-controls-label">Controls</ButtonLabel></Button>
-      <Button id="tab-debug" size="sm"><ButtonLabel id="tab-debug-label">Debug</ButtonLabel></Button>
+      <Button class="hb" id="tab-lab" size="sm"><ButtonLabel id="tab-lab-label">Lab</ButtonLabel></Button>
+      <Button class="hb" id="tab-server" size="sm"><ButtonLabel id="tab-server-label">Server</ButtonLabel></Button>
+      <Button class="hb" id="tab-explode" size="sm"><ButtonLabel id="tab-explode-label">Explode</ButtonLabel></Button>
+      <Button class="hb" id="tab-controls" size="sm"><ButtonLabel id="tab-controls-label">Controls</ButtonLabel></Button>
+      <Button class="hb" id="tab-debug" size="sm"><ButtonLabel id="tab-debug-label">Debug</ButtonLabel></Button>
     </div>
   </div>
 
@@ -119,53 +119,52 @@
     <div class="txt">7. Handle parts by the edges. Use anti-static bags.</div>
     <div class="txt">8. If unsure, stop and ask.</div>
     <div class="center">
-      <Button id="btn-start-lab" variant="primary"><ButtonLabel id="btn-start-lab-label">Start lab</ButtonLabel></Button>
+      <Button class="hb" id="btn-start-lab" variant="primary"><ButtonLabel id="btn-start-lab-label">Start lab</ButtonLabel></Button>
     </div>
   </div>
 
   <div id="page-lab" class="page" style="display: none">
     <div class="lbl">Current part</div>
     <div id="info-title" class="h">Ready</div>
-    <div id="info-body" class="txt">Pull the blanking panels, then carry the server out of rack 3 with both hands. Click or press tabs and buttons; screws need your left hand (the screwdriver).</div>
+    <div id="info-body" class="txt">The server is in rack 3: grab its side (or point at its case and hold the trigger) and slide it out along the rails. Screws need your left hand (the screwdriver); pinch it to swap hand / screwdriver.</div>
     <div id="info-status" class="status">Next steps show here.</div>
     <div class="row">
-      <Button id="btn-reset"><ButtonLabel>Reset lab</ButtonLabel></Button>
-      <Button id="btn-safety"><ButtonLabel>Safety brief</ButtonLabel></Button>
-      <Button id="btn-hud"><ButtonLabel id="btn-hud-label">Heads-up: off</ButtonLabel></Button>
-      <Button id="btn-recall"><ButtonLabel>Reset view</ButtonLabel></Button>
+      <Button class="hb" id="btn-reset"><ButtonLabel>Reset lab</ButtonLabel></Button>
+      <Button class="hb" id="btn-safety"><ButtonLabel>Safety brief</ButtonLabel></Button>
+      <Button class="hb" id="btn-hud"><ButtonLabel id="btn-hud-label">Heads-up: off</ButtonLabel></Button>
+      <Button class="hb" id="btn-recall"><ButtonLabel>Reset view</ButtonLabel></Button>
     </div>
   </div>
 
   <div id="page-server" class="page" style="display: none">
     <div class="lbl">Place the server</div>
     <div class="row">
-      <Button id="srv-move"><ButtonLabel id="srv-move-label">Move server</ButtonLabel></Button>
-      <Button id="srv-here"><ButtonLabel>Bring here</ButtonLabel></Button>
-      <Button id="srv-rotate"><ButtonLabel>Rotate 90°</ButtonLabel></Button>
+      <Button class="hb" id="srv-here"><ButtonLabel>Bring here</ButtonLabel></Button>
+      <Button class="hb" id="srv-rotate"><ButtonLabel>Rotate 90°</ButtonLabel></Button>
     </div>
     <div class="lbl" style="margin-top: 10px">Nudge</div>
     <div class="row">
-      <Button id="srv-up"><ButtonLabel>Up</ButtonLabel></Button>
-      <Button id="srv-down"><ButtonLabel>Down</ButtonLabel></Button>
-      <Button id="srv-closer"><ButtonLabel>Closer</ButtonLabel></Button>
-      <Button id="srv-further"><ButtonLabel>Further</ButtonLabel></Button>
+      <Button class="hb" id="srv-up"><ButtonLabel>Up</ButtonLabel></Button>
+      <Button class="hb" id="srv-down"><ButtonLabel>Down</ButtonLabel></Button>
+      <Button class="hb" id="srv-closer"><ButtonLabel>Closer</ButtonLabel></Button>
+      <Button class="hb" id="srv-further"><ButtonLabel>Further</ButtonLabel></Button>
     </div>
-    <div id="srv-status" class="status">Use Move server, then Done moving.</div>
+    <div id="srv-status" class="status">To move it by hand: grab its side (or point at its case and hold the trigger).</div>
   </div>
 
   <div id="page-explode" class="page" style="display: none">
     <div id="exp-status" class="lbl">Explode parts out so you can see and grab them. Grabbed parts refit like normal.</div>
     <div class="row">
-      <Button id="exp-all" variant="primary"><ButtonLabel id="exp-all-label">Explode all</ButtonLabel></Button>
-      <Button id="exp-lid"><ButtonLabel>Lid</ButtonLabel></Button>
-      <Button id="exp-drives"><ButtonLabel>Drives</ButtonLabel></Button>
-      <Button id="exp-fans"><ButtonLabel>Fans</ButtonLabel></Button>
+      <Button class="hb" id="exp-all" variant="primary"><ButtonLabel id="exp-all-label">Explode all</ButtonLabel></Button>
+      <Button class="hb" id="exp-lid"><ButtonLabel>Lid</ButtonLabel></Button>
+      <Button class="hb" id="exp-drives"><ButtonLabel>Drives</ButtonLabel></Button>
+      <Button class="hb" id="exp-fans"><ButtonLabel>Fans</ButtonLabel></Button>
     </div>
     <div class="row">
-      <Button id="exp-dimms"><ButtonLabel>DIMMs</ButtonLabel></Button>
-      <Button id="exp-heatsinks"><ButtonLabel>Heatsinks</ButtonLabel></Button>
-      <Button id="exp-cpus"><ButtonLabel>CPUs</ButtonLabel></Button>
-      <Button id="exp-cards"><ButtonLabel>Cards</ButtonLabel></Button>
+      <Button class="hb" id="exp-dimms"><ButtonLabel>DIMMs</ButtonLabel></Button>
+      <Button class="hb" id="exp-heatsinks"><ButtonLabel>Heatsinks</ButtonLabel></Button>
+      <Button class="hb" id="exp-cpus"><ButtonLabel>CPUs</ButtonLabel></Button>
+      <Button class="hb" id="exp-cards"><ButtonLabel>Cards</ButtonLabel></Button>
     </div>
   </div>
 
@@ -174,13 +173,13 @@
       <div class="col">
         <div class="h">Controllers</div>
         <div class="k">Trigger</div>
-        <div class="txt">Click tabs, buttons, doors, drawers, blanking panels. Hold on a part to pull it out.</div>
+        <div class="txt">Click tabs, buttons, doors, drawers. Hold on a part to pull it out; hold on the server case to move the server.</div>
         <div class="k">Right grip (up close)</div>
         <div class="txt">Grab a part or the tablet handles. Right stick: push it away / closer.</div>
-        <div class="k">Both grips on the server's sides</div>
-        <div class="txt">Carry it (turns left / right only). Line it up with a rack slot to rack it.</div>
+        <div class="k">Grip on the server's side</div>
+        <div class="txt">Carry it (turns left / right only). Line it up in front of a slot: it slides in on the rails.</div>
         <div class="k">Left controller = screwdriver</div>
-        <div class="txt">Tip on a screw. X: undo. Y: do up. 2 s between turns.</div>
+        <div class="txt">Tip on a screw. X: undo. Y: do up. 2 s between turns. Left grip on nothing: hand / screwdriver.</div>
         <div class="k">Sticks and A</div>
         <div class="txt">Left: walk. Right: teleport / turn. Double-press A: menu (Room / AR / Black, Reset view).</div>
       </div>
@@ -192,10 +191,10 @@
         <div class="txt">Press tabs, buttons, doors, drawers and the tablet.</div>
         <div class="k">Right pinch (up close)</div>
         <div class="txt">Grab a part or the tablet handles.</div>
-        <div class="k">Both hands on the server's sides</div>
-        <div class="txt">Pinch to carry it. Line it up with a rack slot to rack it.</div>
+        <div class="k">Pinch the server's side</div>
+        <div class="txt">Carry it with one hand. In front of a slot it slides in on the rails.</div>
         <div class="k">Left hand = screwdriver</div>
-        <div class="txt">Touch a screw with the tip. Right pinch held 2 s: menu.</div>
+        <div class="txt">Touch a screw with the tip. Left pinch on nothing: hand / screwdriver. Back of the open right hand to your face 3 s: menu.</div>
       </div>
     </div>
   </div>
@@ -203,13 +202,13 @@
   <div id="page-debug" class="page" style="display: none">
     <div id="dbg-status" class="lbl">Debug tools.</div>
     <div class="row">
-      <Button id="dbg-lid"><ButtonLabel id="dbg-lid-label">Lid off</ButtonLabel></Button>
-      <Button id="dbg-remove"><ButtonLabel id="dbg-remove-label">Remove one of each</ButtonLabel></Button>
-      <Button id="dbg-controls"><ButtonLabel id="dbg-controls-label">Open all controls</ButtonLabel></Button>
+      <Button class="hb" id="dbg-lid"><ButtonLabel id="dbg-lid-label">Lid off</ButtonLabel></Button>
+      <Button class="hb" id="dbg-remove"><ButtonLabel id="dbg-remove-label">Remove one of each</ButtonLabel></Button>
+      <Button class="hb" id="dbg-controls"><ButtonLabel id="dbg-controls-label">Open all controls</ButtonLabel></Button>
     </div>
     <div class="row">
-      <Button id="dbg-slots"><ButtonLabel id="dbg-slots-label">Show slots</ButtonLabel></Button>
-      <Button id="dbg-teleport"><ButtonLabel id="dbg-teleport-label">Movement: on</ButtonLabel></Button>
+      <Button class="hb" id="dbg-slots"><ButtonLabel id="dbg-slots-label">Show slots</ButtonLabel></Button>
+      <Button class="hb" id="dbg-teleport"><ButtonLabel id="dbg-teleport-label">Movement: on</ButtonLabel></Button>
     </div>
   </div>
 </div>

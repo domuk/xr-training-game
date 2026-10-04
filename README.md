@@ -39,11 +39,11 @@ It runs in the **Quest browser** (WebXR): nothing to install. Built with
 - **Training lab room** (default): racks, an island table, a tool cabinet with drawers, benches, doors and a server lift.
 - **Three settings** from the quick menu: **Room**, **AR** (your real room through passthrough) or **Black** (a plain void).
 - You start at the island table. The **server starts in rack 3**.
-- Doors, rack doors, the tool cabinet's doors and its 7 drawers open and close.
-- The room is solid to walk in, and loose parts fall onto whatever is below them.
+- Doors, rack doors, the tool cabinet's doors and its 7 drawers open and close (open both cabinet doors before the drawers).
+- The room is solid to walk in. Held things stop at furniture, the server and each other instead of passing through; let go and they stay where they are (no gravity yet).
 
 **The server**
-- **Racking:** pull the blanking panels out of a slot, then carry the server with **both hands** (it only turns left and right, never tips) and line it up with the slot to rack it. While it is racked, only the drives can be swapped.
+- **Racking:** grab the server by its side (or hold the trigger on its case) and it slides out of the rack along the rails. Carry it with **one hand** (it only turns left and right, never tips). Line it up in front of a slot and it slides back in on the rails. While it is racked, only the drives can be swapped.
 - **Real removal steps**, driven by the model's own data:
   - **Lid:** press both release tabs, slide it back and lift.
   - **Drive caddies (×24):** press the button (the handle flips open), pull. Each drive comes out of its caddy after its 4 screws.
@@ -56,7 +56,7 @@ It runs in the **Quest browser** (WebXR): nothing to install. Built with
 - **Refit:** bring a part back to its slot (it glows green when it will snap in) and let go.
 
 **The tools**
-- **Your left hand is the screwdriver.** Screws only turn with it, with a 2-second gap between turns.
+- **Your left hand is the screwdriver.** Screws only turn with it, with a 2-second gap between turns. Pinch (or grip) on nothing to swap between hand and screwdriver.
 - **The lab tablet:** safety brief first, then Lab, Server, Explode, Controls and Debug pages. Hold it by its side handles.
 - **Quick menu:** Reset view (brings you back to the table) and Room / AR / Black.
 
@@ -64,13 +64,14 @@ It runs in the **Quest browser** (WebXR): nothing to install. Built with
 
 | Action | Controllers | Hands |
 |---|---|---|
-| Click tabs, buttons, doors, drawers, blanking panels | Point + trigger | Point + pinch, or press with a fingertip |
+| Click tabs, buttons, doors, drawers | Point + trigger | Point + pinch, or press with a fingertip |
 | Pull a part out | Point at it + hold trigger | Pinch and hold on it |
 | Grab up close (right hand) | Grip | Pinch |
-| Carry the server | Grip both controllers on its left and right sides | Pinch both hands on its sides |
+| Carry the server | Grip on its side, or hold the trigger on its case | Pinch its side |
 | Screwdriver (left hand) | Tip on a screw: **X** undo, **Y** do up | Touch a screw with the tip |
+| Left hand / screwdriver swap | Left grip on nothing | Left pinch on nothing |
 | Push a held part away / closer | Right stick up / down | — |
-| Quick menu | Double-press **A** | Pinch and hold the right hand for 2 s |
+| Quick menu | Double-press **A** | Back of your open right hand towards your face for 3 s |
 | Walk / teleport / turn | Left stick walks; right stick teleports and snap-turns | — |
 
 ## Run it yourself
@@ -108,7 +109,7 @@ If the headset can't reach the PC, allow Node.js through the firewall for privat
 | `app/` | The IWSDK app (TypeScript, Vite). Logic in `app/src/service/` |
 | `app/src/service/rules.ts` | The removal rules (pure logic, unit tested) |
 | `app/src/service/service-system.ts` | Interaction: grabs, paths, slots, tools, room, menu |
-| `app/src/service/lab.ts` | The lab room: doors, drawers, racks, blanking panels |
+| `app/src/service/lab.ts` | The lab room: doors, drawers, rack slots |
 | `app/public/gltf/` | Models: server, screwdriver, lab |
 | `app/public/ui/` | Panels: tablet, welcome card, heads-up, menu |
 | `model/` | Blender source files and build scripts |
@@ -141,7 +142,8 @@ Changing the model in Blender (with its extras) changes the training without cha
 
 ## Known limits
 - Cables and power cords are hidden for now.
-- Held parts don't yet bump into other parts (they pass through while held; they land on surfaces when let go).
+- No gravity yet: things float where you let go.
+- Two-handed lifting is off for now; blanking panels are left out for now.
 - The server lift is in the room but can't be used yet.
 
 ## Credits and licences

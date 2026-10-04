@@ -30,11 +30,11 @@
 </style>
 <div class="menu">
   <div class="h">Menu</div>
-  <Button id="menu-reset-view" variant="primary"><ButtonLabel>Reset view</ButtonLabel></Button>
+  <Button class="hb" id="menu-reset-view" variant="primary"><ButtonLabel>Reset view</ButtonLabel></Button>
   <div class="row">
-    <Button id="menu-room"><ButtonLabel>Room</ButtonLabel></Button>
-    <Button id="menu-ar"><ButtonLabel>AR</ButtonLabel></Button>
-    <Button id="menu-black"><ButtonLabel>Black</ButtonLabel></Button>
+    <Button class="hb" id="menu-room"><ButtonLabel>Room</ButtonLabel></Button>
+    <Button class="hb" id="menu-ar"><ButtonLabel>AR</ButtonLabel></Button>
+    <Button class="hb" id="menu-black"><ButtonLabel>Black</ButtonLabel></Button>
   </div>
-  <Button id="menu-close"><ButtonLabel>Close</ButtonLabel></Button>
+  <Button class="hb" id="menu-close"><ButtonLabel>Close</ButtonLabel></Button>
 </div>

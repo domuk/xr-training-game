@@ -12,6 +12,7 @@ import {
   type World,
 } from '@iwsdk/core';
 import { APP_TITLE } from '../version.js';
+import { strongHover } from './hover.js';
 
 export type TabletPage = 'safety' | 'lab' | 'server' | 'explode' | 'controls' | 'debug';
 
@@ -56,6 +57,7 @@ export class LabTablet {
     (this.hud as Object3D & { pointerEvents?: string }).pointerEvents = 'none';
     this.buildBody(screen);
     screen.getElementById('app-title')?.setProperties({ text: APP_TITLE });
+    strongHover(screen);
     this.on('tab-lab', () => this.show('lab'));
     this.on('tab-server', () => this.show('server'));
     this.on('tab-explode', () => this.show('explode'));
