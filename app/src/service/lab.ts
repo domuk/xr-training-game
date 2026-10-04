@@ -62,7 +62,12 @@ export class LabRoom {
   /** Called when a blank has been pulled out (the app drops it to the floor). */
   onBlankOut?: (obj: Object3D) => void;
 
-  constructor(private world: World) {}
+  private openable: RegExp;
+
+  /** `openable`: which moving parts open on a click (default: the lab's). */
+  constructor(private world: World, opts: { openable?: RegExp } = {}) {
+    this.openable = opts.openable ?? OPENABLE;
+  }
 
   /** Once the lab model and its manifest are loaded. */
   async init(root: Object3D, manifestUrl: string, toolModel?: Object3D): Promise<void> {
@@ -75,7 +80,8 @@ export class LabRoom {
     }
     root.updateMatrixWorld(true);
     for (const [name, n] of Object.entries(nodes)) {
-      if (!OPENABLE.test(name) || n.role !== 'moving') continue;
+      if (!this.openable.test(name) || n.role !== 'moving') continue;
+      if (n.motion !== 'hinge' && n.motion !== 'slide' && n.motion !== 'press') continue;
       const obj = root.getObjectByName(name);
       const a = n.axis_world;
       if (obj == null || a == null || obj.parent == null) continue;
@@ -85,7 +91,7 @@ export class LabRoom {
       const limit = Math.abs(limits[1]) >= Math.abs(limits[0]) ? limits[1] : limits[0];
       this.movers.set(name, {
         obj,
-        motion: n.motion === 'slide' ? 'slide' : 'hinge',
+        motion: n.motion === 'hinge' ? 'hinge' : 'slide', // a press moves like a short slide
         axis: world.applyQuaternion(parentQ).normalize(),
         limit,
         restPos: obj.position.clone(),
@@ -107,10 +113,17 @@ export class LabRoom {
       if (obj == null) continue;
       if (RACK_SLOT.test(name)) {
         this.slots.push({ name, obj, blanks: (n.requires ?? '').split(',').map((t) => t.trim()).filter(Boolean) });
-      } else if (BLANK.test(name)) {
-        // Owner: no blanking panels for now (added back later).
-        obj.visible = false;
-        (obj as Object3D & { pointerEvents?: string }).pointerEvents = 'none';
+      } else if (BLANK.test(name) && n.pull_world?.[0] != null) {
+        // Tool-less blank: a click / poke pulls it 40 mm out, then it drops.
+        const pw = n.pull_world[0];
+        const out = new Vector3(pw[0], pw[2], -pw[1]);
+        this.blankRest.set(name, { obj, pos: obj.position.clone(), parent: obj.parent });
+        (obj as unknown as {
+          addEventListener: (t: string, f: (e: { stopPropagation?: () => void }) => void) => void;
+        }).addEventListener('pointerdown', (e) => {
+          e.stopPropagation?.();
+          this.pullBlank(name, out);
+        });
       }
     }
     if (toolModel != null) this.addProp(toolModel);

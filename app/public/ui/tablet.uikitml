@@ -126,7 +126,7 @@
   <div id="page-lab" class="page" style="display: none">
     <div class="lbl">Current part</div>
     <div id="info-title" class="h">Ready</div>
-    <div id="info-body" class="txt">The server is in rack 3: grab its side (or point at its case and hold the trigger) and slide it out along the rails. Screws need your left hand (the screwdriver); pinch it to swap hand / screwdriver. Lab door: data hall.</div>
+    <div id="info-body" class="txt">The server is in rack 3: grab its side (or point at its case and hold the trigger) and slide it out along the rails. Screws need your left hand (the screwdriver); double pinch to swap hand / screwdriver. Lab door: data hall.</div>
     <div id="info-status" class="status">Next steps show here.</div>
     <div class="row">
       <Button class="hb" id="btn-reset"><ButtonLabel>Reset lab</ButtonLabel></Button>
@@ -177,9 +177,9 @@
         <div class="k">Right grip (up close)</div>
         <div class="txt">Grab a part or the tablet handles. Right stick: push it away / closer.</div>
         <div class="k">Grip on the server's side</div>
-        <div class="txt">Carry it (turns left / right only). Line it up in front of a slot: it slides in on the rails.</div>
+        <div class="txt">Carry it; right stick left / right spins it. In front of a slot it slides in on the rails.</div>
         <div class="k">Left controller = screwdriver</div>
-        <div class="txt">Tip on a screw. X: undo. Y: do up. 2 s between turns. Left grip on nothing: hand / screwdriver.</div>
+        <div class="txt">Tip on a screw. X: undo. Y: do up. 2 s between turns. Double left grip: hand / screwdriver.</div>
         <div class="k">Sticks and A</div>
         <div class="txt">Left: walk. Right: teleport / turn. Double-press A: menu (Room / AR / Black, Reset view).</div>
       </div>
@@ -194,7 +194,7 @@
         <div class="k">Pinch the server's side</div>
         <div class="txt">Carry it with one hand. In front of a slot it slides in on the rails.</div>
         <div class="k">Left hand = screwdriver</div>
-        <div class="txt">Touch a screw with the tip. Left pinch on nothing: hand / screwdriver. Back of the open right hand to your face 3 s: menu.</div>
+        <div class="txt">Touch a screw with the tip. Double left pinch: hand / screwdriver. Back of the open right hand to your face 3 s: menu.</div>
       </div>
     </div>
   </div>

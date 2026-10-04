@@ -80,7 +80,7 @@ const RAIL_CATCH = 0.1; // m: this close to a slot's rail line (lined up) and it
 const RACK_ANGLE = 35; // degrees: how square to the rack the server must be
 const RACKED_TEXT =
   'The server is in the rack. Pull it out with both hands on its sides (drives can be swapped in place).';
-const GRAVITY = false; // owner: everything floats for now (collisions to come)
+const GRAVITY = true; // Room: released things fall onto what's below (AR / Black float)
 const ROOM_STAND = 0.95;
 /** Data hall: stand just inside its west double door, facing north. */
 const HALL_SPAWN = new Vector3(-8.7, 0, 5.37);
@@ -88,7 +88,14 @@ const HALL_SPAWN = new Vector3(-8.7, 0, 5.37);
 const LAB_SPAWN = new Vector3(0.7, 0, 2.97);
 /** Hall door leaves that take you back to the lab. */
 const HALL_DOORS = ['door_W_leaf_W', 'door_W_leaf_E', 'door_E_leaf_W', 'door_E_leaf_E'];
+/** Hall parts that open on a click: everything moving except the exit doors. */
+const HALL_OPENABLE = /^(?!door_[WE]_leaf_[WE]$)/;
 const ROOM_HALF = 4.0; // m: loose parts stay within the 8.4 m room (minus wall thickness) // m: where the user stands, south of the island table slot
+const LIFT_TRAVEL = 2.2345; // m: lift shelf travel (0.1655 -> 2.40 m)
+const LIFT_BUTTON_REACH = 0.06; // m: a click this close to a lift button presses it
+const LIFT_SPEED = 0.25; // m/s: shelf speed
+const SPIN_SPEED = 1.6; // rad/s: right stick left / right spins a held server
+const SWAP_DOUBLE = 0.5; // s: two left pinches / grips within this = swap hand <-> screwdriver
 const MENU_DOUBLE = 0.45; // s: two A presses within this = quick menu
 const MENU_HOLD = 3; // s: back of the open right hand shown this long = quick menu
 const LASER_FAR = 10; // m: laser length when it hits nothing
@@ -196,6 +203,8 @@ interface ControlRuntime {
 /** A part (or the server) held by a hand pinch / controller grip up close. */
 interface NearGrab {
   part?: PartRuntime;
+  /** Pushing the server lift (floor only). */
+  lift?: boolean;
   server?: boolean;
   tablet?: boolean;
   tool?: boolean;
@@ -212,7 +221,7 @@ interface NearGrab {
 
 /** Laser drag of the server (move mode) or the tablet (by a side grip). */
 interface ServerDrag {
-  target: 'server' | 'tablet' | 'tool';
+  target: 'server' | 'tablet' | 'tool' | 'lift';
   hand: 'left' | 'right';
   /** Tablet only: its world matrix relative to the laser (moves AND turns with it). */
   rigid?: Matrix4;
@@ -243,6 +252,8 @@ export class ServiceSystem extends createSystem({
   private toolTouched = new Set<string>();
   /** Left hand is the screwdriver (true) or a free hand (false). */
   private leftTool = true;
+  /** Time (s) of the last left pinch / grip (double = swap). */
+  private leftLastPress = -Infinity;
   /** Screwdriver pose relative to the left grip (palm). */
   private toolOffset?: Matrix4;
   /** Last accepted left-grip pose for the screwdriver (glitch skipping). */
@@ -259,6 +270,12 @@ export class ServiceSystem extends createSystem({
   private room: 'lab' | 'hall' = 'lab';
   private hall?: Object3D;
   private hallEntity?: Entity;
+  /** The hall's doors / drawers / cabinets (same logic as the lab). */
+  private hallRoom?: LabRoom;
+  /** Lift: hand / laser point being followed while pushing; shelf rest pose. */
+  private liftGrab?: Vector3;
+  private liftRest?: { pos: Vector3 };
+  private liftMoving = false;
   private roomBusy = false;
   private labState: 'waiting' | 'loading' | 'ready' = 'waiting';
   private propEntity?: Entity;
@@ -374,7 +391,7 @@ export class ServiceSystem extends createSystem({
       const zooming = [...this.queries.grabbedParts.entities].some(
         (e) => this.partOf(e)?.mode === 'free',
       );
-      this.setStickTurning(!zooming);
+      this.setStickTurning(!zooming && this.carry == null);
     }
   }
 
@@ -404,7 +421,7 @@ export class ServiceSystem extends createSystem({
       }
       return;
     }
-    if (pad.getButtonDownByIdx(4)) {
+    if (pad.getButtonDown(InputComponent.A_Button)) {
       // 4 = A on the right controller.
       if (now - this.lastAPress < MENU_DOUBLE) {
         this.lastAPress = -Infinity;
@@ -1247,7 +1264,10 @@ export class ServiceSystem extends createSystem({
     obj.updateWorldMatrix(true, true);
     const box = new Box3().setFromObject(obj);
     if (box.isEmpty()) return want.clone();
-    const obstacles = this.obstacles(obj, part).filter((o) => !o.intersectsBox(box));
+    // Only things it really overlaps are ignored (just pulled out of them);
+    // things it merely rests on or touches (a table top) still block it.
+    const inner = box.clone().expandByScalar(-0.01);
+    const obstacles = this.obstacles(obj, part).filter((o) => !o.intersectsBox(inner));
     const delta = want.clone().sub(cur);
     const free = (d: Vector3) => {
       const b = box.clone().translate(d).expandByScalar(-0.002);
@@ -1354,7 +1374,8 @@ export class ServiceSystem extends createSystem({
     pos.x = Math.min(ROOM_HALF, Math.max(-ROOM_HALF, pos.x));
     pos.z = Math.min(ROOM_HALF, Math.max(-ROOM_HALF, pos.z));
     const targets: Object3D[] = [];
-    if (this.lab != null) targets.push(this.lab);
+    const roomRoot = this.room === 'hall' ? this.hall : this.lab;
+    if (roomRoot != null) targets.push(roomRoot);
     const server = this.serverEntity?.object3D;
     if (server != null) targets.push(server);
     this.raycaster.set(new Vector3(pos.x, box.min.y + 0.005, pos.z), new Vector3(0, -1, 0));
@@ -1678,6 +1699,19 @@ export class ServiceSystem extends createSystem({
           this.labRoom.onBlankOut = (obj) => this.dropObject(obj);
           this.labRoom.onRefuse = (title, text) => this.say(title, '', text);
           this.labRoom.onDoor = () => void this.goToHall();
+          // Lift: button 1 = up, button 2 = down (to the next rack-server height).
+          // Clicks / pokes on or near a button anywhere on the lift count.
+          const liftRoot = lab.getObjectByName('asset_server_lift');
+          if (liftRoot != null) {
+            listen(liftRoot, 'pointerdown', (event) => {
+              const e = event as PointerEventLike & { point?: Vector3; object?: Object3D };
+              if (e.point == null) return;
+              const name = this.liftButtonAt(e.object ?? liftRoot, e.point);
+              if (name == null) return;
+              event.stopPropagation?.();
+              this.liftStep(name === 'lift_button_1' ? 1 : -1);
+            });
+          }
           this.labState = 'ready';
           this.applySetting();
           // Browser (flat) view: show the server on the island table.
@@ -1689,6 +1723,7 @@ export class ServiceSystem extends createSystem({
         });
       return;
     }
+    if (this.room === 'hall') this.hallRoom?.update(delta);
     if (this.labState !== 'ready') return;
     // Prop screwdriver: once grabbed it leaves the drawer (checked BEFORE the
     // drawer update, or the drawer pulled it back every frame).
@@ -1709,6 +1744,11 @@ export class ServiceSystem extends createSystem({
       } else this.lastSafe.set('prop', want);
     }
     if (!held && this.propHeld) {
+      // Stay where it was last shown (the grab drops the stick zoom on release).
+      const last = this.lastSafe.get('prop');
+      if (prop != null && last != null) {
+        prop.position.copy(prop.parent != null ? prop.parent.worldToLocal(last.clone()) : last);
+      }
       this.zoom.delete('prop');
       this.lastSafe.delete('prop');
       if (prop != null) this.dropObject(prop);
@@ -1763,6 +1803,12 @@ export class ServiceSystem extends createSystem({
         this.hall = gltf.scene;
         this.hallEntity = this.world.createTransformEntity(this.hall);
         this.hallEntity.addComponent(RayInteractable);
+        if (this.pokeOn) this.hallEntity.addComponent(PokeInteractable);
+        // Everything that moves in the hall opens / closes on a click, except
+        // the two exit doors (they take you back to the lab).
+        this.hallRoom = new LabRoom(this.world, { openable: HALL_OPENABLE });
+        this.hallRoom.onRefuse = (title, text) => this.say(title, '', text);
+        await this.hallRoom.init(this.hall, `${import.meta.env.BASE_URL}gltf/datahall/datahall_manifest.json`);
         for (const name of HALL_DOORS) {
           const door = this.hall.getObjectByName(name);
           if (door == null) continue;
@@ -2165,10 +2211,10 @@ export class ServiceSystem extends createSystem({
     this.pokeOn = hands;
     // Tablet buttons: fingertip presses with hands (laser keeps working up
     // close with controllers).
-    const labEntity = this.world.getSceneEntity('lab');
-    if (labEntity != null) {
-      if (hands) labEntity.addComponent(PokeInteractable);
-      else if (labEntity.hasComponent(PokeInteractable)) labEntity.removeComponent(PokeInteractable);
+    for (const room of [this.world.getSceneEntity('lab'), this.hallEntity]) {
+      if (room == null) continue;
+      if (hands && !room.hasComponent(PokeInteractable)) room.addComponent(PokeInteractable);
+      else if (!hands && room.hasComponent(PokeInteractable)) room.removeComponent(PokeInteractable);
     }
     const tablet = this.world.getSceneEntity('tablet');
     if (tablet != null) {
@@ -2225,13 +2271,19 @@ export class ServiceSystem extends createSystem({
       }
       // Left hand: pinch (or grip) swaps screwdriver <-> hand. In hand mode it
       // only swaps back when the pinch isn't grabbing or pointing at anything.
+      // Left hand: a clear DOUBLE pinch (hands) / double grip (controllers)
+      // swaps screwdriver <-> hand. A single pinch never swaps, so turning the
+      // hand (tracking glitches) can't make the screwdriver vanish.
       if (start && hand === 'left') {
+        const now = performance.now() / 1000;
+        const double = now - this.leftLastPress < SWAP_DOUBLE;
+        this.leftLastPress = double ? -Infinity : now;
         if (this.leftTool) {
-          this.setLeftTool(false);
+          if (double) this.setLeftTool(false);
           continue;
         }
         this.tryNearGrab(hand, handMatrix, isHand ? REACH_HAND : REACH_CONTROLLER, isHand);
-        if (!this.nearGrabs.has('left') && !this.sideHold.has('left') && !this.leftPointing()) {
+        if (double && !this.nearGrabs.has('left') && !this.sideHold.has('left') && !this.leftPointing()) {
           this.setLeftTool(true);
         }
         continue;
@@ -2263,6 +2315,115 @@ export class ServiceSystem extends createSystem({
       local.z > box.min.z - 0.05 &&
       local.z < box.max.z - 0.06 // not the front (drive caddies sit there)
     );
+  }
+
+  // ------------------------------------------------------------ server lift
+
+  private liftObj(): Object3D | undefined {
+    return this.room === 'lab' ? (this.lab?.getObjectByName('asset_server_lift') ?? undefined) : undefined;
+  }
+
+  private isLiftButton(obj: Object3D): boolean {
+    return this.liftButtonName(obj) != null;
+  }
+
+  /** The lift button hit, or within LIFT_BUTTON_REACH of the hit point (they're small). */
+  private liftButtonAt(obj: Object3D, point: Vector3): string | undefined {
+    const direct = this.liftButtonName(obj);
+    if (direct != null) return direct;
+    for (const name of ['lift_button_1', 'lift_button_2']) {
+      const b = this.lab?.getObjectByName(name);
+      if (b != null && b.getWorldPosition(new Vector3()).distanceTo(point) < LIFT_BUTTON_REACH) return name;
+    }
+    return undefined;
+  }
+
+  private liftButtonName(obj: Object3D): string | undefined {
+    for (let o: Object3D | null = obj; o != null; o = o.parent) if (/^lift_button_\d$/.test(o.name)) return o.name;
+    return undefined;
+  }
+
+  /** Is this point on the lift (hand / grip up close)? */
+  private onLift(p: Vector3, reach: number): boolean {
+    const lift = this.liftObj();
+    if (lift == null || this.setting !== 'room') return false;
+    return new Box3().setFromObject(lift).expandByScalar(reach).containsPoint(p);
+  }
+
+  /**
+   * Push the lift: it rolls along the floor (never lifted or tipped) after the
+   * hand / laser point, stops at furniture and walls, and carries a server
+   * resting on its shelf with it.
+   */
+  private pushLift(handPos: Vector3): void {
+    const lift = this.liftObj();
+    const start = this.liftGrab;
+    if (lift == null || start == null) return;
+    const move = handPos.clone().sub(start);
+    move.y = 0;
+    if (move.lengthSq() < 1e-8) return;
+    const cur = lift.getWorldPosition(new Vector3());
+    const want = cur.clone().add(move);
+    want.y = cur.y;
+    const out = this.resolveMove(lift, want);
+    out.y = cur.y;
+    const delta = out.clone().sub(cur);
+    this.liftGrab = start.add(delta);
+    lift.parent?.updateWorldMatrix(true, false);
+    lift.position.copy(lift.parent != null ? lift.parent.worldToLocal(out.clone()) : out);
+    this.carryOnShelf(delta);
+    this.furniture = undefined; // the lift moved: rebuild the furniture boxes
+  }
+
+  /** A server resting on the lift shelf moves with it. */
+  private carryOnShelf(delta: Vector3): void {
+    const server = this.serverEntity?.object3D;
+    const shelf = this.lab?.getObjectByName('lift_platform');
+    if (server == null || shelf == null || this.serverSlot != null || this.rail != null) return;
+    const s = server.getWorldPosition(new Vector3());
+    const top = shelf.getWorldPosition(new Vector3());
+    const sb = new Box3().setFromObject(server);
+    const centre = sb.getCenter(new Vector3());
+    if (Math.abs(sb.min.y - top.y) > 0.03) return;
+    if (Math.abs(centre.x - top.x) > 0.6 || Math.abs(centre.z - top.z) > 0.6) return;
+    s.add(delta);
+    server.parent?.updateWorldMatrix(true, false);
+    server.position.copy(server.parent != null ? server.parent.worldToLocal(s) : s);
+  }
+
+  /** Lift up / down buttons: the shelf moves to the next rack-server height. */
+  private liftStep(dir: 1 | -1): void {
+    const shelf = this.lab?.getObjectByName('lift_platform');
+    if (shelf == null || this.liftMoving) return;
+    if (this.liftRest == null) this.liftRest = { pos: shelf.position.clone() };
+    const rest = this.liftRest.pos;
+    shelf.parent?.updateWorldMatrix(true, false);
+    const now = shelf.getWorldPosition(new Vector3()).y;
+    const base = now - (shelf.position.y - rest.y);
+    const heights = [...new Set(this.labRoom.slots.map((s) => +s.obj.getWorldPosition(new Vector3()).y.toFixed(4)))]
+      .filter((h) => h >= base - 1e-4 && h <= base + LIFT_TRAVEL + 1e-4)
+      .sort((a, b) => a - b);
+    const next = dir > 0 ? heights.find((h) => h > now + 0.003) ?? base + LIFT_TRAVEL : [...heights].reverse().find((h) => h < now - 0.003) ?? base;
+    const from = shelf.position.y;
+    const to = rest.y + (next - base);
+    const before = now;
+    this.liftMoving = true;
+    this.tweens.push({
+      duration: Math.max(0.2, Math.abs(next - now) / LIFT_SPEED),
+      elapsed: 0,
+      update: (t) => {
+        const y = from + (to - from) * t;
+        const step = new Vector3(0, y - shelf.position.y, 0);
+        shelf.position.y = y;
+        this.carryOnShelf(step);
+      },
+      done: () => {
+        this.liftMoving = false;
+        const aligned = heights.some((h) => Math.abs(h - next) < 0.003);
+        this.tint(shelf, aligned ? PRESSED_COLOR : null);
+        this.say('Server lift', aligned ? 'Shelf lined up with a rack server slot.' : 'Shelf moved.', `Height ${next.toFixed(2)} m (was ${before.toFixed(2)} m).`);
+      },
+    });
   }
 
   /** Is this point on / at the server (its bounds, padded by `reach`)? */
@@ -2304,11 +2465,20 @@ export class ServiceSystem extends createSystem({
     this.unrack();
   }
 
+  /** Right stick left / right while holding the server: spin it (rad this frame). */
+  private serverSpin(delta: number): number {
+    if (this.rail != null) return 0;
+    const stick = this.input.xr.gamepads.right?.getAxesValues(InputComponent.Thumbstick);
+    if (stick == null || Math.abs(stick.x) < 0.2) return 0;
+    return -stick.x * SPIN_SPEED * delta;
+  }
+
   /** Follow the hand: position + turn left / right only (never tips). */
   private updateCarry(delta: number): void {
     const server = this.serverEntity?.object3D;
     const carry = this.carry;
     if (server == null || carry == null) return;
+    carry.yawOffset += this.serverSpin(delta);
     const f = this.carryFrame();
     const pos = carry.offset.clone().applyAxisAngle(new Vector3(0, 1, 0), f.yaw).add(f.mid);
     const cur = server.getWorldPosition(new Vector3());
@@ -2358,7 +2528,8 @@ export class ServiceSystem extends createSystem({
       let bestPoint: Vector3 | undefined;
       for (const slot of this.labRoom.slots) {
         const r = this.railPoint(slot, pos);
-        if (r.t > 0.02 && r.t < 0.98 && r.off < bestOff) {
+        const open = slot.blanks.every((n) => this.labRoom.blanksOut.has(n));
+        if (open && r.t > 0.02 && r.t < 0.98 && r.off < bestOff) {
           best = slot;
           bestOff = r.off;
           bestPoint = r.point;
@@ -2380,7 +2551,11 @@ export class ServiceSystem extends createSystem({
     this.carry = undefined;
     const slot = this.rail;
     this.rail = undefined;
-    if (server == null || slot == null) return;
+    if (server == null) return;
+    if (slot == null) {
+      this.dropObject(server);
+      return;
+    }
     const target = slot.obj.getWorldPosition(new Vector3());
     const from = server.getWorldPosition(new Vector3());
     this.tweens.push({
@@ -2406,7 +2581,7 @@ export class ServiceSystem extends createSystem({
     this.toolHold = {};
     this.say(
       on ? 'Screwdriver' : 'Left hand',
-      on ? 'Your left hand is the screwdriver.' : 'Your left hand is free. Pinch (or grip) on nothing to get the screwdriver back.',
+      on ? 'Your left hand is the screwdriver. Double pinch (or double grip) to free it.' : 'Your left hand is free. Double pinch (or double grip) on nothing to get the screwdriver back.',
       '',
     );
   }
@@ -2492,6 +2667,19 @@ export class ServiceSystem extends createSystem({
       }
     }
     const onServer = this.sideHold.size === 0 && this.nearServer(point, reach);
+    // Hand / grip right on a lift button presses it (they're small to hit with the laser).
+    for (const name of ['lift_button_1', 'lift_button_2']) {
+      const b = this.room === 'lab' ? this.lab?.getObjectByName(name) : undefined;
+      if (b != null && b.getWorldPosition(new Vector3()).distanceTo(point) < LIFT_BUTTON_REACH) {
+        this.liftStep(name === 'lift_button_1' ? 1 : -1);
+        return;
+      }
+    }
+    if (best == null && this.onLift(point, reach)) {
+      this.nearGrabs.set(hand, { lift: true, offset: new Matrix4() });
+      this.liftGrab = point.clone();
+      return;
+    }
     if (best == null) {
       if (onServer) this.sideHold.add(hand);
       return;
@@ -2527,6 +2715,10 @@ export class ServiceSystem extends createSystem({
     const pos = new Vector3();
     const quat = new Quaternion();
     target.decompose(pos, quat, new Vector3());
+    if (held.lift) {
+      this.pushLift(pos);
+      return;
+    }
     if (held.wrist) {
       // Skip tracking glitches: a big jump in one frame = hold the last pose.
       if (held.lastPos != null && held.lastQuat != null) {
@@ -2734,9 +2926,11 @@ export class ServiceSystem extends createSystem({
       return;
     }
     const pad = this.input.xr.gamepads[hand];
-    // xr-standard: 4 = X / A (lower), 5 = Y / B (upper).
-    if (pad?.getButtonDownByIdx(4) && !undone) turn();
-    else if (pad?.getButtonDownByIdx(5) && undone) turn();
+    // Named buttons (raw indexes differ between devices): X undo, Y do up.
+    const lowerBtn = hand === 'left' ? InputComponent.X_Button : InputComponent.A_Button;
+    const upperBtn = hand === 'left' ? InputComponent.Y_Button : InputComponent.B_Button;
+    if (pad?.getButtonDown(lowerBtn) && !undone) turn();
+    else if (pad?.getButtonDown(upperBtn) && undone) turn();
   }
 
   // ------------------------------------------- placing the server (laser)
@@ -2806,7 +3000,9 @@ export class ServiceSystem extends createSystem({
     if (drag == null) return;
     const pad = this.input.xr.gamepads[drag.hand];
     const server =
-      drag.target === 'tablet'
+      drag.target === 'lift'
+        ? this.liftObj()
+        : drag.target === 'tablet'
         ? this.tablet.screen
         : drag.target === 'tool'
           ? this.tool
@@ -2846,10 +3042,14 @@ export class ServiceSystem extends createSystem({
     const origin = new Vector3().setFromMatrixPosition(ray.matrixWorld);
     const dir = new Vector3(0, 0, -1).applyQuaternion(ray.getWorldQuaternion(new Quaternion()));
     const pos = origin.addScaledVector(dir, drag.distance).add(drag.offset);
+    if (drag.target === 'lift') {
+      this.pushLift(pos);
+      return;
+    }
     if (drag.target === 'server') {
       const cur = server.getWorldPosition(new Vector3());
       const fwd = new Vector3(0, 0, 1).applyQuaternion(server.getWorldQuaternion(new Quaternion()));
-      this.moveServerTo(cur.lerp(pos, 0.5), Math.atan2(fwd.x, fwd.z));
+      this.moveServerTo(cur.lerp(pos, 0.5), Math.atan2(fwd.x, fwd.z) + this.serverSpin(delta));
       return;
     }
     if (server.parent != null) server.parent.worldToLocal(pos);
@@ -2883,6 +3083,21 @@ export class ServiceSystem extends createSystem({
         };
         return;
       }
+      const lift = this.liftObj();
+      const liftHit = lift != null && this.room === 'lab' && this.setting === 'room'
+        ? this.raycaster.intersectObject(lift, true).find((h) => this.shown(h.object) || this.isLiftButton(h.object))
+        : undefined;
+      // The lift's up / down buttons are pressed, not dragged.
+      const button = liftHit != null ? this.liftButtonAt(liftHit.object, liftHit.point) : undefined;
+      if (button != null) {
+        this.liftStep(button === 'lift_button_1' ? 1 : -1);
+        return;
+      }
+      if (liftHit != null) {
+        this.serverDrag = { target: 'lift', hand, distance: liftHit.distance, offset: new Vector3() };
+        this.liftGrab = liftHit.point.clone();
+        return;
+      }
       if (server == null) continue;
       const hit = this.raycaster.intersectObject(server, true).find((h) => this.shown(h.object));
       if (hit == null) continue;
@@ -2910,9 +3125,15 @@ export class ServiceSystem extends createSystem({
     for (const c of this.controls.values()) {
       // Socket lever / plate belong to the board in the model, but they hold
       // the CPU: once open they let clicks through to it.
-      const ownerName = /^socket_\d+_(lever|plate)$/.test(c.info.name)
-        ? this.ownerOf(c.info.name)
-        : c.info.asset;
+      // ...but only until that CPU has been out and back in: then they must
+      // be clickable again to close them (plate down, lever down).
+      const socket = c.info.name.match(/^socket_(\d+)_(lever|plate)$/);
+      const ownerName =
+        socket == null
+          ? c.info.asset
+          : this.plateNeedsCycle.has(Number(socket[1]) - 1)
+            ? this.ownerOf(c.info.name)
+            : null;
       const owner = ownerName != null ? this.parts.get(ownerName) : undefined;
       const passes =
         owner != null &&

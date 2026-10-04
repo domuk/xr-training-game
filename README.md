@@ -37,14 +37,16 @@ It runs in the **Quest browser** (WebXR): nothing to install. Built with
 
 **The lab**
 - **Training lab room** (default): racks, an island table, a tool cabinet with drawers, benches, doors and a server lift.
-- **Data hall:** click the lab's double door to walk into a full data hall (rack rows, hot aisles, power cabinets, cable baskets). Click either hall door to go back. Only one room is loaded at a time.
+- **Data hall:** click the lab's double door to walk into a full data hall (rack rows, hot aisles, power cabinets, cable baskets). Its doors, drawers, cabinets and PDC breakers work (breakers just flip for now). Click either hall door to go back. Only one room is loaded at a time.
+- **Server lift:** push it along the floor (it can't be picked up). Press its up / down buttons with your hand: the shelf stops at each rack-server height and turns green when lined up.
+- **Blanking panels:** click one to pull it out of the rack; a slot takes the server once both of its panels are out.
 - **Three settings** from the quick menu: **Room**, **AR** (your real room through passthrough) or **Black** (a plain void).
 - You start at the island table. The **server starts in rack 3**.
 - Doors, rack doors, the tool cabinet's doors and its 7 drawers open and close (open both cabinet doors before the drawers).
-- The room is solid to walk in. Held things stop at furniture, the server and each other instead of passing through; let go and they stay where they are (no gravity yet).
+- The room is solid to walk in. Held things stop at furniture, the server and each other instead of passing through. Let go and they fall onto whatever is below (in the rooms; AR and Black stay floating).
 
 **The server**
-- **Racking:** grab the server by its side (or hold the trigger on its case) and it slides out of the rack along the rails. Carry it with **one hand** (it only turns left and right, never tips). Line it up in front of a slot and it slides back in on the rails. While it is racked, only the drives can be swapped.
+- **Racking:** grab the server by its side (or hold the trigger on its case) and it slides out of the rack along the rails. Carry it with **one hand**; the right stick spins it left / right (it never tips). Line it up in front of a slot and it slides back in on the rails. While it is racked, only the drives can be swapped.
 - **Real removal steps**, driven by the model's own data:
   - **Lid:** press both release tabs, slide it back and lift.
   - **Drive caddies (×24):** press the button (the handle flips open), pull. Each drive comes out of its caddy after its 4 screws.
@@ -57,7 +59,7 @@ It runs in the **Quest browser** (WebXR): nothing to install. Built with
 - **Refit:** bring a part back to its slot (it glows green when it will snap in) and let go.
 
 **The tools**
-- **Your left hand is the screwdriver.** Screws only turn with it, with a 2-second gap between turns. Pinch (or grip) on nothing to swap between hand and screwdriver.
+- **Your left hand is the screwdriver.** Screws only turn with it, with a 2-second gap between turns. Double pinch (or double grip) to swap between hand and screwdriver.
 - **The lab tablet:** safety brief first, then Lab, Server, Explode, Controls and Debug pages. Hold it by its side handles.
 - **Quick menu:** Reset view (brings you back to the table) and Room / AR / Black.
 
@@ -71,7 +73,9 @@ It runs in the **Quest browser** (WebXR): nothing to install. Built with
 | Grab up close (right hand) | Grip | Pinch |
 | Carry the server | Grip on its side, or hold the trigger on its case | Pinch its side |
 | Screwdriver (left hand) | Tip on a screw: **X** undo, **Y** do up | Touch a screw with the tip |
-| Left hand / screwdriver swap | Left grip on nothing | Left pinch on nothing |
+| Left hand / screwdriver swap | Double left grip | Double left pinch |
+| Spin the held server | Right stick left / right | Right stick left / right |
+| Server lift shelf up / down | Grip on its up / down button | Pinch its up / down button |
 | Push a held part away / closer | Right stick up / down | — |
 | Quick menu | Double-press **A** | Back of your open right hand towards your face for 3 s |
 | Walk / teleport / turn | Left stick walks; right stick teleports and snap-turns | — |
@@ -144,8 +148,8 @@ Changing the model in Blender (with its extras) changes the training without cha
 
 ## Known limits
 - Cables and power cords are hidden for now.
-- No gravity yet: things float where you let go.
-- Two-handed lifting is off for now; blanking panels are left out for now.
+- Two-handed lifting is off for now.
+- The lift's small up / down buttons are hard to hit with the laser; use your hand or controller on them.
 - The server lift is in the room but can't be used yet.
 
 ## Credits and licences

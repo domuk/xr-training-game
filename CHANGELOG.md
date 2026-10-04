@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.2.1 (2026-10-04)
+
+- Data hall: doors, drawers, cabinets and PDC breakers now work (breakers just flip for now)
+- Server lift: push it along the floor; its up / down buttons move the shelf to each rack-server height and it turns green when lined up
+- Blanking panels are back: click to pull one out; a slot takes the server once both panels are out
+- Gravity is back on in the rooms: let go of something and it falls onto what's below (AR and Black still float)
+- The table is solid: the server rests on it instead of sinking in
+- Right stick left / right spins a held server
+- Left hand: only a clear double pinch (or double grip) swaps hand and screwdriver
+- The CPU lever and load plate can be closed with the laser after refitting the CPU
+- The drawer screwdriver stays where you push it with the stick
+
 ## v1.2.0 (2026-10-04)
 
 - New: the data hall. Click the lab's double door to walk into it; click either hall door to go back to the lab
