@@ -126,13 +126,13 @@
   <div id="page-lab" class="page" style="display: none">
     <div class="lbl">Current part</div>
     <div id="info-title" class="h">Ready</div>
-    <div id="info-body" class="txt">Click tabs and buttons with the laser or a finger. Screws need the screwdriver. Pull parts by pointing and holding the trigger, or grip / pinch them up close.</div>
+    <div id="info-body" class="txt">Pull the blanking panels, then carry the server out of rack 3 with both hands. Click or press tabs and buttons; screws need your left hand (the screwdriver).</div>
     <div id="info-status" class="status">Next steps show here.</div>
     <div class="row">
       <Button id="btn-reset"><ButtonLabel>Reset lab</ButtonLabel></Button>
       <Button id="btn-safety"><ButtonLabel>Safety brief</ButtonLabel></Button>
       <Button id="btn-hud"><ButtonLabel id="btn-hud-label">Heads-up: off</ButtonLabel></Button>
-      <Button id="btn-recall"><ButtonLabel>Bring all here</ButtonLabel></Button>
+      <Button id="btn-recall"><ButtonLabel>Reset view</ButtonLabel></Button>
     </div>
   </div>
 
@@ -173,31 +173,29 @@
     <div class="cols">
       <div class="col">
         <div class="h">Controllers</div>
-        <div class="k">Trigger (point)</div>
-        <div class="txt">Click tabs, buttons and the tablet (screws: screwdriver only).</div>
-        <div class="k">Trigger hold on a part</div>
-        <div class="txt">Pull it out along its path, then move it.</div>
-        <div class="k">Right stick up / down (holding)</div>
-        <div class="txt">Push the part or server away / bring it back.</div>
-        <div class="k">Grip (up close)</div>
-        <div class="txt">Right hand: grab a part or the tablet handles.</div>
-        <div class="k">Sticks</div>
-        <div class="txt">Left: walk. Right: teleport / turn. Double-press A: menu (Reset view).</div>
+        <div class="k">Trigger</div>
+        <div class="txt">Click tabs, buttons, doors, drawers, blanking panels. Hold on a part to pull it out.</div>
+        <div class="k">Right grip (up close)</div>
+        <div class="txt">Grab a part or the tablet handles. Right stick: push it away / closer.</div>
+        <div class="k">Both grips on the server's sides</div>
+        <div class="txt">Carry it (turns left / right only). Line it up with a rack slot to rack it.</div>
         <div class="k">Left controller = screwdriver</div>
-        <div class="txt">Tip on a screw. X: unscrew. Y: screw in. 2 s between turns.</div>
+        <div class="txt">Tip on a screw. X: undo. Y: do up. 2 s between turns.</div>
+        <div class="k">Sticks and A</div>
+        <div class="txt">Left: walk. Right: teleport / turn. Double-press A: menu (Room / AR / Black, Reset view).</div>
       </div>
       <div class="col">
         <div class="h">Hands</div>
         <div class="k">Pinch (point)</div>
-        <div class="txt">Click, like the trigger.</div>
-        <div class="k">Pinch and hold on a part</div>
-        <div class="txt">Pull it out, then move it.</div>
-        <div class="k">Pinch up close</div>
-        <div class="txt">Right hand: grab a part or the tablet handles.</div>
+        <div class="txt">Click. Pinch and hold on a part to pull it out.</div>
         <div class="k">Fingertip</div>
-        <div class="txt">Press tabs, buttons and the tablet. Pinch and hold the right hand 2 s: menu (Reset view).</div>
+        <div class="txt">Press tabs, buttons, doors, drawers and the tablet.</div>
+        <div class="k">Right pinch (up close)</div>
+        <div class="txt">Grab a part or the tablet handles.</div>
+        <div class="k">Both hands on the server's sides</div>
+        <div class="txt">Pinch to carry it. Line it up with a rack slot to rack it.</div>
         <div class="k">Left hand = screwdriver</div>
-        <div class="txt">Touch a screw with the tip to undo it, or do it up.</div>
+        <div class="txt">Touch a screw with the tip. Right pinch held 2 s: menu.</div>
       </div>
     </div>
   </div>

@@ -23,7 +23,7 @@ export const TIPS: Record<string, string> = {
 };
 
 export const SCREW_TIP =
-  'Screws need the screwdriver: hold it, put the tip on the screw. Controller: X/A undo, Y/B tighten. Hands: touch the screw with the tip.';
+  'Screws need the screwdriver: your left hand. Put the tip on the screw. Controller: X undo, Y do up. Hands: touch the screw with the tip.';
 
 export const START_TEXT =
   'Read the safety brief on the tablet, then press Start lab.';
@@ -38,5 +38,5 @@ export const MOVE_TEXT =
   'Point at the server and hold the trigger to drag it, or grip / pinch it up close. Press Done moving when it is on the table.';
 
 export const READY_TEXT =
-  'Click tabs, buttons and screws with the laser or press them with a finger. To pull a part out: point and hold the trigger, or grip / pinch it up close.';
+  'The server is in rack 3. Pull its blanking panels, then carry it to the table with both hands on its sides. Click or press tabs and buttons; pull parts by holding the trigger or a pinch; screws need your left hand (the screwdriver).';
 

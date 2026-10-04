@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.1.1 (2026-10-04)
+
+- Fixes the 1.1.0 release, which went out with an out-of-date README, website card and in-app help
+- Reset view now only brings you back to the table; the server stays where you left it
+- The tablet's Bring all here button is now Reset view, matching the menu
+- In-app help updated: welcome card, tablet Controls page and tips cover the lab, racks, two-hand carry, doors and drawers, and the Room / AR / Black menu
+- README rewritten for the lab version, with a live release badge
+- Website card updated, with a release badge
+
 ## v1.1.0 (2026-10-04)
 
 - Training lab room is the default setting: start at the island table; server starts racked in rack 3

@@ -218,6 +218,8 @@ export class ServiceSystem extends createSystem({
   private toolLastTurn = -Infinity;
   /** Where the training happens: the lab room (default), passthrough AR or a black void. */
   private setting: 'room' | 'ar' | 'black' = 'room';
+  /** Reset view: move the player (and tablet) only, leave the server where it is. */
+  private viewOnly = false;
   private lab?: Object3D;
   private labRoom = new LabRoom(this.world);
   private labState: 'waiting' | 'loading' | 'ready' = 'waiting';
@@ -427,10 +429,11 @@ export class ServiceSystem extends createSystem({
   private recallAll(): void {
     if (this.serverDrag != null || this.nearGrabs.size > 0) return; // something held
     this.placePending = true;
+    this.viewOnly = true;
     this.say(
-      'Brought here',
+      'Reset view',
       this.setting === 'room'
-        ? 'You are back at the island table with the server.'
+        ? 'You are back at the island table.'
         : 'The server and tablet are back in front of you.',
       '',
     );
@@ -1377,7 +1380,9 @@ export class ServiceSystem extends createSystem({
     if (view == null) return;
     this.placePending = false;
     this.applySetting();
-    if (this.setting === 'room') this.placeInRoom();
+    const viewOnly = this.viewOnly;
+    this.viewOnly = false;
+    if (this.setting === 'room') this.placeInRoom(!viewOnly);
     else {
       this.serverSlot = undefined;
       this.placeServer();
@@ -1492,7 +1497,7 @@ export class ServiceSystem extends createSystem({
    * Room: the server sits on the island table and the user stands at its
    * south side, facing it (north). Moves the player, not the room.
    */
-  private placeInRoom(): void {
+  private placeInRoom(moveServer = true): void {
     const server = this.serverEntity?.object3D;
     const slot = this.lab?.getObjectByName('slot_island_server');
     if (server == null || slot == null) {
@@ -1500,6 +1505,12 @@ export class ServiceSystem extends createSystem({
       return;
     }
     const slotPos = slot.getWorldPosition(new Vector3());
+    if (moveServer) this.startServerInRack(server, slotPos);
+    this.standAtTable(slotPos);
+  }
+
+  /** Session start: the server is racked in START_RACK_SLOT, its blanks out. */
+  private startServerInRack(server: Object3D, tablePos: Vector3): void {
     // The session starts with the server racked: its two blanking panels are
     // out and it sits in the slot, front facing east (towards the table).
     const rack = this.labRoom.slots.find((r) => r.name === START_RACK_SLOT);
@@ -1508,8 +1519,12 @@ export class ServiceSystem extends createSystem({
       this.setWorldPose(server, rack.obj.getWorldPosition(new Vector3()), Math.PI / 2, 0);
       this.serverSlot = rack;
     } else {
-      this.setWorldPose(server, slotPos.clone(), 0, 0);
+      this.setWorldPose(server, tablePos.clone(), 0, 0);
     }
+  }
+
+  /** Move the player to stand south of the island table, facing it. */
+  private standAtTable(slotPos: Vector3): void {
     // Turn the player so the head faces -Z (north), then move it to stand
     // ROOM_STAND m south of the table slot.
     const head = this.player.head;
