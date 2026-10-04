@@ -1,0 +1,40 @@
+<!--
+  Quick menu: double-press A (controller) or pinch-and-hold the right hand.
+  Shown in front of the user; hidden otherwise.
+-->
+<style>
+  .menu {
+    flex-direction: column;
+    width: 280px;
+    padding-top: 12px;
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-bottom: 14px;
+    gap: 8px;
+    background-color: #16181c;
+    border-width: 1px;
+    border-color: #2c3038;
+    border-radius: 10px;
+  }
+
+  .row {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  .h {
+    font-size: 15px;
+    font-weight: 700;
+    color: #f2f2f0;
+  }
+</style>
+<div class="menu">
+  <div class="h">Menu</div>
+  <Button id="menu-reset-view" variant="primary"><ButtonLabel>Reset view</ButtonLabel></Button>
+  <div class="row">
+    <Button id="menu-room"><ButtonLabel>Room</ButtonLabel></Button>
+    <Button id="menu-ar"><ButtonLabel>AR</ButtonLabel></Button>
+    <Button id="menu-black"><ButtonLabel>Black</ButtonLabel></Button>
+  </div>
+  <Button id="menu-close"><ButtonLabel>Close</ButtonLabel></Button>
+</div>

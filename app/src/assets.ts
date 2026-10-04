@@ -17,6 +17,12 @@ export default defineAssets({
     type: AssetType.GLTF,
     name: '2U Server',
   },
+  // Training lab room (source: assets/blender/lab.blend). Default setting.
+  lab: {
+    url: publicAssetUrl('gltf/lab/lab.glb'),
+    type: AssetType.GLTF,
+    name: 'Training Lab',
+  },
   screwdriver: {
     url: publicAssetUrl('gltf/tools/screwdriver.glb'),
     type: AssetType.GLTF,
@@ -36,5 +42,10 @@ export default defineAssets({
     url: publicAssetUrl('ui/hud.uikitml'),
     type: AssetType.UIKitML,
     name: 'Heads-up Instructions',
+  },
+  menu: {
+    url: publicAssetUrl('ui/menu.uikitml'),
+    type: AssetType.UIKitML,
+    name: 'Quick Menu',
   },
 });

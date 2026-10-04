@@ -6,10 +6,13 @@
  */
 
 import { createSystem, UIKitMLAsset, VisibilityState } from '@iwsdk/core';
+import { APP_TITLE } from './version.js';
 
 export class PanelSystem extends createSystem({}) {
   init(): void {
     const panel = this.world.getSceneObject<UIKitMLAsset>('welcome-panel');
+    panel?.getElementById('app-title')?.setProperties({ text: APP_TITLE });
+    document.title = APP_TITLE;
     const xrButton = panel?.getElementById('xr-button');
     const exitButton = panel?.getElementById('exit-button');
     if (xrButton == null || exitButton == null) {

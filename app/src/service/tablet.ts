@@ -11,6 +11,7 @@ import {
   type UIKitMLAsset,
   type World,
 } from '@iwsdk/core';
+import { APP_TITLE } from '../version.js';
 
 export type TabletPage = 'safety' | 'lab' | 'server' | 'explode' | 'controls' | 'debug';
 
@@ -54,6 +55,7 @@ export class LabTablet {
     // HUD must never catch the laser.
     (this.hud as Object3D & { pointerEvents?: string }).pointerEvents = 'none';
     this.buildBody(screen);
+    screen.getElementById('app-title')?.setProperties({ text: APP_TITLE });
     this.on('tab-lab', () => this.show('lab'));
     this.on('tab-server', () => this.show('server'));
     this.on('tab-explode', () => this.show('explode'));

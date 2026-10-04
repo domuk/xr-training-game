@@ -36,7 +36,8 @@
     },
     "features": {
       "locomotion": {
-        "turningMethod": "snap"
+        "turningMethod": "snap",
+        "enableJumping": false
       },
       "grabbing": {
         "useHandPinchForGrab": true

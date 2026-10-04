@@ -98,7 +98,7 @@
 </style>
 <div class="screen">
   <div class="top">
-    <div class="brand">Server Explorer</div>
+    <div id="app-title" class="brand">Server Explorer</div>
     <div id="tabs" class="tabs" style="display: none">
       <Button id="tab-lab" size="sm"><ButtonLabel id="tab-lab-label">Lab</ButtonLabel></Button>
       <Button id="tab-server" size="sm"><ButtonLabel id="tab-server-label">Server</ButtonLabel></Button>
@@ -180,11 +180,11 @@
         <div class="k">Right stick up / down (holding)</div>
         <div class="txt">Push the part or server away / bring it back.</div>
         <div class="k">Grip (up close)</div>
-        <div class="txt">Grab a part, the tablet or the screwdriver.</div>
+        <div class="txt">Right hand: grab a part or the tablet handles.</div>
         <div class="k">Sticks</div>
-        <div class="txt">Left: walk. Right: teleport / turn. Double-click a stick: bring everything back.</div>
-        <div class="k">Holding the screwdriver</div>
-        <div class="txt">X / A: unscrew. Y / B: screw in (holding hand). 2 s between turns.</div>
+        <div class="txt">Left: walk. Right: teleport / turn. Double-press A: menu (Reset view).</div>
+        <div class="k">Left controller = screwdriver</div>
+        <div class="txt">Tip on a screw. X: unscrew. Y: screw in. 2 s between turns.</div>
       </div>
       <div class="col">
         <div class="h">Hands</div>
@@ -193,11 +193,11 @@
         <div class="k">Pinch and hold on a part</div>
         <div class="txt">Pull it out, then move it.</div>
         <div class="k">Pinch up close</div>
-        <div class="txt">Grab a part, the tablet or the screwdriver.</div>
+        <div class="txt">Right hand: grab a part or the tablet handles.</div>
         <div class="k">Fingertip</div>
-        <div class="txt">Press tabs, buttons and the tablet (screws: screwdriver only). Lost things: Lab, Bring all here.</div>
-        <div class="k">Screwdriver in hand</div>
-        <div class="txt">Touch a screw to undo it, or do it up.</div>
+        <div class="txt">Press tabs, buttons and the tablet. Pinch and hold the right hand 2 s: menu (Reset view).</div>
+        <div class="k">Left hand = screwdriver</div>
+        <div class="txt">Touch a screw with the tip to undo it, or do it up.</div>
       </div>
     </div>
   </div>

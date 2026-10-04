@@ -37,6 +37,8 @@ import {
   type Entity,
   type Object3D,
   type UIKitMLAsset,
+  Color,
+  LocomotionSystem,
 } from '@iwsdk/core';
 import { ServiceControl, ServicePart } from './components.js';
 import {
@@ -52,6 +54,7 @@ import {
   splitList,
   type Vec3,
 } from './rules.js';
+import { LabRoom, type RackSlot } from './lab.js';
 import { LabTablet } from './tablet.js';
 import { MOVE_TEXT, READY_TEXT, SCREW_TIP, START_TEXT, TIPS, TOOL_TEXT } from './text.js';
 
@@ -64,7 +67,20 @@ const ZOOM_SPEED = 0.8; // m/s: right stick pushes a held server away / back
 const TOOL_REACH = 0.04; // m: screwdriver tip to screw for the buttons
 const TOOL_TOUCH = 0.015; // m: hand-held screwdriver toggles on touch
 const TOOL_COOLDOWN = 2; // s: between screwdriver turns
-const RECALL_DOUBLE = 0.45; // s: two thumbstick clicks within this = recall
+const TOOL_GRIP_AT = 0.2; // fraction along the screwdriver (from the handle end) held in the palm
+const TOOL_SMOOTHING = 35; // 1/s: screwdriver in hand (wrist is steady, so less lag)
+const TOOL_JUMP_POS = 0.12; // m in one frame: hand tracking glitch, hold still
+const TOOL_JUMP_ANGLE = 1.0; // rad in one frame: same, for rotation
+const START_RACK_SLOT = 'slot_rack_3_u21'; // where the server starts (rack 3, U21-22, ~1 m up)
+const RACK_REACH = 0.3; // m: let go this close to a rack slot to rack the server
+const RACK_ANGLE = 35; // degrees: how square to the rack the server must be
+const RACKED_TEXT =
+  'The server is in the rack. Pull it out with both hands on its sides (drives can be swapped in place).';
+const ROOM_STAND = 0.95;
+const ROOM_HALF = 4.0; // m: loose parts stay within the 8.4 m room (minus wall thickness) // m: where the user stands, south of the island table slot
+const MENU_DOUBLE = 0.45; // s: two A presses within this = quick menu
+const MENU_HOLD = 2; // s: right-hand pinch held this long (nothing grabbed) = quick menu
+const CURSOR_MAX = 1.6; // laser dot scale cap (IWSDK grows it with distance)
 const PATH_END = 0.995;
 const SHORT_PATH = 0.03; // m: pull paths shorter than this (drive in caddy)…
 const BREAK_FREE = 0.03; // m: …come free when pulled this far in any direction
@@ -154,6 +170,13 @@ interface NearGrab {
   tool?: boolean;
   /** Held object's world matrix relative to the hand. */
   offset: Matrix4;
+  /** Screwdriver in a tracked hand: follow the wrist (palm), not the fingertip. */
+  wrist?: boolean;
+  /** Last accepted wrist pose (glitch frames are skipped). */
+  lastPos?: Vector3;
+  lastQuat?: Quaternion;
+  /** Frames skipped in a row (a real fast move is accepted after a few). */
+  skipped?: number;
 }
 
 /** Laser drag of the server (move mode) or the tablet (by a side grip). */
@@ -187,10 +210,38 @@ export class ServiceSystem extends createSystem({
   private toolTip?: Object3D;
   private toolShown?: string;
   private toolTouched = new Set<string>();
+  /** Screwdriver pose relative to the left grip (palm). */
+  private toolOffset?: Matrix4;
+  /** Last accepted left-grip pose for the screwdriver (glitch skipping). */
+  private toolHold: { lastPos?: Vector3; lastQuat?: Quaternion; skipped?: number } = {};
   /** Time (s) the screwdriver last turned a screw (cooldown). */
   private toolLastTurn = -Infinity;
-  /** Time (s) of the last thumbstick click (double-click = recall). */
-  private lastStickClick = -Infinity;
+  /** Where the training happens: the lab room (default), passthrough AR or a black void. */
+  private setting: 'room' | 'ar' | 'black' = 'room';
+  private lab?: Object3D;
+  private labRoom = new LabRoom(this.world);
+  private labState: 'waiting' | 'loading' | 'ready' = 'waiting';
+  private propEntity?: Entity;
+  private propHeld = false;
+  /** Rack slot the server is in (only the drives are reachable then). */
+  private serverSlot?: RackSlot;
+  /** Hands gripping the server's sides; both = carrying. */
+  private sideHold = new Set<'left' | 'right'>();
+  private carry?: { offset: Vector3; yawOffset: number };
+  /** Server bounds in its own space (lifting grips are its left / right sides). */
+  private serverBox?: Box3;
+  /** Quick menu (double-press A / pinch-and-hold right hand). */
+  private menu?: Object3D & UIKitMLAsset;
+  private menuScale = 0.07;
+  private menuOpen = false;
+  private lastAPress = -Infinity;
+  private pinchSince = -1;
+  private pinchUsed = false;
+  /** Laser dots (IWSDK cursor meshes), size-capped each frame. */
+  private cursors: Mesh[] = [];
+  private cursorSearch = 0;
+  /** Sockets whose load plate stays open until their CPU is taken out and refitted. */
+  private plateNeedsCycle = new Set<number>();
   private tabletReady = false;
   private started = false;
   /** safety (tablet locked) -> training; 'place' = Move server mode. */
@@ -243,8 +294,11 @@ export class ServiceSystem extends createSystem({
     this.updateInputMode();
     this.updateNearGrabs(delta);
     this.updateServerDrag(delta);
+    this.updateLab(delta);
+    this.updateLeftTool(delta);
     this.updateTool();
-    this.updateRecall();
+    this.updateMenu();
+    this.capCursors();
     if (this.passDirty) {
       this.passDirty = false;
       this.updatePassThrough();
@@ -276,25 +330,110 @@ export class ServiceSystem extends createSystem({
     }
   }
 
-  /** Double-click either thumbstick: bring the server, tablet and tool back. */
-  private updateRecall(): void {
-    for (const hand of ['left', 'right'] as const) {
-      if (!this.input.xr.gamepads[hand]?.getButtonDown(InputComponent.Thumbstick)) continue;
-      const now = performance.now() / 1000;
-      if (now - this.lastStickClick < RECALL_DOUBLE) {
-        this.lastStickClick = -Infinity;
-        this.recallAll();
+  /**
+   * Quick menu: double-press A (right controller), or pinch and hold the
+   * right hand for MENU_HOLD seconds with nothing grabbed.
+   */
+  private updateMenu(): void {
+    if (this.menu == null) this.tryInitMenu();
+    const menu = this.menu;
+    if (menu == null) return;
+    const pad = this.input.xr.gamepads.right;
+    if (pad == null) return;
+    const now = performance.now() / 1000;
+    if (this.input.xr.isPrimary('hand', 'right')) {
+      const grabbing =
+        this.nearGrabs.has('right') ||
+        [...this.queries.grabbedParts.entities].some(
+          (e) => this.world.getSystem(GrabSystem)?.getHolderHand(e) === 'right',
+        );
+      if (pad.getSelecting() && !grabbing) {
+        if (this.pinchSince < 0) this.pinchSince = now;
+        if (!this.pinchUsed && now - this.pinchSince >= MENU_HOLD) {
+          this.pinchUsed = true;
+          this.showMenu(!this.menuOpen);
+        }
       } else {
-        this.lastStickClick = now;
+        this.pinchSince = -1;
+        this.pinchUsed = false;
+      }
+      return;
+    }
+    if (pad.getButtonDownByIdx(4)) {
+      // 4 = A on the right controller.
+      if (now - this.lastAPress < MENU_DOUBLE) {
+        this.lastAPress = -Infinity;
+        this.showMenu(!this.menuOpen);
+      } else {
+        this.lastAPress = now;
       }
     }
+  }
+
+  private tryInitMenu(): void {
+    const menu = this.world.getSceneObject<UIKitMLAsset>('menu');
+    const reset = menu?.getElementById('menu-reset-view');
+    const close = menu?.getElementById('menu-close');
+    if (menu == null || reset == null || close == null) return;
+    this.menu = menu as Object3D & UIKitMLAsset;
+    this.menuScale = this.menu.scale.x;
+    reset.addEventListener('click', () => {
+      this.showMenu(false);
+      this.recallAll();
+    });
+    close.addEventListener('click', () => this.showMenu(false));
+    for (const setting of ['room', 'ar', 'black'] as const) {
+      menu.getElementById(`menu-${setting}`)?.addEventListener('click', () => {
+        this.showMenu(false);
+        this.setSetting(setting);
+      });
+    }
+    this.showMenu(false);
+  }
+
+  /** Open the menu in front of the user, or hide it (tiny + no pointer hits). */
+  private showMenu(open: boolean): void {
+    const menu = this.menu;
+    if (menu == null) return;
+    this.menuOpen = open;
+    (menu as Object3D & { pointerEvents?: string }).pointerEvents = open ? undefined : 'none';
+    if (!open) {
+      menu.scale.setScalar(1e-5);
+      return;
+    }
+    menu.scale.setScalar(this.menuScale);
+    const view = this.headView();
+    if (view == null) return;
+    const pos = view.headPos.clone().addScaledVector(view.forward, 0.45);
+    pos.y = view.headPos.y - 0.12;
+    this.facePanel(menu, pos, view.headPos, -10);
+  }
+
+  /** The laser dot grows with distance: keep it small (it flashed huge). */
+  private capCursors(): void {
+    if (this.cursors.length === 0) {
+      if (++this.cursorSearch % 60 !== 1) return;
+      this.player.traverse((o) => {
+        const m = o as Mesh;
+        if (m.isMesh && m.renderOrder === Infinity && m.geometry?.type === 'CircleGeometry') {
+          this.cursors.push(m);
+        }
+      });
+    }
+    for (const c of this.cursors) if (c.scale.x > CURSOR_MAX) c.scale.setScalar(CURSOR_MAX);
   }
 
   /** Server, tablet and screwdriver back in front of the user (after teleporting). */
   private recallAll(): void {
     if (this.serverDrag != null || this.nearGrabs.size > 0) return; // something held
     this.placePending = true;
-    this.say('Brought here', 'Server, tablet and screwdriver are back in front of you.', '');
+    this.say(
+      'Brought here',
+      this.setting === 'room'
+        ? 'You are back at the island table with the server.'
+        : 'The server and tablet are back in front of you.',
+      '',
+    );
   }
 
   /** Green glow on a held part while letting go would snap it into a slot. */
@@ -383,6 +522,9 @@ export class ServiceSystem extends createSystem({
       new MeshBasicMaterial({ visible: false }),
     );
     floor.name = 'debug_floor';
+    // Teleport still lands on it, but the laser dot never does (it grew huge
+    // on this far-reaching invisible plane and flashed).
+    (floor as Object3D & { pointerEvents?: string }).pointerEvents = 'none';
     const entity = this.world.createTransformEntity(floor);
     entity.addComponent(LocomotionEnvironment, { type: 'static' });
   }
@@ -442,6 +584,11 @@ export class ServiceSystem extends createSystem({
       if (f.part != null) this.addPart(f.obj, f.part);
       if (f.control != null) this.addControl(f.obj, f.control);
     }
+    serverObject.updateMatrixWorld(true);
+    this.serverBox = new Box3().setFromObject(serverObject);
+    const origin = serverObject.getWorldPosition(new Vector3());
+    this.serverBox.min.sub(origin);
+    this.serverBox.max.sub(origin);
     this.rules = new ServiceRules(partInfos, controlInfos);
     this.buildSlots();
     this.hideCables(root);
@@ -794,7 +941,18 @@ export class ServiceSystem extends createSystem({
     }
     const owner = c.info.asset ?? this.ownerOf(name);
     if (owner != null && this.parts.get(owner)?.mode === 'gone') return;
+    if (this.serverSlot != null && !/^caddy_\d+_/.test(name)) {
+      this.say(label(name), '', RACKED_TEXT);
+      return;
+    }
+    const socket = name.match(/^socket_(\d+)_plate$/);
+    const k = socket != null ? Number(socket[1]) - 1 : -1;
+    if (k >= 0 && this.rules.isOperated(name) && this.plateNeedsCycle.has(k)) {
+      this.say(label(name), this.tipText(c.info.tip), 'Take the CPU out and put it back first.');
+      return;
+    }
     const result = this.rules.toggle(name);
+    if (k >= 0 && result.ok && result.operated) this.plateNeedsCycle.add(k);
     if (!result.ok) {
       this.say(label(name), this.tipText(c.info.tip), result.reason ?? '');
       return;
@@ -863,6 +1021,7 @@ export class ServiceSystem extends createSystem({
     if (part.mode === 'gone') return 'Removed (debug).';
     if (part.busy) return 'Wait for it to settle.';
     if (part.mode === 'free') return undefined;
+    if (this.serverSlot != null && !/^asset_(caddy|drive)_\d+$/.test(part.info.name)) return RACKED_TEXT;
     const loose = rules.childrenOf(part.info.name).find((c) => !rules.isFitted(c));
     if (loose != null) return `Put the ${label(loose)} back in first.`;
     const remove = rules.canRemove(part.info.name);
@@ -872,7 +1031,11 @@ export class ServiceSystem extends createSystem({
   private onGrabStart(entity: Entity): void {
     const part = this.partOf(entity);
     if (part == null) return;
-    const refusal = this.grabRefusal(part);
+    const holder = this.world.getSystem(GrabSystem)?.getHolderHand(entity);
+    const refusal =
+      holder === 'left' && this.toolOffset != null
+        ? 'Your left hand is the screwdriver. Grab with the right.'
+        : this.grabRefusal(part);
     if (refusal != null) {
       part.denied = true;
       this.world.getSystem(GrabSystem)?.forceRelease(entity);
@@ -942,6 +1105,62 @@ export class ServiceSystem extends createSystem({
     );
   }
 
+  /**
+   * Room: a released part that didn't go back in falls straight down onto
+   * whatever is below it (table, floor, rack, cabinet, server) and stays
+   * inside the room.
+   */
+  private dropPart(part: PartRuntime): void {
+    if (part.mode !== 'free' || part.busy) return;
+    this.dropObject(part.object, part);
+  }
+
+  /** Fall straight down onto the first surface below (room only). */
+  private dropObject(obj: Object3D, part?: PartRuntime): void {
+    if (this.setting !== 'room') return;
+    obj.updateWorldMatrix(true, true);
+    const box = new Box3().setFromObject(obj);
+    const pos = obj.getWorldPosition(new Vector3());
+    const bottom = pos.y - box.min.y;
+    pos.x = Math.min(ROOM_HALF, Math.max(-ROOM_HALF, pos.x));
+    pos.z = Math.min(ROOM_HALF, Math.max(-ROOM_HALF, pos.z));
+    const targets: Object3D[] = [];
+    if (this.lab != null) targets.push(this.lab);
+    const server = this.serverEntity?.object3D;
+    if (server != null) targets.push(server);
+    this.raycaster.set(new Vector3(pos.x, box.min.y + 0.005, pos.z), new Vector3(0, -1, 0));
+    let floorY = 0;
+    for (const hit of this.raycaster.intersectObjects(targets, true)) {
+      let mine = false;
+      let shown = true;
+      for (let o: Object3D | null = hit.object; o != null; o = o.parent) {
+        if (o === obj) mine = true;
+        if (!o.visible) shown = false;
+      }
+      const mat = (hit.object as Mesh).material as Material | undefined;
+      if (mine || !shown || mat?.visible === false) continue;
+      floorY = hit.point.y;
+      break;
+    }
+    const end = new Vector3(pos.x, floorY + bottom, pos.z);
+    const start = obj.getWorldPosition(new Vector3());
+    const parent = obj.parent;
+    if (parent == null) return;
+    parent.updateWorldMatrix(true, false);
+    const from = parent.worldToLocal(start.clone());
+    const to = parent.worldToLocal(end.clone());
+    const height = Math.max(0, start.y - end.y);
+    if (part != null) part.busy = true;
+    this.tweens.push({
+      duration: Math.max(0.05, Math.sqrt((2 * height) / 9.81)),
+      elapsed: 0,
+      update: (t) => obj.position.copy(from).lerp(to, t * t),
+      done: () => {
+        if (part != null) part.busy = false;
+      },
+    });
+  }
+
   private onGrabEnd(entity: Entity): void {
     const part = this.partOf(entity);
     if (part == null) return;
@@ -951,6 +1170,7 @@ export class ServiceSystem extends createSystem({
     if (last != null && part.mode === 'free' && !part.denied) part.object.position.copy(last);
     this.lastHeld.delete(part.info.name);
     this.releasePart(part);
+    this.dropPart(part);
   }
 
   /** A held part was let go (laser or hand). */
@@ -1081,6 +1301,7 @@ export class ServiceSystem extends createSystem({
 
   private finishFit(part: PartRuntime, fromFree: boolean): void {
     if (this.rules == null) return;
+    if (fromFree && part.group === 'cpu' && part.slot != null) this.plateNeedsCycle.delete(part.slot);
     part.object.position.copy(part.restPos);
     part.object.quaternion.copy(part.restQuat);
     this.setMode(part, 'fitted');
@@ -1127,6 +1348,8 @@ export class ServiceSystem extends createSystem({
       part.denied = false;
     }
     this.rules.reset();
+    this.labRoom.reset();
+    this.plateNeedsCycle.clear();
     this.refreshSockets();
     const root = this.serverEntity?.object3D?.getObjectByName('server_root');
     if (root != null) this.hideCables(root);
@@ -1137,7 +1360,10 @@ export class ServiceSystem extends createSystem({
     this.exploded = false;
     this.removedSet = false;
     this.controlsOpen = false;
-    this.placeServer();
+    this.serverSlot = undefined;
+    this.carry = undefined;
+    this.sideHold.clear();
+    this.placePending = true;
     this.setDebugLabels();
     this.debugSay('Reset: everything back in place.');
     this.say('Server reset', READY_TEXT, '');
@@ -1150,26 +1376,23 @@ export class ServiceSystem extends createSystem({
     const view = this.headView();
     if (view == null) return;
     this.placePending = false;
-    this.placeServer();
+    this.applySetting();
+    if (this.setting === 'room') this.placeInRoom();
+    else {
+      this.serverSlot = undefined;
+      this.placeServer();
+    }
     const screen = this.tablet.screen;
+    const after = this.headView() ?? view;
     if (screen != null) {
       // In front, a little to the left and low (like holding it), so the
       // server stays visible.
-      const pos = view.headPos
+      const pos = after.headPos
         .clone()
-        .addScaledVector(view.forward, 0.25)
-        .addScaledVector(view.right, -0.5);
-      pos.y = view.headPos.y - 0.35;
-      this.facePanel(screen, pos, view.headPos, -35);
-    }
-    if (this.tool != null) {
-      const pos = view.headPos
-        .clone()
-        .addScaledVector(view.forward, 0.32)
-        .addScaledVector(view.right, 0.32);
-      pos.y = view.headPos.y - 0.45;
-      // Lying down, handle towards the user.
-      this.setWorldPose(this.tool, pos, Math.atan2(-view.forward.x, -view.forward.z), -90);
+        .addScaledVector(after.forward, 0.25)
+        .addScaledVector(after.right, -0.5);
+      pos.y = after.headPos.y - 0.35;
+      this.facePanel(screen, pos, after.headPos, -35);
     }
   }
 
@@ -1190,6 +1413,126 @@ export class ServiceSystem extends createSystem({
   }
 
   /** Server at chest height, 0.45 m ahead, front facing the user. */
+  /** Lab room: doors / drawers and the prop screwdriver in drawer 1. */
+  private updateLab(delta: number): void {
+    if (this.labState === 'waiting') {
+      const lab = this.world.getSceneObject('lab');
+      const labEntity = this.world.getSceneEntity('lab');
+      if (lab == null || labEntity == null || this.tool == null) return;
+      this.labState = 'loading';
+      this.lab = lab;
+      labEntity.addComponent(RayInteractable);
+      this.labRoom
+        .init(lab, `${import.meta.env.BASE_URL}gltf/lab/lab_manifest.json`, this.tool)
+        .then(() => {
+          const prop = this.labRoom.prop;
+          if (prop != null) {
+            this.propEntity = this.world.createTransformEntity(prop);
+            this.propEntity.addComponent(DistanceGrabbable, {
+              movementMode: MovementMode.MoveFromTarget,
+              rotate: true,
+              translate: true,
+              scale: false,
+            });
+            this.labRoom.placeProp();
+          }
+          this.labRoom.onBlankOut = (obj) => this.dropObject(obj);
+          this.labState = 'ready';
+          this.applySetting();
+          // Browser (flat) view: show the server on the island table.
+          const server = this.serverEntity?.object3D;
+          const table = lab.getObjectByName('slot_island_server');
+          if (this.world.visibilityState.peek() === VisibilityState.NonImmersive && server != null && table != null) {
+            this.setWorldPose(server, table.getWorldPosition(new Vector3()), 0, 0);
+          }
+        });
+      return;
+    }
+    if (this.labState !== 'ready') return;
+    this.labRoom.update(delta);
+    // Prop screwdriver: picked up leaves the drawer; let go falls (room).
+    const held = this.propEntity?.hasComponent(Grabbed) ?? false;
+    const prop = this.labRoom.prop;
+    if (held && !this.propHeld) this.labRoom.releaseProp();
+    if (!held && this.propHeld && prop != null) this.dropObject(prop);
+    this.propHeld = held;
+  }
+
+  /** Show / hide the lab and passthrough for the current setting. */
+  private applySetting(): void {
+    if (this.lab == null) this.lab = this.world.getSceneObject('lab') ?? undefined;
+    const labEntity = this.world.getSceneEntity('lab');
+    if (labEntity != null) {
+      const solid = labEntity.hasComponent(LocomotionEnvironment);
+      if (this.setting === 'room' && !solid) labEntity.addComponent(LocomotionEnvironment, { type: 'static' });
+      if (this.setting !== 'room' && solid) labEntity.removeComponent(LocomotionEnvironment);
+    }
+    if (this.lab != null) {
+      this.lab.visible = this.setting === 'room';
+      (this.lab as Object3D & { pointerEvents?: string }).pointerEvents =
+        this.setting === 'room' ? undefined : 'none';
+    }
+    const prop = this.labRoom.prop;
+    if (prop != null) {
+      prop.visible = this.setting === 'room';
+      (prop as Object3D & { pointerEvents?: string }).pointerEvents =
+        this.setting === 'room' ? undefined : 'none';
+    }
+    // An opaque background hides passthrough (room and black).
+    this.world.scene.background = this.setting === 'ar' ? null : new Color(0x000000);
+  }
+
+  /** Menu: switch Room / AR / Black and put everything back in place. */
+  private setSetting(setting: 'room' | 'ar' | 'black'): void {
+    this.setting = setting;
+    this.placePending = true;
+  }
+
+  /**
+   * Room: the server sits on the island table and the user stands at its
+   * south side, facing it (north). Moves the player, not the room.
+   */
+  private placeInRoom(): void {
+    const server = this.serverEntity?.object3D;
+    const slot = this.lab?.getObjectByName('slot_island_server');
+    if (server == null || slot == null) {
+      this.placeServer();
+      return;
+    }
+    const slotPos = slot.getWorldPosition(new Vector3());
+    // The session starts with the server racked: its two blanking panels are
+    // out and it sits in the slot, front facing east (towards the table).
+    const rack = this.labRoom.slots.find((r) => r.name === START_RACK_SLOT);
+    if (rack != null) {
+      this.labRoom.hideBlanks(rack);
+      this.setWorldPose(server, rack.obj.getWorldPosition(new Vector3()), Math.PI / 2, 0);
+      this.serverSlot = rack;
+    } else {
+      this.setWorldPose(server, slotPos.clone(), 0, 0);
+    }
+    // Turn the player so the head faces -Z (north), then move it to stand
+    // ROOM_STAND m south of the table slot.
+    const head = this.player.head;
+    head.updateWorldMatrix(true, false);
+    const headPos = new Vector3().setFromMatrixPosition(head.matrixWorld);
+    const fwd = new Vector3(0, 0, -1).applyQuaternion(head.getWorldQuaternion(new Quaternion()));
+    const yaw = Math.atan2(-fwd.x, -fwd.z); // 0 = facing -Z
+    const turn = new Quaternion().setFromAxisAngle(new Vector3(0, 1, 0), -yaw);
+    const p = this.player;
+    p.position.sub(headPos).applyQuaternion(turn).add(headPos);
+    p.quaternion.premultiply(turn);
+    p.updateWorldMatrix(true, true);
+    const now = new Vector3().setFromMatrixPosition(head.matrixWorld);
+    const target = p.position.clone();
+    target.x += slotPos.x - now.x;
+    target.z += slotPos.z + ROOM_STAND - now.z;
+    // Locomotion owns the player position: move it through the system.
+    const loco = this.world.getSystem(LocomotionSystem);
+    if (loco != null) loco.setPlayerPosition(target);
+    else p.position.copy(target);
+    p.updateWorldMatrix(true, true);
+  }
+
   private placeServer(): void {
     const view = this.headView();
     const server = this.serverEntity?.object3D;
@@ -1490,6 +1833,11 @@ export class ServiceSystem extends createSystem({
     this.pokeOn = hands;
     // Tablet buttons: fingertip presses with hands (laser keeps working up
     // close with controllers).
+    const labEntity = this.world.getSceneEntity('lab');
+    if (labEntity != null) {
+      if (hands) labEntity.addComponent(PokeInteractable);
+      else if (labEntity.hasComponent(PokeInteractable)) labEntity.removeComponent(PokeInteractable);
+    }
     const tablet = this.world.getSceneEntity('tablet');
     if (tablet != null) {
       if (hands) tablet.addComponent(PokeInteractable);
@@ -1504,6 +1852,12 @@ export class ServiceSystem extends createSystem({
 
   /** Pinch (hands) or grip (controllers) near a part to pull it; near the server to move it while placing. */
   private updateNearGrabs(delta: number): void {
+    this.updateNearGrabsHands(delta);
+    if (this.carry == null && this.sideHold.size === 2) this.beginCarry();
+    if (this.carry != null) this.updateCarry(delta);
+  }
+
+  private updateNearGrabsHands(delta: number): void {
     for (const hand of ['left', 'right'] as const) {
       const isHand = this.input.xr.isPrimary('hand', hand);
       const pad = this.input.xr.gamepads[hand];
@@ -1515,14 +1869,131 @@ export class ServiceSystem extends createSystem({
       if (held != null) {
         if (end) {
           this.nearGrabs.delete(hand);
-          if (held.part != null) this.releasePart(held.part);
+          if (held.part != null) {
+            this.releasePart(held.part);
+            this.dropPart(held.part);
+          }
         } else {
-          this.moveNearGrab(held, handMatrix, delta);
+          this.moveNearGrab(held, held.wrist ? this.wristMatrix(hand) : handMatrix, delta);
         }
         continue;
       }
-      if (start) this.tryNearGrab(hand, handMatrix, isHand ? REACH_HAND : REACH_CONTROLLER);
+      // Server: both hands on its sides carry it (room).
+      if (this.sideHold.has(hand)) {
+        if (end) {
+          this.sideHold.delete(hand);
+          if (this.carry != null) this.endCarry();
+        }
+        continue;
+      }
+      if (start && this.setting === 'room' && this.onServerSide(new Vector3().setFromMatrixPosition(handMatrix))) {
+        this.sideHold.add(hand);
+        if (this.sideHold.size < 2) this.say('Server', 'Lift with both hands: one on each side.', '');
+        continue;
+      }
+      // The left hand is the screwdriver: only the right hand grabs up close.
+      if (start && hand === 'right') {
+        this.tryNearGrab(hand, handMatrix, isHand ? REACH_HAND : REACH_CONTROLLER, isHand);
+      }
     }
+  }
+
+  // ----------------------------------------------- server: two-hand carry
+
+  /** Is this point on the left or right side of the server (a lifting grip)? */
+  private onServerSide(p: Vector3): boolean {
+    const server = this.serverEntity?.object3D;
+    const box = this.serverBox;
+    if (server == null || box == null) return false;
+    server.updateWorldMatrix(true, false);
+    const local = server.worldToLocal(p.clone());
+    const half = (box.max.x - box.min.x) / 2;
+    const cx = (box.max.x + box.min.x) / 2;
+    const side = Math.abs(local.x - cx);
+    return (
+      side > half - 0.06 &&
+      side < half + 0.12 &&
+      local.y > box.min.y - 0.08 &&
+      local.y < box.max.y + 0.1 &&
+      local.z > box.min.z - 0.05 &&
+      local.z < box.max.z - 0.06 // not the front (drive caddies sit there)
+    );
+  }
+
+  /** Both hands' positions as a frame: midpoint, and yaw from left to right hand. */
+  private carryFrame(): { mid: Vector3; yaw: number } {
+    const isL = this.input.xr.isPrimary('hand', 'left');
+    const isR = this.input.xr.isPrimary('hand', 'right');
+    const l = new Vector3().setFromMatrixPosition(this.handMatrix('left', isL));
+    const r = new Vector3().setFromMatrixPosition(this.handMatrix('right', isR));
+    const mid = l.clone().add(r).multiplyScalar(0.5);
+    const dir = r.sub(l);
+    return { mid, yaw: Math.atan2(-dir.z, dir.x) };
+  }
+
+  /** Both hands on the sides: lift the server (out of a rack if racked). */
+  private beginCarry(): void {
+    const server = this.serverEntity?.object3D;
+    if (server == null) return;
+    const f = this.carryFrame();
+    const pos = server.getWorldPosition(new Vector3());
+    const fwd = new Vector3(0, 0, 1).applyQuaternion(server.getWorldQuaternion(new Quaternion()));
+    const yaw = Math.atan2(fwd.x, fwd.z);
+    const offset = pos.sub(f.mid).applyAxisAngle(new Vector3(0, 1, 0), -f.yaw);
+    this.carry = { offset, yawOffset: yaw - f.yaw };
+    if (this.serverSlot != null) {
+      this.serverSlot = undefined;
+      this.say('Server', 'Out of the rack. Carry it to the table (it only turns left / right).', '');
+    }
+  }
+
+  /** Follow both hands: position + turn left / right only (never tips). */
+  private updateCarry(delta: number): void {
+    const server = this.serverEntity?.object3D;
+    const carry = this.carry;
+    if (server == null || carry == null) return;
+    const f = this.carryFrame();
+    const pos = carry.offset.clone().applyAxisAngle(new Vector3(0, 1, 0), f.yaw).add(f.mid);
+    const cur = server.getWorldPosition(new Vector3());
+    pos.copy(cur.lerp(pos, 1 - Math.exp(-delta * SMOOTHING)));
+    this.setWorldPose(server, pos, f.yaw + carry.yawOffset, 0);
+  }
+
+  /** Let go: into a rack slot if lined up (blanks out), else down onto a surface. */
+  private endCarry(): void {
+    const server = this.serverEntity?.object3D;
+    this.carry = undefined;
+    if (server == null) return;
+    const pos = server.getWorldPosition(new Vector3());
+    const fwd = new Vector3(0, 0, 1).applyQuaternion(server.getWorldQuaternion(new Quaternion()));
+    const facingEast = fwd.x > Math.cos((RACK_ANGLE * Math.PI) / 180);
+    let best: RackSlot | undefined;
+    let bestDist = RACK_REACH;
+    for (const slot of this.labRoom.slots) {
+      const d = slot.obj.getWorldPosition(new Vector3()).distanceTo(pos);
+      if (d < bestDist) {
+        bestDist = d;
+        best = slot;
+      }
+    }
+    if (best != null && facingEast) {
+      const missing = best.blanks.filter((b) => !this.labRoom.blanksOut.has(b));
+      if (missing.length === 0) {
+        const slot = best;
+        const target = slot.obj.getWorldPosition(new Vector3());
+        const from = pos.clone();
+        this.tweens.push({
+          duration: 0.4,
+          elapsed: 0,
+          update: (t) => this.setWorldPose(server, from.clone().lerp(target, t), Math.PI / 2, 0),
+        });
+        this.serverSlot = slot;
+        this.say('Server', 'Racked.', 'Pull it out with both hands on its sides.');
+        return;
+      }
+      this.say('Server', 'Cannot rack it here yet.', 'Pull the two blanking panels out of this slot first.');
+    }
+    this.dropObject(server);
   }
 
   /** World matrix of the pinch point (index tip) or controller grip. */
@@ -1532,29 +2003,33 @@ export class ServiceSystem extends createSystem({
     return space.matrixWorld.clone();
   }
 
-  private tryNearGrab(hand: 'left' | 'right', handMatrix: Matrix4, reach: number): void {
+  /** World matrix of a tracked hand's grip (palm / wrist): steady in a fist. */
+  private wristMatrix(hand: 'left' | 'right'): Matrix4 {
+    const space = this.player.gripSpaces[hand];
+    space.updateWorldMatrix(true, false);
+    return space.matrixWorld.clone();
+  }
+
+  private tryNearGrab(
+    hand: 'left' | 'right',
+    handMatrix: Matrix4,
+    reach: number,
+    isHand = false,
+  ): void {
     const point = new Vector3().setFromMatrixPosition(handMatrix);
-    // The screwdriver (any time).
-    if (this.tool != null && new Box3().setFromObject(this.tool).expandByScalar(reach).containsPoint(point)) {
-      this.tool.updateWorldMatrix(true, false);
-      this.nearGrabs.set(hand, {
-        tool: true,
-        offset: handMatrix.clone().invert().multiply(this.tool.matrixWorld),
-      });
-      return;
-    }
-    // The tablet, anywhere on it: body, screen or grips (any time). Fingers
-    // press its buttons by poking; a pinch / grip up close picks it up.
+    // The tablet, by its side handles only (like holding a real tablet);
+    // the screen is for pressing buttons.
     const screen = this.tablet.screen;
     if (screen != null) {
       const box = new Box3();
-      const targets = this.tablet.body != null ? [this.tablet.body, ...this.tablet.grips] : this.tablet.grips;
-      for (const grip of targets) {
+      for (const grip of this.tablet.grips) {
         if (!box.setFromObject(grip).expandByScalar(reach).containsPoint(point)) continue;
         screen.updateWorldMatrix(true, false);
+        const anchor = isHand ? this.wristMatrix(hand) : handMatrix;
         this.nearGrabs.set(hand, {
           tablet: true,
-          offset: handMatrix.clone().invert().multiply(screen.matrixWorld),
+          wrist: isHand,
+          offset: anchor.clone().invert().multiply(screen.matrixWorld),
         });
         return;
       }
@@ -1604,9 +2079,12 @@ export class ServiceSystem extends createSystem({
     }
     best.denied = false;
     best.object.updateWorldMatrix(true, false);
+    // Hands: follow the wrist (steady in a fist), not the pinching fingertip.
+    const anchor = isHand ? this.wristMatrix(hand) : handMatrix;
     this.nearGrabs.set(hand, {
       part: best,
-      offset: handMatrix.clone().invert().multiply(best.object.matrixWorld),
+      wrist: isHand,
+      offset: anchor.clone().invert().multiply(best.object.matrixWorld),
     });
     this.showPart(best.info.name);
   }
@@ -1616,6 +2094,19 @@ export class ServiceSystem extends createSystem({
     const pos = new Vector3();
     const quat = new Quaternion();
     target.decompose(pos, quat, new Vector3());
+    if (held.wrist) {
+      // Skip tracking glitches: a big jump in one frame = hold the last pose.
+      if (held.lastPos != null && held.lastQuat != null) {
+        const jump = pos.distanceTo(held.lastPos) > TOOL_JUMP_POS || quat.angleTo(held.lastQuat) > TOOL_JUMP_ANGLE;
+        if (jump && (held.skipped ?? 0) < 8) {
+          held.skipped = (held.skipped ?? 0) + 1;
+          return;
+        }
+      }
+      held.skipped = 0;
+      held.lastPos = (held.lastPos ?? new Vector3()).copy(pos);
+      held.lastQuat = (held.lastQuat ?? new Quaternion()).copy(quat);
+    }
     if (held.tablet || held.tool) {
       const screen = held.tool ? this.tool : this.tablet.screen;
       if (screen == null) return;
@@ -1625,7 +2116,7 @@ export class ServiceSystem extends createSystem({
         parent.worldToLocal(pos);
         quat.premultiply(parent.getWorldQuaternion(new Quaternion()).invert());
       }
-      const k = 1 - Math.exp(-delta * SMOOTHING);
+      const k = 1 - Math.exp(-delta * (held.wrist ? TOOL_SMOOTHING : SMOOTHING));
       screen.position.lerp(pos, k);
       screen.quaternion.slerp(quat, k);
       return;
@@ -1655,36 +2146,96 @@ export class ServiceSystem extends createSystem({
   // ------------------------------------------------------------ screwdriver
 
   /**
-   * Find the screwdriver once its model has loaded and give it an invisible,
-   * slightly larger grab zone: the shaft and tip are too thin to hit easily.
+   * Find the screwdriver once its model has loaded and work out how it sits
+   * in the left hand: handle in the palm, shaft pointing forward.
    */
   private tryInitTool(): void {
     const tool = this.world.getSceneObject('screwdriver');
     const tip = tool?.getObjectByName('sd_tip');
     if (tool == null || tip == null) return; // model not loaded yet
-    tool.updateWorldMatrix(true, true);
+    // Measure in the tool's own frame: reset its pose for a moment.
+    const pos = tool.position.clone();
+    const quat = tool.quaternion.clone();
+    const scale = tool.scale.clone();
+    const parent = tool.parent;
+    parent?.remove(tool);
+    tool.position.set(0, 0, 0);
+    tool.quaternion.identity();
+    tool.scale.set(1, 1, 1);
+    tool.updateMatrixWorld(true);
     const box = new Box3().setFromObject(tool);
-    const size = box.getSize(new Vector3());
-    const centre = tool.worldToLocal(box.getCenter(new Vector3()));
-    // Box in the tool's own frame (its axis is local +Y), padded 2 cm.
-    const worldScale = tool.getWorldScale(new Vector3()).x || 1;
-    const length = Math.max(size.x, size.y, size.z) / worldScale;
-    const zone = new Mesh(
-      new BoxGeometry(0.05 / worldScale, length + 0.04 / worldScale, 0.05 / worldScale),
-      new MeshBasicMaterial({ visible: false }),
-    );
-    zone.name = 'sd_grab_zone';
-    zone.position.copy(centre);
-    tool.add(zone);
+    const tipLocal = tip.getWorldPosition(new Vector3());
+    parent?.add(tool);
+    tool.position.copy(pos);
+    tool.quaternion.copy(quat);
+    tool.scale.copy(scale);
+    tool.updateMatrixWorld(true);
+    // Axis is local Y; the tip is at one end, the handle end at the other.
+    const tipUp = tipLocal.y > (box.min.y + box.max.y) / 2;
+    const tipEnd = tipUp ? box.max.y : box.min.y;
+    const handleEnd = tipUp ? box.min.y : box.max.y;
+    const gripY = handleEnd + (tipEnd - handleEnd) * TOOL_GRIP_AT;
+    const along = new Vector3(0, tipUp ? 1 : -1, 0);
+    const q = new Quaternion().setFromUnitVectors(along, new Vector3(0, 0, -1));
+    const s = tool.getWorldScale(new Vector3());
+    const grip = new Vector3((box.min.x + box.max.x) / 2, gripY, (box.min.z + box.max.z) / 2)
+      .multiply(s)
+      .applyQuaternion(q)
+      .negate();
+    this.toolOffset = new Matrix4().compose(grip, q, s);
     this.tool = tool;
     this.toolTip = tip;
   }
 
+  /**
+   * The left hand IS the screwdriver: each frame the tool follows the left
+   * grip (palm) and the left hand / controller model is hidden. Tracking
+   * glitches are skipped, with light smoothing.
+   */
+  private updateLeftTool(delta: number): void {
+    const tool = this.tool;
+    const offset = this.toolOffset;
+    const inXR = this.world.visibilityState.peek() !== VisibilityState.NonImmersive;
+    const left = this.input.xr.gamepads.left;
+    const adapters = this.input.xr.visualAdapters;
+    if (inXR) {
+      const hand = adapters.hand.left.visual?.model;
+      const pad = adapters.controller.left.visual?.model;
+      if (hand != null) hand.visible = false;
+      if (pad != null) pad.visible = false;
+    }
+    if (tool == null || offset == null || !inXR || left == null) return;
+    const target = this.wristMatrix('left').multiply(offset);
+    const pos = new Vector3();
+    const quat = new Quaternion();
+    target.decompose(pos, quat, new Vector3());
+    const hold = this.toolHold;
+    if (hold.lastPos != null && hold.lastQuat != null) {
+      const jump = pos.distanceTo(hold.lastPos) > TOOL_JUMP_POS || quat.angleTo(hold.lastQuat) > TOOL_JUMP_ANGLE;
+      if (jump && (hold.skipped ?? 0) < 8) {
+        hold.skipped = (hold.skipped ?? 0) + 1;
+        return;
+      }
+    }
+    const first = hold.lastPos == null;
+    hold.skipped = 0;
+    hold.lastPos = (hold.lastPos ?? new Vector3()).copy(pos);
+    hold.lastQuat = (hold.lastQuat ?? new Quaternion()).copy(quat);
+    const parent = tool.parent;
+    if (parent != null) {
+      parent.updateWorldMatrix(true, false);
+      parent.worldToLocal(pos);
+      quat.premultiply(parent.getWorldQuaternion(new Quaternion()).invert());
+    }
+    const k = first ? 1 : 1 - Math.exp(-delta * TOOL_SMOOTHING);
+    tool.position.lerp(pos, k);
+    tool.quaternion.slerp(quat, k);
+  }
+
   /** Which hand holds the screwdriver (laser or near grab), if any. */
   private toolHand(): 'left' | 'right' | undefined {
-    if (this.serverDrag?.target === 'tool') return this.serverDrag.hand;
-    for (const [hand, held] of this.nearGrabs) if (held.tool) return hand;
-    return undefined;
+    const inXR = this.world.visibilityState.peek() !== VisibilityState.NonImmersive;
+    return inXR && this.input.xr.gamepads.left != null && this.toolOffset != null ? 'left' : undefined;
   }
 
   /**
@@ -1745,8 +2296,9 @@ export class ServiceSystem extends createSystem({
       return;
     }
     const pad = this.input.xr.gamepads[hand];
-    if (pad?.getButtonDownByIdx(3) && !undone) turn();
-    else if (pad?.getButtonDownByIdx(4) && undone) turn();
+    // xr-standard: 4 = X / A (lower), 5 = Y / B (upper).
+    if (pad?.getButtonDownByIdx(4) && !undone) turn();
+    else if (pad?.getButtonDownByIdx(5) && undone) turn();
   }
 
   // ------------------------------------------- placing the server (laser)
@@ -1831,19 +2383,6 @@ export class ServiceSystem extends createSystem({
       const origin = new Vector3().setFromMatrixPosition(ray.matrixWorld);
       const dir = new Vector3(0, 0, -1).applyQuaternion(ray.getWorldQuaternion(new Quaternion()));
       this.raycaster.set(origin, dir);
-      // The screwdriver (any time), held rigidly on the laser.
-      const toolHit = this.tool != null ? this.raycaster.intersectObject(this.tool, true)[0] : undefined;
-      if (toolHit != null && this.tool != null) {
-        this.tool.updateWorldMatrix(true, false);
-        this.serverDrag = {
-          target: 'tool',
-          hand,
-          rigid: ray.matrixWorld.clone().invert().multiply(this.tool.matrixWorld),
-          distance: toolHit.distance,
-          offset: new Vector3(),
-        };
-        return;
-      }
       // Tablet side grips first (any time).
       const gripHit = this.raycaster.intersectObjects(this.tablet.grips, false)[0];
       if (gripHit != null && screen != null) {
@@ -1879,7 +2418,12 @@ export class ServiceSystem extends createSystem({
    */
   private updatePassThrough(): void {
     for (const c of this.controls.values()) {
-      const owner = c.info.asset != null ? this.parts.get(c.info.asset) : undefined;
+      // Socket lever / plate belong to the board in the model, but they hold
+      // the CPU: once open they let clicks through to it.
+      const ownerName = /^socket_\d+_(lever|plate)$/.test(c.info.name)
+        ? this.ownerOf(c.info.name)
+        : c.info.asset;
+      const owner = ownerName != null ? this.parts.get(ownerName) : undefined;
       const passes =
         owner != null &&
         this.started &&

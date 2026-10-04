@@ -57,7 +57,7 @@
 </style>
 <Panel class="panel-root">
   <div class="panel-content">
-    <div class="heading">Server Explorer</div>
+    <div id="app-title" class="heading">Server Explorer</div>
     <Divider></Divider>
     <div class="sub-heading">
       2U server maintenance practice. Enter AR to place the server on a table.

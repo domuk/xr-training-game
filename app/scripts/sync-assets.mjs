@@ -22,4 +22,9 @@ mkdirSync(tools, { recursive: true });
 for (const file of ['screwdriver.glb', 'screwdriver_manifest.json']) {
   if (existsSync(resolve(source, file))) cpSync(resolve(source, file), resolve(tools, file));
 }
-console.log(`Synced server assets -> ${target}`);
+const lab = resolve(appRoot, 'public/gltf/lab');
+mkdirSync(lab, { recursive: true });
+for (const file of ['lab.glb', 'lab_manifest.json']) {
+  if (existsSync(resolve(source, file))) cpSync(resolve(source, file), resolve(lab, file));
+}
+console.log(`Synced server, tool and lab assets -> public/gltf/`);

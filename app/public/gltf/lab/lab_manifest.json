@@ -1,0 +1,7691 @@
+{
+ "file": "lab.glb",
+ "units": "metres",
+ "up": "+Y (glTF); Blender source is Z-up",
+ "note": "positions/axes/pulls below are WORLD Blender axes (X east, Y north, Z up); glTF = (x, z, -y)",
+ "room": {
+  "size": [
+   8.4,
+   8.4
+  ],
+  "wall_h": 3.6,
+  "origin": "centre of the room's bounding box, floor level"
+ },
+ "nodes": {
+  "fixed_room": {
+   "role": "fixed",
+   "parent": "lab_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "room_lights": {
+   "role": "light",
+   "note": "LED battens; diffuser faces down",
+   "parent": "fixed_room",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "door_leaf_W": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    90
+   ],
+   "tip": "lab_door",
+   "parent": "fixed_room",
+   "pos": [
+    -0.2,
+    -4.17,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "door_leaf_E": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -90,
+    0
+   ],
+   "tip": "lab_door",
+   "parent": "fixed_room",
+   "pos": [
+    1.6,
+    -4.17,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "fixed_racks": {
+   "role": "fixed",
+   "parent": "lab_root",
+   "pos": [
+    -3.2,
+    -0.4,
+    0.0
+   ]
+  },
+  "fixed_rack_1": {
+   "role": "fixed",
+   "tip": "rack",
+   "kind": "cabinet_doors",
+   "units": 42,
+   "parent": "fixed_racks",
+   "pos": [
+    -3.2,
+    -0.8,
+    0.0
+   ]
+  },
+  "rack_1_door_front": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    110
+   ],
+   "tip": "rack_door",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.0,
+    -0.405,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "rack_1_door_rear_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -110,
+    0
+   ],
+   "tip": "rack_door",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -3.2,
+    -0.405,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "rack_1_door_rear_R": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    110
+   ],
+   "tip": "rack_door",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -3.2,
+    -1.195,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "fixed_rack_2": {
+   "role": "fixed",
+   "tip": "rack",
+   "kind": "open_frame",
+   "units": 42,
+   "parent": "fixed_racks",
+   "pos": [
+    -3.2,
+    -2.1,
+    0.0
+   ]
+  },
+  "fixed_rack_3": {
+   "role": "fixed",
+   "tip": "rack",
+   "kind": "open_frame",
+   "units": 42,
+   "parent": "fixed_racks",
+   "pos": [
+    -3.2,
+    -2.7,
+    0.0
+   ]
+  },
+  "fixed_rack_4": {
+   "role": "fixed",
+   "tip": "rack",
+   "kind": "open_frame",
+   "units": 42,
+   "parent": "fixed_racks",
+   "pos": [
+    -3.2,
+    -3.3,
+    0.0
+   ]
+  },
+  "fixed_tables": {
+   "role": "fixed",
+   "parent": "lab_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "slot_island_server": {
+   "role": "slot",
+   "accepts": "server",
+   "note": "server rests here, front towards -Y",
+   "parent": "fixed_tables",
+   "pos": [
+    0.9,
+    -0.0,
+    1.0
+   ]
+  },
+  "slot_island_screwdriver": {
+   "role": "slot",
+   "accepts": "screwdriver",
+   "parent": "fixed_tables",
+   "pos": [
+    1.2,
+    1.0,
+    1.0175
+   ]
+  },
+  "fixed_easter_egg": {
+   "role": "fixed",
+   "parent": "lab_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "easter_supremetrainer": {
+   "role": "easter_egg",
+   "tip": "supreme_trainer",
+   "note": "hidden joke portrait; framed on the north wall",
+   "parent": "fixed_easter_egg",
+   "pos": [
+    -1.8,
+    4.18,
+    1.7
+   ]
+  },
+  "fixed_furnishings": {
+   "role": "fixed",
+   "parent": "lab_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_tool_cabinet": {
+   "role": "fixed",
+   "tip": "tool_cabinet",
+   "parent": "fixed_furnishings",
+   "pos": [
+    2.55,
+    -2.0,
+    0.0
+   ]
+  },
+  "lab_cabinet_drawer_1": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_tool_cabinet",
+   "pos": [
+    2.55,
+    -2.0,
+    0.065
+   ],
+   "axis_world": [
+    -1.0,
+    -0.0,
+    -0.0
+   ]
+  },
+  "lab_cabinet_drawer_2": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_tool_cabinet",
+   "pos": [
+    2.55,
+    -2.0,
+    0.202
+   ],
+   "axis_world": [
+    -1.0,
+    -0.0,
+    -0.0
+   ]
+  },
+  "lab_cabinet_drawer_3": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_tool_cabinet",
+   "pos": [
+    2.55,
+    -2.0,
+    0.339
+   ],
+   "axis_world": [
+    -1.0,
+    -0.0,
+    -0.0
+   ]
+  },
+  "lab_cabinet_drawer_4": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_tool_cabinet",
+   "pos": [
+    2.55,
+    -2.0,
+    0.476
+   ],
+   "axis_world": [
+    -1.0,
+    -0.0,
+    -0.0
+   ]
+  },
+  "lab_cabinet_drawer_5": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_tool_cabinet",
+   "pos": [
+    2.55,
+    -2.0,
+    0.613
+   ],
+   "axis_world": [
+    -1.0,
+    -0.0,
+    -0.0
+   ]
+  },
+  "lab_cabinet_drawer_6": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_tool_cabinet",
+   "pos": [
+    2.55,
+    -2.0,
+    0.75
+   ],
+   "axis_world": [
+    -1.0,
+    -0.0,
+    -0.0
+   ]
+  },
+  "lab_cabinet_drawer_7": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_tool_cabinet",
+   "pos": [
+    2.55,
+    -2.0,
+    0.887
+   ],
+   "axis_world": [
+    -1.0,
+    -0.0,
+    -0.0
+   ]
+  },
+  "lab_cabinet_door_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    90
+   ],
+   "tip": "cabinet_door",
+   "parent": "fixed_tool_cabinet",
+   "pos": [
+    2.55,
+    -2.5,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "lab_cabinet_door_R": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -90,
+    0
+   ],
+   "tip": "cabinet_door",
+   "parent": "fixed_tool_cabinet",
+   "pos": [
+    2.55,
+    -1.5,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "lab_tvs": {
+   "role": "fixed",
+   "tip": "tv",
+   "parent": "fixed_furnishings",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_chair_1": {
+   "role": "asset",
+   "tip": "chair",
+   "pull": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "note": "office chair; moves on castors",
+   "parent": "fixed_furnishings",
+   "pos": [
+    0.1,
+    3.03,
+    0.0
+   ],
+   "pull_world": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_chair_2": {
+   "role": "asset",
+   "tip": "chair",
+   "pull": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "note": "office chair; moves on castors",
+   "parent": "fixed_furnishings",
+   "pos": [
+    1.5,
+    3.03,
+    0.0
+   ],
+   "pull_world": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_chair_3": {
+   "role": "asset",
+   "tip": "chair",
+   "pull": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "note": "office chair; moves on castors",
+   "parent": "fixed_furnishings",
+   "pos": [
+    2.9,
+    3.03,
+    0.0
+   ],
+   "pull_world": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_chair_4": {
+   "role": "asset",
+   "tip": "chair",
+   "pull": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "note": "office chair; moves on castors",
+   "parent": "fixed_furnishings",
+   "pos": [
+    3.03,
+    -0.3,
+    0.0
+   ],
+   "pull_world": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_chair_5": {
+   "role": "asset",
+   "tip": "chair",
+   "pull": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "note": "office chair; moves on castors",
+   "parent": "fixed_furnishings",
+   "pos": [
+    3.03,
+    1.1,
+    0.0
+   ],
+   "pull_world": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_chair_6": {
+   "role": "asset",
+   "tip": "chair",
+   "pull": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "note": "office chair; moves on castors",
+   "parent": "fixed_furnishings",
+   "pos": [
+    3.03,
+    2.5,
+    0.0
+   ],
+   "pull_world": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ]
+  },
+  "u_rack_1_01": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 1,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.1
+   ]
+  },
+  "u_rack_1_02": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 2,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.14445
+   ]
+  },
+  "u_rack_1_03": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 3,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.1889
+   ]
+  },
+  "u_rack_1_04": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 4,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.23335
+   ]
+  },
+  "u_rack_1_05": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 5,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.2778
+   ]
+  },
+  "u_rack_1_06": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 6,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.32225
+   ]
+  },
+  "u_rack_1_07": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 7,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.3667
+   ]
+  },
+  "u_rack_1_08": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 8,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.41115
+   ]
+  },
+  "u_rack_1_09": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 9,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.4556
+   ]
+  },
+  "u_rack_1_10": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 10,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.50005
+   ]
+  },
+  "u_rack_1_11": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 11,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.5445
+   ]
+  },
+  "u_rack_1_12": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 12,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.58895
+   ]
+  },
+  "u_rack_1_13": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 13,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.6334
+   ]
+  },
+  "u_rack_1_14": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 14,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.67785
+   ]
+  },
+  "u_rack_1_15": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 15,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.7223
+   ]
+  },
+  "u_rack_1_16": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 16,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.76675
+   ]
+  },
+  "u_rack_1_17": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 17,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.8112
+   ]
+  },
+  "u_rack_1_18": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 18,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.85565
+   ]
+  },
+  "u_rack_1_19": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 19,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.9001
+   ]
+  },
+  "u_rack_1_20": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 20,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.94455
+   ]
+  },
+  "u_rack_1_21": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 21,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    0.989
+   ]
+  },
+  "u_rack_1_22": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 22,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.03345
+   ]
+  },
+  "u_rack_1_23": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 23,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.0779
+   ]
+  },
+  "u_rack_1_24": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 24,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.12235
+   ]
+  },
+  "u_rack_1_25": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 25,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.1668
+   ]
+  },
+  "u_rack_1_26": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 26,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.21125
+   ]
+  },
+  "u_rack_1_27": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 27,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.2557
+   ]
+  },
+  "u_rack_1_28": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 28,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.30015
+   ]
+  },
+  "u_rack_1_29": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 29,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.3446
+   ]
+  },
+  "u_rack_1_30": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 30,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.38905
+   ]
+  },
+  "u_rack_1_31": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 31,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.4335
+   ]
+  },
+  "u_rack_1_32": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 32,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.47795
+   ]
+  },
+  "u_rack_1_33": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 33,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.5224
+   ]
+  },
+  "u_rack_1_34": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 34,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.56685
+   ]
+  },
+  "u_rack_1_35": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 35,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.6113
+   ]
+  },
+  "u_rack_1_36": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 36,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.65575
+   ]
+  },
+  "u_rack_1_37": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 37,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.7002
+   ]
+  },
+  "u_rack_1_38": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 38,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.74465
+   ]
+  },
+  "u_rack_1_39": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 39,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.7891
+   ]
+  },
+  "u_rack_1_40": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 40,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.83355
+   ]
+  },
+  "u_rack_1_41": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 41,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.878
+   ]
+  },
+  "u_rack_1_42": {
+   "role": "rack_unit",
+   "rack": "rack_1",
+   "u": 42,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_1",
+   "pos": [
+    -2.1,
+    -0.8,
+    1.92245
+   ]
+  },
+  "rack_2_switch_u42": {
+   "role": "fixed",
+   "tip": "switch",
+   "u": 42,
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.102,
+    -2.1,
+    1.92245
+   ]
+  },
+  "u_rack_2_01": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 1,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.1
+   ]
+  },
+  "u_rack_2_02": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 2,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.14445
+   ]
+  },
+  "u_rack_2_03": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 3,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.1889
+   ]
+  },
+  "u_rack_2_04": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 4,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.23335
+   ]
+  },
+  "u_rack_2_05": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 5,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.2778
+   ]
+  },
+  "u_rack_2_06": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 6,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.32225
+   ]
+  },
+  "u_rack_2_07": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 7,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.3667
+   ]
+  },
+  "u_rack_2_08": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 8,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.41115
+   ]
+  },
+  "u_rack_2_09": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 9,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.4556
+   ]
+  },
+  "u_rack_2_10": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 10,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.50005
+   ]
+  },
+  "u_rack_2_11": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 11,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.5445
+   ]
+  },
+  "u_rack_2_12": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 12,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.58895
+   ]
+  },
+  "u_rack_2_13": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 13,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.6334
+   ]
+  },
+  "u_rack_2_14": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 14,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.67785
+   ]
+  },
+  "u_rack_2_15": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 15,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.7223
+   ]
+  },
+  "u_rack_2_16": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 16,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.76675
+   ]
+  },
+  "u_rack_2_17": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 17,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.8112
+   ]
+  },
+  "u_rack_2_18": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 18,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.85565
+   ]
+  },
+  "u_rack_2_19": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 19,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.9001
+   ]
+  },
+  "u_rack_2_20": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 20,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.94455
+   ]
+  },
+  "u_rack_2_21": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 21,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.989
+   ]
+  },
+  "u_rack_2_22": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 22,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.03345
+   ]
+  },
+  "u_rack_2_23": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 23,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.0779
+   ]
+  },
+  "u_rack_2_24": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 24,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.12235
+   ]
+  },
+  "u_rack_2_25": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 25,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.1668
+   ]
+  },
+  "u_rack_2_26": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 26,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.21125
+   ]
+  },
+  "u_rack_2_27": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 27,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.2557
+   ]
+  },
+  "u_rack_2_28": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 28,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.30015
+   ]
+  },
+  "u_rack_2_29": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 29,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.3446
+   ]
+  },
+  "u_rack_2_30": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 30,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.38905
+   ]
+  },
+  "u_rack_2_31": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 31,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.4335
+   ]
+  },
+  "u_rack_2_32": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 32,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.47795
+   ]
+  },
+  "u_rack_2_33": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 33,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.5224
+   ]
+  },
+  "u_rack_2_34": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 34,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.56685
+   ]
+  },
+  "u_rack_2_35": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 35,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.6113
+   ]
+  },
+  "u_rack_2_36": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 36,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.65575
+   ]
+  },
+  "u_rack_2_37": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 37,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.7002
+   ]
+  },
+  "u_rack_2_38": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 38,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.74465
+   ]
+  },
+  "u_rack_2_39": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 39,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.7891
+   ]
+  },
+  "u_rack_2_40": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 40,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.83355
+   ]
+  },
+  "u_rack_2_41": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 41,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.878
+   ]
+  },
+  "u_rack_2_42": {
+   "role": "rack_unit",
+   "rack": "rack_2",
+   "u": 42,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.92245
+   ]
+  },
+  "slot_rack_2_u01": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 1,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u01,asset_rack_2_blank_u02",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.1
+   ]
+  },
+  "slot_rack_2_u03": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 3,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u03,asset_rack_2_blank_u04",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.1889
+   ]
+  },
+  "slot_rack_2_u05": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 5,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u05,asset_rack_2_blank_u06",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.2778
+   ]
+  },
+  "slot_rack_2_u07": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 7,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u07,asset_rack_2_blank_u08",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.3667
+   ]
+  },
+  "slot_rack_2_u09": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 9,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u09,asset_rack_2_blank_u10",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.4556
+   ]
+  },
+  "slot_rack_2_u11": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 11,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u11,asset_rack_2_blank_u12",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.5445
+   ]
+  },
+  "slot_rack_2_u13": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 13,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u13,asset_rack_2_blank_u14",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.6334
+   ]
+  },
+  "slot_rack_2_u15": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 15,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u15,asset_rack_2_blank_u16",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.7223
+   ]
+  },
+  "slot_rack_2_u17": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 17,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u17,asset_rack_2_blank_u18",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.8112
+   ]
+  },
+  "slot_rack_2_u19": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 19,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u19,asset_rack_2_blank_u20",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.9001
+   ]
+  },
+  "slot_rack_2_u21": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 21,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u21,asset_rack_2_blank_u22",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    0.989
+   ]
+  },
+  "slot_rack_2_u23": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 23,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u23,asset_rack_2_blank_u24",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    1.0779
+   ]
+  },
+  "slot_rack_2_u25": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 25,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u25,asset_rack_2_blank_u26",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    1.1668
+   ]
+  },
+  "slot_rack_2_u27": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 27,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u27,asset_rack_2_blank_u28",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    1.2557
+   ]
+  },
+  "slot_rack_2_u29": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 29,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u29,asset_rack_2_blank_u30",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    1.3446
+   ]
+  },
+  "slot_rack_2_u31": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 31,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u31,asset_rack_2_blank_u32",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    1.4335
+   ]
+  },
+  "slot_rack_2_u33": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 33,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u33,asset_rack_2_blank_u34",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    1.5224
+   ]
+  },
+  "slot_rack_2_u35": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 35,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u35,asset_rack_2_blank_u36",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    1.6113
+   ]
+  },
+  "slot_rack_2_u37": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 37,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u37,asset_rack_2_blank_u38",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    1.7002
+   ]
+  },
+  "slot_rack_2_u39": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_2",
+   "u": 39,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_2_blank_u39,asset_rack_2_blank_u40",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.103,
+    -2.1,
+    1.7891
+   ]
+  },
+  "asset_rack_2_blank_u01": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 1,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.1
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u02": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 2,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.14445
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u03": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 3,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.1889
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u04": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 4,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.23335
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u05": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 5,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.2778
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u06": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 6,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.32225
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u07": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 7,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.3667
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u08": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 8,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.41115
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u09": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 9,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.4556
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u10": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 10,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.50005
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u11": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 11,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.5445
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u12": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 12,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.58895
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u13": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 13,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.6334
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u14": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 14,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.67785
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u15": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 15,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.7223
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u16": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 16,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.76675
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u17": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 17,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.8112
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u18": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 18,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.85565
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u19": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 19,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.9001
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u20": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 20,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.94455
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u21": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 21,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    0.989
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u22": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 22,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.03345
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u23": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 23,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.0779
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u24": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 24,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.12235
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u25": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 25,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.1668
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u26": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 26,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.21125
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u27": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 27,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.2557
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u28": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 28,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.30015
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u29": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 29,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.3446
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u30": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 30,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.38905
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u31": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 31,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.4335
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u32": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 32,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.47795
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u33": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 33,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.5224
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u34": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 34,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.56685
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u35": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 35,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.6113
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u36": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 36,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.65575
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u37": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 37,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.7002
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u38": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 38,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.74465
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u39": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 39,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.7891
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u40": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 40,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.83355
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_2_blank_u41": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_2",
+   "u": 41,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_2",
+   "pos": [
+    -2.1,
+    -2.1,
+    1.878
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "rack_3_switch_u42": {
+   "role": "fixed",
+   "tip": "switch",
+   "u": 42,
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.102,
+    -2.7,
+    1.92245
+   ]
+  },
+  "u_rack_3_01": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 1,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.1
+   ]
+  },
+  "u_rack_3_02": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 2,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.14445
+   ]
+  },
+  "u_rack_3_03": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 3,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.1889
+   ]
+  },
+  "u_rack_3_04": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 4,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.23335
+   ]
+  },
+  "u_rack_3_05": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 5,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.2778
+   ]
+  },
+  "u_rack_3_06": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 6,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.32225
+   ]
+  },
+  "u_rack_3_07": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 7,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.3667
+   ]
+  },
+  "u_rack_3_08": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 8,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.41115
+   ]
+  },
+  "u_rack_3_09": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 9,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.4556
+   ]
+  },
+  "u_rack_3_10": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 10,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.50005
+   ]
+  },
+  "u_rack_3_11": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 11,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.5445
+   ]
+  },
+  "u_rack_3_12": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 12,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.58895
+   ]
+  },
+  "u_rack_3_13": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 13,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.6334
+   ]
+  },
+  "u_rack_3_14": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 14,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.67785
+   ]
+  },
+  "u_rack_3_15": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 15,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.7223
+   ]
+  },
+  "u_rack_3_16": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 16,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.76675
+   ]
+  },
+  "u_rack_3_17": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 17,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.8112
+   ]
+  },
+  "u_rack_3_18": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 18,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.85565
+   ]
+  },
+  "u_rack_3_19": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 19,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.9001
+   ]
+  },
+  "u_rack_3_20": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 20,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.94455
+   ]
+  },
+  "u_rack_3_21": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 21,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.989
+   ]
+  },
+  "u_rack_3_22": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 22,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.03345
+   ]
+  },
+  "u_rack_3_23": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 23,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.0779
+   ]
+  },
+  "u_rack_3_24": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 24,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.12235
+   ]
+  },
+  "u_rack_3_25": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 25,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.1668
+   ]
+  },
+  "u_rack_3_26": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 26,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.21125
+   ]
+  },
+  "u_rack_3_27": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 27,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.2557
+   ]
+  },
+  "u_rack_3_28": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 28,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.30015
+   ]
+  },
+  "u_rack_3_29": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 29,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.3446
+   ]
+  },
+  "u_rack_3_30": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 30,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.38905
+   ]
+  },
+  "u_rack_3_31": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 31,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.4335
+   ]
+  },
+  "u_rack_3_32": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 32,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.47795
+   ]
+  },
+  "u_rack_3_33": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 33,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.5224
+   ]
+  },
+  "u_rack_3_34": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 34,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.56685
+   ]
+  },
+  "u_rack_3_35": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 35,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.6113
+   ]
+  },
+  "u_rack_3_36": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 36,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.65575
+   ]
+  },
+  "u_rack_3_37": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 37,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.7002
+   ]
+  },
+  "u_rack_3_38": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 38,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.74465
+   ]
+  },
+  "u_rack_3_39": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 39,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.7891
+   ]
+  },
+  "u_rack_3_40": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 40,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.83355
+   ]
+  },
+  "u_rack_3_41": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 41,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.878
+   ]
+  },
+  "u_rack_3_42": {
+   "role": "rack_unit",
+   "rack": "rack_3",
+   "u": 42,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.92245
+   ]
+  },
+  "slot_rack_3_u01": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 1,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u01,asset_rack_3_blank_u02",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.1
+   ]
+  },
+  "slot_rack_3_u03": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 3,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u03,asset_rack_3_blank_u04",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.1889
+   ]
+  },
+  "slot_rack_3_u05": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 5,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u05,asset_rack_3_blank_u06",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.2778
+   ]
+  },
+  "slot_rack_3_u07": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 7,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u07,asset_rack_3_blank_u08",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.3667
+   ]
+  },
+  "slot_rack_3_u09": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 9,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u09,asset_rack_3_blank_u10",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.4556
+   ]
+  },
+  "slot_rack_3_u11": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 11,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u11,asset_rack_3_blank_u12",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.5445
+   ]
+  },
+  "slot_rack_3_u13": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 13,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u13,asset_rack_3_blank_u14",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.6334
+   ]
+  },
+  "slot_rack_3_u15": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 15,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u15,asset_rack_3_blank_u16",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.7223
+   ]
+  },
+  "slot_rack_3_u17": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 17,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u17,asset_rack_3_blank_u18",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.8112
+   ]
+  },
+  "slot_rack_3_u19": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 19,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u19,asset_rack_3_blank_u20",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.9001
+   ]
+  },
+  "slot_rack_3_u21": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 21,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u21,asset_rack_3_blank_u22",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    0.989
+   ]
+  },
+  "slot_rack_3_u23": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 23,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u23,asset_rack_3_blank_u24",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    1.0779
+   ]
+  },
+  "slot_rack_3_u25": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 25,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u25,asset_rack_3_blank_u26",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    1.1668
+   ]
+  },
+  "slot_rack_3_u27": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 27,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u27,asset_rack_3_blank_u28",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    1.2557
+   ]
+  },
+  "slot_rack_3_u29": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 29,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u29,asset_rack_3_blank_u30",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    1.3446
+   ]
+  },
+  "slot_rack_3_u31": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 31,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u31,asset_rack_3_blank_u32",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    1.4335
+   ]
+  },
+  "slot_rack_3_u33": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 33,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u33,asset_rack_3_blank_u34",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    1.5224
+   ]
+  },
+  "slot_rack_3_u35": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 35,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u35,asset_rack_3_blank_u36",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    1.6113
+   ]
+  },
+  "slot_rack_3_u37": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 37,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u37,asset_rack_3_blank_u38",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    1.7002
+   ]
+  },
+  "slot_rack_3_u39": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_3",
+   "u": 39,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_3_blank_u39,asset_rack_3_blank_u40",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.103,
+    -2.7,
+    1.7891
+   ]
+  },
+  "asset_rack_3_blank_u01": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 1,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.1
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u02": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 2,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.14445
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u03": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 3,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.1889
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u04": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 4,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.23335
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u05": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 5,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.2778
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u06": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 6,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.32225
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u07": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 7,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.3667
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u08": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 8,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.41115
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u09": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 9,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.4556
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u10": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 10,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.50005
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u11": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 11,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.5445
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u12": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 12,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.58895
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u13": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 13,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.6334
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u14": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 14,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.67785
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u15": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 15,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.7223
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u16": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 16,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.76675
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u17": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 17,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.8112
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u18": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 18,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.85565
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u19": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 19,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.9001
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u20": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 20,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.94455
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u21": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 21,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    0.989
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u22": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 22,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.03345
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u23": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 23,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.0779
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u24": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 24,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.12235
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u25": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 25,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.1668
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u26": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 26,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.21125
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u27": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 27,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.2557
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u28": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 28,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.30015
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u29": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 29,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.3446
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u30": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 30,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.38905
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u31": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 31,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.4335
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u32": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 32,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.47795
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u33": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 33,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.5224
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u34": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 34,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.56685
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u35": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 35,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.6113
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u36": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 36,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.65575
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u37": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 37,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.7002
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u38": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 38,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.74465
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u39": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 39,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.7891
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u40": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 40,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.83355
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_3_blank_u41": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_3",
+   "u": 41,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_3",
+   "pos": [
+    -2.1,
+    -2.7,
+    1.878
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "rack_4_switch_u42": {
+   "role": "fixed",
+   "tip": "switch",
+   "u": 42,
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.102,
+    -3.3,
+    1.92245
+   ]
+  },
+  "u_rack_4_01": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 1,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.1
+   ]
+  },
+  "u_rack_4_02": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 2,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.14445
+   ]
+  },
+  "u_rack_4_03": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 3,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.1889
+   ]
+  },
+  "u_rack_4_04": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 4,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.23335
+   ]
+  },
+  "u_rack_4_05": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 5,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.2778
+   ]
+  },
+  "u_rack_4_06": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 6,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.32225
+   ]
+  },
+  "u_rack_4_07": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 7,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.3667
+   ]
+  },
+  "u_rack_4_08": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 8,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.41115
+   ]
+  },
+  "u_rack_4_09": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 9,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.4556
+   ]
+  },
+  "u_rack_4_10": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 10,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.50005
+   ]
+  },
+  "u_rack_4_11": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 11,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.5445
+   ]
+  },
+  "u_rack_4_12": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 12,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.58895
+   ]
+  },
+  "u_rack_4_13": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 13,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.6334
+   ]
+  },
+  "u_rack_4_14": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 14,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.67785
+   ]
+  },
+  "u_rack_4_15": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 15,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.7223
+   ]
+  },
+  "u_rack_4_16": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 16,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.76675
+   ]
+  },
+  "u_rack_4_17": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 17,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.8112
+   ]
+  },
+  "u_rack_4_18": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 18,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.85565
+   ]
+  },
+  "u_rack_4_19": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 19,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.9001
+   ]
+  },
+  "u_rack_4_20": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 20,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.94455
+   ]
+  },
+  "u_rack_4_21": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 21,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.989
+   ]
+  },
+  "u_rack_4_22": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 22,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.03345
+   ]
+  },
+  "u_rack_4_23": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 23,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.0779
+   ]
+  },
+  "u_rack_4_24": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 24,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.12235
+   ]
+  },
+  "u_rack_4_25": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 25,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.1668
+   ]
+  },
+  "u_rack_4_26": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 26,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.21125
+   ]
+  },
+  "u_rack_4_27": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 27,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.2557
+   ]
+  },
+  "u_rack_4_28": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 28,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.30015
+   ]
+  },
+  "u_rack_4_29": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 29,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.3446
+   ]
+  },
+  "u_rack_4_30": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 30,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.38905
+   ]
+  },
+  "u_rack_4_31": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 31,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.4335
+   ]
+  },
+  "u_rack_4_32": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 32,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.47795
+   ]
+  },
+  "u_rack_4_33": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 33,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.5224
+   ]
+  },
+  "u_rack_4_34": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 34,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.56685
+   ]
+  },
+  "u_rack_4_35": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 35,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.6113
+   ]
+  },
+  "u_rack_4_36": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 36,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.65575
+   ]
+  },
+  "u_rack_4_37": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 37,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.7002
+   ]
+  },
+  "u_rack_4_38": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 38,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.74465
+   ]
+  },
+  "u_rack_4_39": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 39,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.7891
+   ]
+  },
+  "u_rack_4_40": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 40,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.83355
+   ]
+  },
+  "u_rack_4_41": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 41,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.878
+   ]
+  },
+  "u_rack_4_42": {
+   "role": "rack_unit",
+   "rack": "rack_4",
+   "u": 42,
+   "height": 0.04445,
+   "note": "bottom edge of this U on the front rails",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.92245
+   ]
+  },
+  "slot_rack_4_u01": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 1,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u01,asset_rack_4_blank_u02",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.1
+   ]
+  },
+  "slot_rack_4_u03": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 3,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u03,asset_rack_4_blank_u04",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.1889
+   ]
+  },
+  "slot_rack_4_u05": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 5,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u05,asset_rack_4_blank_u06",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.2778
+   ]
+  },
+  "slot_rack_4_u07": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 7,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u07,asset_rack_4_blank_u08",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.3667
+   ]
+  },
+  "slot_rack_4_u09": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 9,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u09,asset_rack_4_blank_u10",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.4556
+   ]
+  },
+  "slot_rack_4_u11": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 11,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u11,asset_rack_4_blank_u12",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.5445
+   ]
+  },
+  "slot_rack_4_u13": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 13,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u13,asset_rack_4_blank_u14",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.6334
+   ]
+  },
+  "slot_rack_4_u15": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 15,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u15,asset_rack_4_blank_u16",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.7223
+   ]
+  },
+  "slot_rack_4_u17": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 17,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u17,asset_rack_4_blank_u18",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.8112
+   ]
+  },
+  "slot_rack_4_u19": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 19,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u19,asset_rack_4_blank_u20",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.9001
+   ]
+  },
+  "slot_rack_4_u21": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 21,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u21,asset_rack_4_blank_u22",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    0.989
+   ]
+  },
+  "slot_rack_4_u23": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 23,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u23,asset_rack_4_blank_u24",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    1.0779
+   ]
+  },
+  "slot_rack_4_u25": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 25,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u25,asset_rack_4_blank_u26",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    1.1668
+   ]
+  },
+  "slot_rack_4_u27": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 27,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u27,asset_rack_4_blank_u28",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    1.2557
+   ]
+  },
+  "slot_rack_4_u29": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 29,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u29,asset_rack_4_blank_u30",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    1.3446
+   ]
+  },
+  "slot_rack_4_u31": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 31,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u31,asset_rack_4_blank_u32",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    1.4335
+   ]
+  },
+  "slot_rack_4_u33": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 33,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u33,asset_rack_4_blank_u34",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    1.5224
+   ]
+  },
+  "slot_rack_4_u35": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 35,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u35,asset_rack_4_blank_u36",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    1.6113
+   ]
+  },
+  "slot_rack_4_u37": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 37,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u37,asset_rack_4_blank_u38",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    1.7002
+   ]
+  },
+  "slot_rack_4_u39": {
+   "role": "slot",
+   "accepts": "server",
+   "rack": "rack_4",
+   "u": 39,
+   "size_u": 2,
+   "filled": false,
+   "facing": "+Y",
+   "requires": "asset_rack_4_blank_u39,asset_rack_4_blank_u40",
+   "note": "remove both 1U blanks first; server slides in from the front (+Y in the row frame)",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.103,
+    -3.3,
+    1.7891
+   ]
+  },
+  "asset_rack_4_blank_u01": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 1,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.1
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u02": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 2,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.14445
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u03": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 3,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.1889
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u04": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 4,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.23335
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u05": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 5,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.2778
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u06": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 6,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.32225
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u07": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 7,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.3667
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u08": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 8,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.41115
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u09": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 9,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.4556
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u10": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 10,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.50005
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u11": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 11,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.5445
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u12": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 12,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.58895
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u13": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 13,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.6334
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u14": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 14,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.67785
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u15": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 15,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.7223
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u16": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 16,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.76675
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u17": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 17,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.8112
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u18": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 18,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.85565
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u19": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 19,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.9001
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u20": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 20,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.94455
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u21": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 21,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    0.989
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u22": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 22,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.03345
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u23": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 23,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.0779
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u24": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 24,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.12235
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u25": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 25,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.1668
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u26": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 26,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.21125
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u27": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 27,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.2557
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u28": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 28,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.30015
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u29": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 29,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.3446
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u30": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 30,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.38905
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u31": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 31,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.4335
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u32": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 32,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.47795
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u33": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 33,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.5224
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u34": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 34,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.56685
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u35": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 35,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.6113
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u36": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 36,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.65575
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u37": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 37,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.7002
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u38": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 38,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.74465
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u39": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 39,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.7891
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u40": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 40,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.83355
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "asset_rack_4_blank_u41": {
+   "role": "asset",
+   "tip": "blanking_panel",
+   "rack": "rack_4",
+   "u": 41,
+   "size_u": 1,
+   "pull": [
+    [
+     0.0,
+     0.04,
+     0.0
+    ]
+   ],
+   "pull_frame": "fixed_racks",
+   "note": "tool-less 1U blank: squeeze the clips, pull straight out",
+   "parent": "fixed_rack_4",
+   "pos": [
+    -2.1,
+    -3.3,
+    1.878
+   ],
+   "pull_world": [
+    [
+     0.04,
+     -0.0,
+     0.0
+    ]
+   ]
+  },
+  "fixed_boxes": {
+   "role": "fixed",
+   "parent": "lab_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "lab_boxes": {
+   "role": "fixed",
+   "tip": "boxes",
+   "parent": "fixed_boxes",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_server_lift": {
+   "role": "asset",
+   "tip": "server_lift",
+   "pull": [
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "note": "IXOLIFT DataLift F Pro: push on castors; platform 0.135-2.40 m; front-loading 300 mm into a rack",
+   "capacity_kg": 200,
+   "platform": [
+    0.42,
+    0.61
+   ],
+   "parent": "lab_root",
+   "pos": [
+    -3.65,
+    1.1,
+    0.0
+   ],
+   "pull_world": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ]
+  },
+  "lift_brake_bar": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    -12
+   ],
+   "tip": "lift_brake",
+   "note": "press with the foot to brake the rear wheels; 0.36 m wide",
+   "parent": "asset_server_lift",
+   "pos": [
+    -3.83,
+    1.6,
+    0.075
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "lift_key": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    90
+   ],
+   "tip": "lift_key",
+   "note": "power key switch",
+   "parent": "asset_server_lift",
+   "pos": [
+    -3.815,
+    1.49,
+    0.86
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "lift_estop": {
+   "role": "moving",
+   "motion": "press",
+   "axis": "-Z",
+   "limits": [
+    0.0,
+    0.008
+   ],
+   "tip": "lift_estop",
+   "note": "emergency stop: push to stop, twist to reset",
+   "parent": "asset_server_lift",
+   "pos": [
+    -3.7,
+    1.49,
+    0.86
+   ],
+   "axis_world": [
+    -0.0,
+    -0.0,
+    -1.0
+   ]
+  },
+  "lift_wheel_lock": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    90
+   ],
+   "tip": "lift_wheel_lock",
+   "note": "locks / releases the front wheels",
+   "parent": "asset_server_lift",
+   "pos": [
+    -3.6,
+    1.49,
+    0.86
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "lift_button_1": {
+   "role": "moving",
+   "motion": "press",
+   "axis": "-Z",
+   "limits": [
+    0.0,
+    0.004
+   ],
+   "tip": "lift_button",
+   "parent": "asset_server_lift",
+   "pos": [
+    -3.46,
+    1.46,
+    0.86
+   ],
+   "axis_world": [
+    -0.0,
+    -0.0,
+    -1.0
+   ]
+  },
+  "lift_button_2": {
+   "role": "moving",
+   "motion": "press",
+   "axis": "-Z",
+   "limits": [
+    0.0,
+    0.004
+   ],
+   "tip": "lift_button",
+   "parent": "asset_server_lift",
+   "pos": [
+    -3.46,
+    1.495,
+    0.86
+   ],
+   "axis_world": [
+    -0.0,
+    -0.0,
+    -1.0
+   ]
+  },
+  "lift_platform": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Z",
+   "limits": [
+    0.0,
+    2.2345
+   ],
+   "tip": "lift_platform",
+   "note": "shelf + central carriage; top 0.1655 (lowered, level with the legs) to 2.40 m; remote raises/lowers",
+   "parent": "asset_server_lift",
+   "pos": [
+    -3.65,
+    1.1,
+    0.1655
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "slot_lift_server": {
+   "role": "slot",
+   "accepts": "server",
+   "note": "server sits here (front towards -Y, out over the table end); slides 300 mm into a rack",
+   "parent": "lift_platform",
+   "pos": [
+    -3.65,
+    0.75,
+    0.1655
+   ]
+  },
+  "asset_lift_remote": {
+   "role": "asset",
+   "tip": "lift_remote",
+   "pull": [
+    [
+     0.0,
+     0.06,
+     0.05
+    ]
+   ],
+   "note": "up/down remote; hangs in a holster on the rear; works from either side",
+   "parent": "asset_server_lift",
+   "pos": [
+    -3.52,
+    1.446,
+    1.3
+   ],
+   "pull_world": [
+    [
+     0.0,
+     0.06,
+     0.05
+    ]
+   ]
+  },
+  "fixed_lift_charging": {
+   "role": "fixed",
+   "tip": "lift_charging",
+   "parent": "lab_root",
+   "pos": [
+    -4.2,
+    1.45,
+    0.45
+   ]
+  },
+  "lift_charge_lead": {
+   "role": "connector",
+   "tip": "lift_charge_lead",
+   "note": "unplug before moving the lift",
+   "parent": "fixed_lift_charging",
+   "pos": [
+    -4.122,
+    1.415,
+    0.45
+   ]
+  }
+ }
+}
