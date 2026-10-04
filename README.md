@@ -37,6 +37,7 @@ It runs in the **Quest browser** (WebXR): nothing to install. Built with
 
 **The lab**
 - **Training lab room** (default): racks, an island table, a tool cabinet with drawers, benches, doors and a server lift.
+- **Data hall:** click the lab's double door to walk into a full data hall (rack rows, hot aisles, power cabinets, cable baskets). Click either hall door to go back. Only one room is loaded at a time.
 - **Three settings** from the quick menu: **Room**, **AR** (your real room through passthrough) or **Black** (a plain void).
 - You start at the island table. The **server starts in rack 3**.
 - Doors, rack doors, the tool cabinet's doors and its 7 drawers open and close (open both cabinet doors before the drawers).
@@ -65,6 +66,7 @@ It runs in the **Quest browser** (WebXR): nothing to install. Built with
 | Action | Controllers | Hands |
 |---|---|---|
 | Click tabs, buttons, doors, drawers | Point + trigger | Point + pinch, or press with a fingertip |
+| Go to the data hall / back to the lab | Click the lab's double door / a hall door | Same |
 | Pull a part out | Point at it + hold trigger | Pinch and hold on it |
 | Grab up close (right hand) | Grip | Pinch |
 | Carry the server | Grip on its side, or hold the trigger on its case | Pinch its side |
@@ -110,7 +112,7 @@ If the headset can't reach the PC, allow Node.js through the firewall for privat
 | `app/src/service/rules.ts` | The removal rules (pure logic, unit tested) |
 | `app/src/service/service-system.ts` | Interaction: grabs, paths, slots, tools, room, menu |
 | `app/src/service/lab.ts` | The lab room: doors, drawers, rack slots |
-| `app/public/gltf/` | Models: server, screwdriver, lab |
+| `app/public/gltf/` | Models: server, screwdriver, lab, data hall |
 | `app/public/ui/` | Panels: tablet, welcome card, heads-up, menu |
 | `model/` | Blender source files and build scripts |
 | `CHANGELOG.md` | What changed in each release |

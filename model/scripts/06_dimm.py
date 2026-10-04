@@ -1,7 +1,9 @@
 """Asset 6 (polish v2) — DIMM asset x8: PCB with off-centre notch + end cut-outs for the ejectors,
 gold contacts, chips. Shared mesh. MODEL-SPEC §8.6, §12.3b."""
 import bpy
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 lay = load_layout()
 S = server_coll(); P = coll("parts", S); D = coll("dimms", P); wipe(D)

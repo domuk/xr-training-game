@@ -39,6 +39,7 @@ import {
   type UIKitMLAsset,
   Color,
   LocomotionSystem,
+  AssetManager,
 } from '@iwsdk/core';
 import { ServiceControl, ServicePart } from './components.js';
 import {
@@ -81,6 +82,12 @@ const RACKED_TEXT =
   'The server is in the rack. Pull it out with both hands on its sides (drives can be swapped in place).';
 const GRAVITY = false; // owner: everything floats for now (collisions to come)
 const ROOM_STAND = 0.95;
+/** Data hall: stand just inside its west double door, facing north. */
+const HALL_SPAWN = new Vector3(-8.7, 0, 5.37);
+/** Lab: stand just inside its double door, facing north. */
+const LAB_SPAWN = new Vector3(0.7, 0, 2.97);
+/** Hall door leaves that take you back to the lab. */
+const HALL_DOORS = ['door_W_leaf_W', 'door_W_leaf_E', 'door_E_leaf_W', 'door_E_leaf_E'];
 const ROOM_HALF = 4.0; // m: loose parts stay within the 8.4 m room (minus wall thickness) // m: where the user stands, south of the island table slot
 const MENU_DOUBLE = 0.45; // s: two A presses within this = quick menu
 const MENU_HOLD = 3; // s: back of the open right hand shown this long = quick menu
@@ -116,6 +123,25 @@ function toGl(v: Vec3): Vector3 {
 }
 
 type PointerEventLike = { stopPropagation?: () => void };
+
+/** Free a hidden room's GPU memory (geometry, materials, textures). */
+function freeGpu(root: Object3D): void {
+  root.traverse((o) => {
+    const mesh = o as Mesh;
+    if (!mesh.isMesh) return;
+    mesh.geometry?.dispose();
+    const mats = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
+    for (const m of mats) {
+      if (m == null) continue;
+      for (const v of Object.values(m)) {
+        if (v != null && typeof v === 'object' && (v as { isTexture?: boolean }).isTexture) {
+          (v as { dispose: () => void }).dispose();
+        }
+      }
+      m.dispose();
+    }
+  });
+}
 
 /** three's typed event map doesn't list pointer events; IWSDK dispatches them. */
 function listen(
@@ -229,6 +255,11 @@ export class ServiceSystem extends createSystem({
   private viewOnly = false;
   private lab?: Object3D;
   private labRoom = new LabRoom(this.world);
+  /** Which room you're in (only that one is loaded). */
+  private room: 'lab' | 'hall' = 'lab';
+  private hall?: Object3D;
+  private hallEntity?: Entity;
+  private roomBusy = false;
   private labState: 'waiting' | 'loading' | 'ready' = 'waiting';
   private propEntity?: Entity;
   private propHeld = false;
@@ -1246,11 +1277,12 @@ export class ServiceSystem extends createSystem({
   private obstacles(obj: Object3D, part?: PartRuntime): Box3[] {
     const list: Box3[] = [];
     if (this.setting === 'room') {
-      if (this.furniture == null && this.labState === 'ready' && this.lab != null) {
+      const roomRoot = this.room === 'hall' ? this.hall : this.lab;
+      if (this.furniture == null && this.labState === 'ready' && roomRoot != null) {
         this.furniture = [];
         const size = new Vector3();
-        this.lab.updateWorldMatrix(true, true);
-        this.lab.traverse((o) => {
+        roomRoot.updateWorldMatrix(true, true);
+        roomRoot.traverse((o) => {
           const m = o as Mesh;
           if (!m.isMesh || !this.shown(m) || this.labRoom.isMover(m)) return;
           const b = new Box3().setFromObject(m);
@@ -1577,13 +1609,20 @@ export class ServiceSystem extends createSystem({
     this.applySetting();
     const viewOnly = this.viewOnly;
     this.viewOnly = false;
-    if (this.setting === 'room') this.placeInRoom(!viewOnly);
+    if (this.setting === 'room' && this.room === 'hall') this.standAt(HALL_SPAWN.clone());
+    else if (this.setting === 'room') this.placeInRoom(!viewOnly);
     else {
       this.serverSlot = undefined;
       this.placeServer();
     }
+    this.placeTablet(view);
+  }
+
+  /** Tablet in front, a little to the left and low (like holding it). */
+  private placeTablet(fallback?: { headPos: Vector3; forward: Vector3; right: Vector3 }): void {
     const screen = this.tablet.screen;
-    const after = this.headView() ?? view;
+    const after = this.headView() ?? fallback;
+    if (after == null) return;
     if (screen != null) {
       // In front, a little to the left and low (like holding it), so the
       // server stays visible.
@@ -1638,6 +1677,7 @@ export class ServiceSystem extends createSystem({
           }
           this.labRoom.onBlankOut = (obj) => this.dropObject(obj);
           this.labRoom.onRefuse = (title, text) => this.say(title, '', text);
+          this.labRoom.onDoor = () => void this.goToHall();
           this.labState = 'ready';
           this.applySetting();
           // Browser (flat) view: show the server on the island table.
@@ -1679,25 +1719,84 @@ export class ServiceSystem extends createSystem({
   /** Show / hide the lab and passthrough for the current setting. */
   private applySetting(): void {
     if (this.lab == null) this.lab = this.world.getSceneObject('lab') ?? undefined;
-    const labEntity = this.world.getSceneEntity('lab');
-    if (labEntity != null) {
-      const solid = labEntity.hasComponent(LocomotionEnvironment);
-      if (this.setting === 'room' && !solid) labEntity.addComponent(LocomotionEnvironment, { type: 'static' });
-      if (this.setting !== 'room' && solid) labEntity.removeComponent(LocomotionEnvironment);
-    }
-    if (this.lab != null) {
-      this.lab.visible = this.setting === 'room';
-      (this.lab as Object3D & { pointerEvents?: string }).pointerEvents =
-        this.setting === 'room' ? undefined : 'none';
-    }
-    const prop = this.labRoom.prop;
-    if (prop != null) {
-      prop.visible = this.setting === 'room';
-      (prop as Object3D & { pointerEvents?: string }).pointerEvents =
-        this.setting === 'room' ? undefined : 'none';
+    // Only one room is loaded at a time: the lab or the data hall.
+    const inLab = this.setting === 'room' && this.room === 'lab';
+    const inHall = this.setting === 'room' && this.room === 'hall';
+    this.showRoom(this.world.getSceneEntity('lab'), this.lab, inLab);
+    this.showRoom(this.hallEntity, this.hall, inHall);
+    // The server, the drawer screwdriver and the server's rack live in the lab.
+    for (const obj of [this.labRoom.prop, this.serverEntity?.object3D]) {
+      if (obj == null) continue;
+      const show = this.setting !== 'room' || this.room === 'lab';
+      obj.visible = obj === this.labRoom.prop ? inLab : show;
+      (obj as Object3D & { pointerEvents?: string }).pointerEvents = obj.visible ? undefined : 'none';
     }
     // An opaque background hides passthrough (room and black).
     this.world.scene.background = this.setting === 'ar' ? null : new Color(0x000000);
+  }
+
+  /**
+   * Show or unload a room. Unloading takes it out of view, makes it not
+   * solid and frees its GPU memory (it re-uploads by itself when shown again).
+   */
+  private showRoom(entity: Entity | undefined, root: Object3D | undefined, show: boolean): void {
+    if (entity != null) {
+      const solid = entity.hasComponent(LocomotionEnvironment);
+      if (show && !solid) entity.addComponent(LocomotionEnvironment, { type: 'static' });
+      if (!show && solid) entity.removeComponent(LocomotionEnvironment);
+    }
+    if (root == null) return;
+    const was = root.visible;
+    root.visible = show;
+    (root as Object3D & { pointerEvents?: string }).pointerEvents = show ? undefined : 'none';
+    if (was && !show) freeGpu(root);
+  }
+
+  /** Lab door clicked: load the data hall, stand inside its west door, unload the lab. */
+  private async goToHall(): Promise<void> {
+    if (this.roomBusy || this.room === 'hall') return;
+    this.roomBusy = true;
+    this.say('Data hall', 'Going to the data hall...', '');
+    try {
+      if (this.hall == null) {
+        const gltf = await AssetManager.loadGLTF(`${import.meta.env.BASE_URL}gltf/datahall/datahall.glb`, 'datahall');
+        this.hall = gltf.scene;
+        this.hallEntity = this.world.createTransformEntity(this.hall);
+        this.hallEntity.addComponent(RayInteractable);
+        for (const name of HALL_DOORS) {
+          const door = this.hall.getObjectByName(name);
+          if (door == null) continue;
+          listen(door, 'pointerdown', (event) => {
+            event.stopPropagation?.();
+            void this.goToLab();
+          });
+        }
+      }
+      this.room = 'hall';
+      this.furniture = undefined;
+      this.applySetting();
+      this.standAt(HALL_SPAWN.clone());
+      this.placeTablet();
+      this.say('Data hall', 'Click either hall door to go back to the lab.', '');
+    } finally {
+      this.roomBusy = false;
+    }
+  }
+
+  /** Hall door clicked: back to the lab door, unload the hall. */
+  private async goToLab(): Promise<void> {
+    if (this.roomBusy || this.room === 'lab') return;
+    this.roomBusy = true;
+    try {
+      this.room = 'lab';
+      this.furniture = undefined;
+      this.applySetting();
+      this.standAt(LAB_SPAWN.clone());
+      this.placeTablet();
+      this.say('Lab', 'Back in the lab. Click the lab door for the data hall.', '');
+    } finally {
+      this.roomBusy = false;
+    }
   }
 
   /** Menu: switch Room / AR / Black and put everything back in place. */
@@ -1738,6 +1837,11 @@ export class ServiceSystem extends createSystem({
 
   /** Move the player to stand south of the island table, facing it. */
   private standAtTable(slotPos: Vector3): void {
+    this.standAt(new Vector3(slotPos.x, 0, slotPos.z + ROOM_STAND));
+  }
+
+  /** Stand the player at `spot` (world, floor level), facing north (-Z). */
+  private standAt(spot: Vector3): void {
     // Turn the player so the head faces -Z (north), then move it to stand
     // ROOM_STAND m south of the table slot.
     const head = this.player.head;
@@ -1752,8 +1856,8 @@ export class ServiceSystem extends createSystem({
     p.updateWorldMatrix(true, true);
     const now = new Vector3().setFromMatrixPosition(head.matrixWorld);
     const target = p.position.clone();
-    target.x += slotPos.x - now.x;
-    target.z += slotPos.z + ROOM_STAND - now.z;
+    target.x += spot.x - now.x;
+    target.z += spot.z - now.z;
     // Locomotion owns the player position: move it through the system.
     const loco = this.world.getSystem(LocomotionSystem);
     if (loco != null) loco.setPlayerPosition(target);

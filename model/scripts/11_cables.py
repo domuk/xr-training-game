@@ -2,7 +2,9 @@
 SATA bundle (16 plugs, through the fan-bracket notch), 4 backplane power bundles, ATX 24-pin + 8-pin; zip ties.
 MODEL-SPEC §8.10, §12."""
 import bpy
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 lay = load_layout()
 S = server_coll(); CB = coll("cables", S); wipe(CB)

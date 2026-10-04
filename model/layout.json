@@ -440,5 +440,80 @@
   "top": 0.0076,
   "dimm_notch_y": 0.004,
   "pcie_groove_floor": 0.0106
+ },
+ "lab_racks": {
+  "rack_1": {
+   "x": [
+    0.0,
+    0.8
+   ],
+   "cx": 0.4,
+   "kind": "cabinet_doors",
+   "front_rail_y": 1.0999999999999999,
+   "rear_rail_y": 0.34999999999999987,
+   "rear_y": 0.0,
+   "front_y": 1.2,
+   "u1_z": 0.1,
+   "u": 0.04445
+  },
+  "rack_2": {
+   "x": [
+    1.4,
+    2.0
+   ],
+   "cx": 1.7,
+   "kind": "open_frame",
+   "front_rail_y": 1.0999999999999999,
+   "rear_rail_y": 0.34999999999999987,
+   "rear_y": 0.0,
+   "front_y": 1.2,
+   "u1_z": 0.1,
+   "u": 0.04445
+  },
+  "rack_3": {
+   "x": [
+    2.0,
+    2.6
+   ],
+   "cx": 2.3,
+   "kind": "open_frame",
+   "front_rail_y": 1.0999999999999999,
+   "rear_rail_y": 0.34999999999999987,
+   "rear_y": 0.0,
+   "front_y": 1.2,
+   "u1_z": 0.1,
+   "u": 0.04445
+  },
+  "rack_4": {
+   "x": [
+    2.6,
+    3.2
+   ],
+   "cx": 2.9000000000000004,
+   "kind": "open_frame",
+   "front_rail_y": 1.0999999999999999,
+   "rear_rail_y": 0.34999999999999987,
+   "rear_y": 0.0,
+   "front_y": 1.2,
+   "u1_z": 0.1,
+   "u": 0.04445
+  },
+  "_row": {
+   "origin": [
+    -3.2,
+    -0.3999999999999999,
+    0.0
+   ],
+   "rot_z_deg": -90,
+   "note": "rack coords are in the row frame (fixed_racks)"
+  }
+ },
+ "lab_room": {
+  "W": 8.4,
+  "L": 8.4,
+  "inset_x": 7.4,
+  "step_y": 3.2,
+  "origin": "bbox centre",
+  "wall_h": 3.6
  }
 }

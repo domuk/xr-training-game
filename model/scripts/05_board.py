@@ -3,7 +3,9 @@ load plate, keys, triangle), DIMM slots (U, key, 2 ejector clips with nubs), PCI
 chipset, battery holder + clip + battery asset, power headers, SATA ports, rear I/O through the shield,
 labels. MODEL-SPEC §8.5, §12."""
 import bpy, math
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 from mathutils import Vector
 lay = load_layout()

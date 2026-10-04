@@ -1,7 +1,9 @@
 """Asset 2 (polish v2) — drive caddy x24: frame, release button (press), handle (hinge), activity/fault LEDs,
 4 M3 drive screws, drive as a sub-asset. Shared meshes. MODEL-SPEC §8.2, §12.3b."""
 import bpy
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 from mathutils import Vector
 lay = load_layout()

@@ -1,7 +1,9 @@
 """Asset 3 (polish v2) — backplane (asset): PCB, 8 SATA + 4 power + 3 fan headers, 4 mounting screws.
 MODEL-SPEC §8.3, §12."""
 import bpy
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 from mathutils import Vector
 lay = load_layout()

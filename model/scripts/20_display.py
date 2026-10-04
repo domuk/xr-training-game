@@ -2,7 +2,9 @@
 and labelled. The server stays intact. Copies share mesh data, live in the 'display' collection (not
 exported) and have their metadata stripped so QA ignores them."""
 import bpy, math
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 from mathutils import Vector, Euler
 

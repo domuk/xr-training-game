@@ -7,14 +7,18 @@ Ref: assets/reference/parts/accel-k2t-qb. Real card is full height; built at low
   - back side: 10 DRAM chips + labels
   - x16 fingers in the slot + second finger segment (as the real card)"""
 import bpy
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 from mathutils import Vector
 lay = load_layout()
 S = server_coll(); P = coll("parts", S); A = coll("accel", P); wipe(A)
 mm = 0.001; YF, YB = 0.6392, 0.6215
 MET, DARK, GOLD = M("M_EarAlu"), M("M_ChipBlack"), M("M_Gold")
-exec(open(bpy.path.abspath("//scripts/_ports.py")).read())
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+exec(open(os.path.join(HERE, "_ports.py")).read())
 
 xc = lay["pcie_x"][1]; t = 0.0008               # slot 2
 PX, BK = xc - t, xc + t                          # component face (-X), back face (+X)

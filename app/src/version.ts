@@ -4,7 +4,7 @@
 import pkg from '../package.json';
 
 // The version being worked on (released when the batch is complete).
-const NEXT_VERSION = '1.1.2';
+const NEXT_VERSION = '1.2.0';
 
 export const APP_TITLE = import.meta.env.DEV
   ? `Server Explorer dev ${NEXT_VERSION}`

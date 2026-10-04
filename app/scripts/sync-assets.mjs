@@ -27,4 +27,9 @@ mkdirSync(lab, { recursive: true });
 for (const file of ['lab.glb', 'lab_manifest.json']) {
   if (existsSync(resolve(source, file))) cpSync(resolve(source, file), resolve(lab, file));
 }
-console.log(`Synced server, tool and lab assets -> public/gltf/`);
+const hall = resolve(appRoot, 'public/gltf/datahall');
+mkdirSync(hall, { recursive: true });
+for (const file of ['datahall.glb', 'datahall_manifest.json']) {
+  if (existsSync(resolve(source, file))) cpSync(resolve(source, file), resolve(hall, file));
+}
+console.log(`Synced server, tool, lab and data hall assets -> public/gltf/`);

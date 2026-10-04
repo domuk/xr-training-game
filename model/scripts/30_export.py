@@ -3,7 +3,9 @@ Everything under server_root (fixed scenery, grabbable assets, moving parts, fas
 properties as glTF extras, +Y up. Excludes the 'display' layout copies, cameras and lights. The lid is fitted
 for the export and put back aside afterwards."""
 import bpy, json, os
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 
 OUT = os.path.join(ROOT, "app", "public", "gltf", "server"); os.makedirs(OUT, exist_ok=True)

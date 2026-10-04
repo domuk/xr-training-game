@@ -1,7 +1,9 @@
 """Assets 7 + 8 (polish v2) — CPU asset x2 (edge notches, triangle), heatsink asset x2 (fins cut back at the
 corners for tool access, 4 captive Torx screws numbered 1-4, sequence label). MODEL-SPEC §8.7, §12.3b."""
 import bpy, math
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 lay = load_layout()
 S = server_coll(); P = coll("parts", S); C = coll("cpus", P); H = coll("heatsinks", P)

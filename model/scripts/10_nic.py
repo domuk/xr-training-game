@@ -7,14 +7,16 @@
 - Card parts: magnetics block, QFN controller, crystal, 3 blue jumpers.
 ATX orientation: PCB at the bracket edge nearest the CPU/I-O, components facing away (-X). MODEL-SPEC §12.6."""
 import bpy
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 from mathutils import Vector
 lay = load_layout()
 S = server_coll(); P = coll("parts", S); N = coll("nic", P); wipe(N)
 mm = 0.001; YF, YB = 0.6392, 0.6215
 MET, DARK, GOLD = M("M_EarAlu"), M("M_ChipBlack"), M("M_Gold")
-exec(open(bpy.path.abspath("//scripts/_ports.py")).read())     # boolean_cut
+exec(open(os.path.join(HERE, "_ports.py")).read())     # boolean_cut
 
 sl = Vector(lay["slots"]["slot_nic"]); x = sl.x; t = 0.0008
 PX = x - t                                       # component-side face of the PCB

@@ -1,7 +1,9 @@
 """Asset 1 (polish v2) — chassis (fixed), lid (asset), air shroud (asset), blank brackets (assets),
 I/O shield, standoffs, front control panel, bay numbers. Writes layout.json. MODEL-SPEC §8.1, §12."""
 import bpy, math
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 
 if "Cube" in bpy.data.objects:

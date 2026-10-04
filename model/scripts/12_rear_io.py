@@ -5,7 +5,9 @@ Connector geometry from the standards: USB-A opening 12.0 x 4.5, tongue 11 x 1.8
 RJ45 8 contacts @ 1.02 mm; DE-15 3 rows of 5 @ 2.29 mm; USB-C opening 8.34 x 2.56, 12 contacts/side @ 0.5 mm.
 Ports are children of the board asset; the shield is fixed chassis. MODEL-SPEC §12.5."""
 import bpy, bmesh, math
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 from mathutils import Vector
 S = server_coll(); IO = coll("rear_io", S); wipe(IO)
@@ -18,7 +20,7 @@ MET, DARK, GOLD = M("M_EarAlu"), M("M_ChipBlack"), M("M_Gold")
 mm = 0.001
 cutters = []
 
-exec(open(bpy.path.abspath("//scripts/_ports.py")).read())   # hull, jack, rj45, usb_a
+exec(open(os.path.join(HERE, "_ports.py")).read())   # hull, jack, rj45, usb_a
 
 def cut_box(x0, x1, z0, z1, c=0.0005):
     k = Part("cut"); k.box(x0 - c, x1 + c, 0.62, 0.66, z0 - c, z1 + c, DARK); cutters.append(k)

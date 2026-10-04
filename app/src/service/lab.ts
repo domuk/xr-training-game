@@ -97,7 +97,9 @@ export class LabRoom {
         addEventListener: (t: string, f: (e: { stopPropagation?: () => void }) => void) => void;
       }).addEventListener('pointerdown', (e) => {
         e.stopPropagation?.();
-        this.toggle(name);
+        // The lab's double door leads to the data hall.
+        if (/^door_leaf_[WE]$/.test(name) && this.onDoor != null) this.onDoor();
+        else this.toggle(name);
       });
     }
     for (const [name, n] of Object.entries(nodes)) {
@@ -144,6 +146,9 @@ export class LabRoom {
   }
 
   private blankTweens: ((dt: number) => boolean)[] = [];
+
+  /** Called when the lab's double door is clicked (go to the data hall). */
+  onDoor?: () => void;
 
   /** Called with a short message when a move isn't allowed. */
   onRefuse?: (title: string, text: string) => void;

@@ -1,7 +1,9 @@
 """Asset 9 (polish v2) — PSU cage (fixed) + 2 PSU module assets (release tab, handle, LED, inlet, grille)
 + 2 power cord assets. MODEL-SPEC §8.8, §12.3b (SC216 §5-10)."""
 import bpy, math
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 from mathutils import Matrix, Vector
 S = server_coll(); PW = coll("power", S); wipe(PW)
@@ -56,7 +58,9 @@ setp(dist.build(PW, fx), role="fixed", tip="power_distributor")
 RY = 0.640
 mm = 0.001; MET, DARK, GOLD = M("M_EarAlu"), M("M_ChipBlack"), M("M_Gold")
 YF, YB = RY + 0.0010, RY - 0.004                 # inlet housing stands 1 mm proud of the rear face
-exec(open(bpy.path.abspath("//scripts/_ports.py")).read())
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+exec(open(os.path.join(HERE, "_ports.py")).read())
 # ---------- module outer face, matched to assets/reference/parts/psu-module/04 (Supermicro) ----------
 # From the outer edge (+X) inward: release paddle | LED | portrait C14 inlet | 40 mm fan + wire guard + fold-out handle
 IX, FXC = 0.1810, 0.1420                         # inlet centre, fan centre

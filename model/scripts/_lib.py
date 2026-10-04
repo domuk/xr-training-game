@@ -9,6 +9,7 @@ from mathutils import Matrix, Vector
 
 # Paths are relative to model/server.blend (open it before running scripts).
 MODEL = bpy.path.abspath("//")
+HERE = os.path.join(MODEL, "scripts")
 ROOT = os.path.dirname(os.path.normpath(MODEL))
 LAYOUT = os.path.join(MODEL, "layout.json")
 BLEND = os.path.join(MODEL, "server.blend")

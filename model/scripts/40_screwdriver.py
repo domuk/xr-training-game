@@ -7,7 +7,9 @@ Grabbable: the tool, the fitted bit (pulls out of the magnetic holder), the bit 
 out 47 mm) and the 11 stored bits (clip out sideways once the store is out). Ratchet ring turns: < | >.
 Run headless:  blender --background --factory-startup --python 40_screwdriver.py"""
 import bpy, bmesh, math, os, json
-LIB = bpy.path.abspath("//scripts/_lib.py")
+import os
+HERE = bpy.path.abspath("//scripts")                   # this script's folder (assets/blender/scripts)
+LIB = os.path.join(HERE, "_lib.py")
 exec(open(LIB).read())
 from mathutils import Matrix, Vector
 bpy.ops.wm.read_factory_settings(use_empty=True)

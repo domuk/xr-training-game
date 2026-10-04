@@ -1,0 +1,8923 @@
+{
+ "file": "datahall.glb",
+ "units": "metres",
+ "up": "+Y (glTF); Blender source is Z-up",
+ "note": "positions/axes below are WORLD Blender axes (X east, Y north, Z up); glTF = (x, z, -y)",
+ "room": {
+  "size": [
+   20.4,
+   13.2
+  ],
+  "wall_h": 3.6,
+  "roof": 4.2,
+  "origin": "centre of the room, floor level"
+ },
+ "layout": {
+  "rows": {
+   "A": {
+    "rear_x": -5.999999999999999,
+    "front_x": -7.199999999999999,
+    "y": [
+     -2.3999999999999995,
+     3.5999999999999996
+    ],
+    "faces": "west"
+   },
+   "B": {
+    "rear_x": -4.799999999999999,
+    "front_x": -3.5999999999999988,
+    "y": [
+     -2.3999999999999995,
+     3.5999999999999996
+    ],
+    "faces": "east"
+   },
+   "C": {
+    "rear_x": -0.6000000000000014,
+    "front_x": -1.8000000000000007,
+    "y": [
+     -2.3999999999999995,
+     3.5999999999999996
+    ],
+    "faces": "west"
+   },
+   "D": {
+    "rear_x": 0.5999999999999979,
+    "front_x": 1.7999999999999972,
+    "y": [
+     -2.3999999999999995,
+     3.5999999999999996
+    ],
+    "faces": "east"
+   },
+   "E": {
+    "rear_x": 4.799999999999999,
+    "front_x": 3.5999999999999996,
+    "y": [
+     -2.3999999999999995,
+     3.5999999999999996
+    ],
+    "faces": "west"
+   },
+   "F": {
+    "rear_x": 6.0,
+    "front_x": 7.199999999999999,
+    "y": [
+     -2.3999999999999995,
+     3.5999999999999996
+    ],
+    "faces": "east"
+   }
+  },
+  "hot_aisles": {
+   "hot_aisle_1": {
+    "x": [
+     -5.999999999999999,
+     -4.799999999999999
+    ],
+    "y": [
+     -2.3999999999999995,
+     3.5999999999999996
+    ],
+    "rows": "AB"
+   },
+   "hot_aisle_2": {
+    "x": [
+     -0.6000000000000014,
+     0.5999999999999979
+    ],
+    "y": [
+     -2.3999999999999995,
+     3.5999999999999996
+    ],
+    "rows": "CD"
+   },
+   "hot_aisle_3": {
+    "x": [
+     4.799999999999999,
+     6.0
+    ],
+    "y": [
+     -2.3999999999999995,
+     3.5999999999999996
+    ],
+    "rows": "EF"
+   }
+  },
+  "pdc": {
+   "A": {
+    "x": [
+     -7.199999999999999,
+     -5.999999999999999
+    ],
+    "y": [
+     -3.1499999999999995,
+     -2.5499999999999994
+    ],
+    "incoming_x": -6.799999999999999
+   },
+   "B": {
+    "x": [
+     -4.799999999999999,
+     -3.5999999999999988
+    ],
+    "y": [
+     -3.1499999999999995,
+     -2.5499999999999994
+    ],
+    "incoming_x": -4.399999999999999
+   },
+   "C": {
+    "x": [
+     -1.8000000000000007,
+     -0.6000000000000008
+    ],
+    "y": [
+     -3.1499999999999995,
+     -2.5499999999999994
+    ],
+    "incoming_x": -1.4000000000000008
+   },
+   "D": {
+    "x": [
+     0.5999999999999972,
+     1.7999999999999972
+    ],
+    "y": [
+     -3.1499999999999995,
+     -2.5499999999999994
+    ],
+    "incoming_x": 0.9999999999999972
+   },
+   "E": {
+    "x": [
+     3.5999999999999996,
+     4.8
+    ],
+    "y": [
+     -3.1499999999999995,
+     -2.5499999999999994
+    ],
+    "incoming_x": 3.9999999999999996
+   },
+   "F": {
+    "x": [
+     5.999999999999999,
+     7.199999999999999
+    ],
+    "y": [
+     -3.1499999999999995,
+     -2.5499999999999994
+    ],
+    "incoming_x": 6.3999999999999995
+   }
+  },
+  "incoming_feed": {
+   "A": [
+    "L",
+    "R",
+    "L"
+   ],
+   "B": [
+    "L",
+    "R",
+    "R"
+   ],
+   "C": [
+    "L",
+    "R",
+    "L"
+   ],
+   "D": [
+    "L",
+    "R",
+    "R"
+   ],
+   "E": [
+    "L",
+    "R",
+    "L"
+   ],
+   "F": [
+    "L",
+    "R",
+    "R"
+   ]
+  },
+  "devices": {
+   "asset_laptop_cart": {
+    "x": -5.2,
+    "y": -6.0,
+    "faces": "north"
+   },
+   "asset_tool_cart_1": {
+    "x": -1.3,
+    "y": -6.0,
+    "faces": "north"
+   },
+   "asset_tool_cart_2": {
+    "x": 0.1,
+    "y": -6.0,
+    "faces": "north"
+   },
+   "asset_media_trolley": {
+    "x": 4.6,
+    "y": -5.97,
+    "faces": "north"
+   }
+  },
+  "empty_positions": [
+   "A07",
+   "A08",
+   "B05",
+   "C01",
+   "D03",
+   "D09",
+   "E02",
+   "F08"
+  ]
+ },
+ "nodes": {
+  "fixed_room": {
+   "role": "fixed",
+   "parent": "hall_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hall_lights": {
+   "role": "light",
+   "note": "LED battens; diffuser faces down",
+   "parent": "fixed_room",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "door_W_leaf_W": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    90
+   ],
+   "tip": "hall_door",
+   "parent": "fixed_room",
+   "pos": [
+    -9.6,
+    -6.57,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "door_W_leaf_E": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -90,
+    0
+   ],
+   "tip": "hall_door",
+   "parent": "fixed_room",
+   "pos": [
+    -7.8,
+    -6.57,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "door_E_leaf_W": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    90
+   ],
+   "tip": "hall_door",
+   "parent": "fixed_room",
+   "pos": [
+    7.8,
+    -6.57,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "door_E_leaf_E": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -90,
+    0
+   ],
+   "tip": "hall_door",
+   "parent": "fixed_room",
+   "pos": [
+    9.6,
+    -6.57,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "fixed_racks": {
+   "role": "fixed",
+   "parent": "hall_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_row_A": {
+   "role": "fixed",
+   "tip": "rack_row",
+   "row": "A",
+   "faces": "west",
+   "parent": "fixed_racks",
+   "pos": [
+    -6.0,
+    -2.4,
+    0.0
+   ]
+  },
+  "rack_A01": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "A",
+   "number": 1,
+   "units": 42,
+   "parent": "fixed_row_A",
+   "pos": [
+    -6.0,
+    -2.1,
+    0.0
+   ]
+  },
+  "rack_A02": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "A",
+   "number": 2,
+   "units": 42,
+   "parent": "fixed_row_A",
+   "pos": [
+    -6.0,
+    -1.5,
+    0.0
+   ]
+  },
+  "rack_A03": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "A",
+   "number": 3,
+   "units": 42,
+   "parent": "fixed_row_A",
+   "pos": [
+    -6.0,
+    -0.9,
+    0.0
+   ]
+  },
+  "rack_A04": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "A",
+   "number": 4,
+   "units": 42,
+   "parent": "fixed_row_A",
+   "pos": [
+    -6.0,
+    -0.3,
+    0.0
+   ]
+  },
+  "rack_A05": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "A",
+   "number": 5,
+   "units": 42,
+   "parent": "fixed_row_A",
+   "pos": [
+    -6.0,
+    0.3,
+    0.0
+   ]
+  },
+  "rack_A06": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "A",
+   "number": 6,
+   "units": 42,
+   "parent": "fixed_row_A",
+   "pos": [
+    -6.0,
+    0.9,
+    0.0
+   ]
+  },
+  "empty_pos_A07": {
+   "role": "slot",
+   "tip": "empty_rack_position",
+   "row": "A",
+   "number": 7,
+   "parent": "fixed_row_A",
+   "pos": [
+    -6.38,
+    1.5,
+    0.0
+   ]
+  },
+  "whip_A07_1_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_A07_1",
+   "pos": [
+    -6.38,
+    1.387,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_A07_2_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_A07_2",
+   "pos": [
+    -6.38,
+    1.537,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_A07_3_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_A07_3",
+   "pos": [
+    -6.38,
+    1.687,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_blank_A07": {
+   "role": "asset",
+   "tip": "containment_blank",
+   "note": "remove before a rack goes in",
+   "parent": "empty_pos_A07",
+   "pos": [
+    -6.0,
+    1.5,
+    0.0
+   ]
+  },
+  "empty_pos_A08": {
+   "role": "slot",
+   "tip": "empty_rack_position",
+   "row": "A",
+   "number": 8,
+   "parent": "fixed_row_A",
+   "pos": [
+    -6.38,
+    2.1,
+    0.0
+   ]
+  },
+  "whip_A08_1_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_A08_1",
+   "pos": [
+    -6.38,
+    1.987,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_A08_2_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_A08_2",
+   "pos": [
+    -6.38,
+    2.137,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_A08_3_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_A08_3",
+   "pos": [
+    -6.38,
+    2.287,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_blank_A08": {
+   "role": "asset",
+   "tip": "containment_blank",
+   "note": "remove before a rack goes in",
+   "parent": "empty_pos_A08",
+   "pos": [
+    -6.0,
+    2.1,
+    0.0
+   ]
+  },
+  "rack_A09": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "A",
+   "number": 9,
+   "units": 42,
+   "parent": "fixed_row_A",
+   "pos": [
+    -6.0,
+    2.7,
+    0.0
+   ]
+  },
+  "rack_A10": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "A",
+   "number": 10,
+   "units": 42,
+   "parent": "fixed_row_A",
+   "pos": [
+    -6.0,
+    3.3,
+    0.0
+   ]
+  },
+  "fixed_row_B": {
+   "role": "fixed",
+   "tip": "rack_row",
+   "row": "B",
+   "faces": "east",
+   "parent": "fixed_racks",
+   "pos": [
+    -4.8,
+    -2.4,
+    0.0
+   ]
+  },
+  "rack_B01": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "B",
+   "number": 1,
+   "units": 42,
+   "parent": "fixed_row_B",
+   "pos": [
+    -4.8,
+    -2.1,
+    0.0
+   ]
+  },
+  "rack_B02": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "B",
+   "number": 2,
+   "units": 42,
+   "parent": "fixed_row_B",
+   "pos": [
+    -4.8,
+    -1.5,
+    0.0
+   ]
+  },
+  "rack_B03": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "B",
+   "number": 3,
+   "units": 42,
+   "parent": "fixed_row_B",
+   "pos": [
+    -4.8,
+    -0.9,
+    0.0
+   ]
+  },
+  "rack_B04": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "B",
+   "number": 4,
+   "units": 42,
+   "parent": "fixed_row_B",
+   "pos": [
+    -4.8,
+    -0.3,
+    0.0
+   ]
+  },
+  "empty_pos_B05": {
+   "role": "slot",
+   "tip": "empty_rack_position",
+   "row": "B",
+   "number": 5,
+   "parent": "fixed_row_B",
+   "pos": [
+    -4.42,
+    0.3,
+    0.0
+   ]
+  },
+  "whip_B05_1_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_B05_1",
+   "pos": [
+    -4.42,
+    0.187,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_B05_2_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_B05_2",
+   "pos": [
+    -4.42,
+    0.337,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_B05_3_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_B05_3",
+   "pos": [
+    -4.42,
+    0.487,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_blank_B05": {
+   "role": "asset",
+   "tip": "containment_blank",
+   "note": "remove before a rack goes in",
+   "parent": "empty_pos_B05",
+   "pos": [
+    -4.8,
+    0.3,
+    0.0
+   ]
+  },
+  "rack_B06": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "B",
+   "number": 6,
+   "units": 42,
+   "parent": "fixed_row_B",
+   "pos": [
+    -4.8,
+    0.9,
+    0.0
+   ]
+  },
+  "rack_B07": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "B",
+   "number": 7,
+   "units": 42,
+   "parent": "fixed_row_B",
+   "pos": [
+    -4.8,
+    1.5,
+    0.0
+   ]
+  },
+  "rack_B08": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "B",
+   "number": 8,
+   "units": 42,
+   "parent": "fixed_row_B",
+   "pos": [
+    -4.8,
+    2.1,
+    0.0
+   ]
+  },
+  "rack_B09": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "B",
+   "number": 9,
+   "units": 42,
+   "parent": "fixed_row_B",
+   "pos": [
+    -4.8,
+    2.7,
+    0.0
+   ]
+  },
+  "rack_B10": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "B",
+   "number": 10,
+   "units": 42,
+   "parent": "fixed_row_B",
+   "pos": [
+    -4.8,
+    3.3,
+    0.0
+   ]
+  },
+  "fixed_row_C": {
+   "role": "fixed",
+   "tip": "rack_row",
+   "row": "C",
+   "faces": "west",
+   "parent": "fixed_racks",
+   "pos": [
+    -0.6,
+    -2.4,
+    0.0
+   ]
+  },
+  "empty_pos_C01": {
+   "role": "slot",
+   "tip": "empty_rack_position",
+   "row": "C",
+   "number": 1,
+   "parent": "fixed_row_C",
+   "pos": [
+    -0.98,
+    -2.1,
+    0.0
+   ]
+  },
+  "whip_C01_1_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_C01_1",
+   "pos": [
+    -0.98,
+    -2.213,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_C01_2_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_C01_2",
+   "pos": [
+    -0.98,
+    -2.063,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_C01_3_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_C01_3",
+   "pos": [
+    -0.98,
+    -1.913,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_blank_C01": {
+   "role": "asset",
+   "tip": "containment_blank",
+   "note": "remove before a rack goes in",
+   "parent": "empty_pos_C01",
+   "pos": [
+    -0.6,
+    -2.1,
+    0.0
+   ]
+  },
+  "rack_C02": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "C",
+   "number": 2,
+   "units": 42,
+   "parent": "fixed_row_C",
+   "pos": [
+    -0.6,
+    -1.5,
+    0.0
+   ]
+  },
+  "rack_C03": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "C",
+   "number": 3,
+   "units": 42,
+   "parent": "fixed_row_C",
+   "pos": [
+    -0.6,
+    -0.9,
+    0.0
+   ]
+  },
+  "rack_C04": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "C",
+   "number": 4,
+   "units": 42,
+   "parent": "fixed_row_C",
+   "pos": [
+    -0.6,
+    -0.3,
+    0.0
+   ]
+  },
+  "rack_C05": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "C",
+   "number": 5,
+   "units": 42,
+   "parent": "fixed_row_C",
+   "pos": [
+    -0.6,
+    0.3,
+    0.0
+   ]
+  },
+  "rack_C06": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "C",
+   "number": 6,
+   "units": 42,
+   "parent": "fixed_row_C",
+   "pos": [
+    -0.6,
+    0.9,
+    0.0
+   ]
+  },
+  "rack_C07": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "C",
+   "number": 7,
+   "units": 42,
+   "parent": "fixed_row_C",
+   "pos": [
+    -0.6,
+    1.5,
+    0.0
+   ]
+  },
+  "rack_C08": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "C",
+   "number": 8,
+   "units": 42,
+   "parent": "fixed_row_C",
+   "pos": [
+    -0.6,
+    2.1,
+    0.0
+   ]
+  },
+  "rack_C09": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "C",
+   "number": 9,
+   "units": 42,
+   "parent": "fixed_row_C",
+   "pos": [
+    -0.6,
+    2.7,
+    0.0
+   ]
+  },
+  "rack_C10": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "C",
+   "number": 10,
+   "units": 42,
+   "parent": "fixed_row_C",
+   "pos": [
+    -0.6,
+    3.3,
+    0.0
+   ]
+  },
+  "fixed_row_D": {
+   "role": "fixed",
+   "tip": "rack_row",
+   "row": "D",
+   "faces": "east",
+   "parent": "fixed_racks",
+   "pos": [
+    0.6,
+    -2.4,
+    0.0
+   ]
+  },
+  "rack_D01": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "D",
+   "number": 1,
+   "units": 42,
+   "parent": "fixed_row_D",
+   "pos": [
+    0.6,
+    -2.1,
+    0.0
+   ]
+  },
+  "rack_D02": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "D",
+   "number": 2,
+   "units": 42,
+   "parent": "fixed_row_D",
+   "pos": [
+    0.6,
+    -1.5,
+    0.0
+   ]
+  },
+  "empty_pos_D03": {
+   "role": "slot",
+   "tip": "empty_rack_position",
+   "row": "D",
+   "number": 3,
+   "parent": "fixed_row_D",
+   "pos": [
+    0.98,
+    -0.9,
+    0.0
+   ]
+  },
+  "whip_D03_1_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_D03_1",
+   "pos": [
+    0.98,
+    -1.013,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_D03_2_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_D03_2",
+   "pos": [
+    0.98,
+    -0.863,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_D03_3_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_D03_3",
+   "pos": [
+    0.98,
+    -0.713,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_blank_D03": {
+   "role": "asset",
+   "tip": "containment_blank",
+   "note": "remove before a rack goes in",
+   "parent": "empty_pos_D03",
+   "pos": [
+    0.6,
+    -0.9,
+    0.0
+   ]
+  },
+  "rack_D04": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "D",
+   "number": 4,
+   "units": 42,
+   "parent": "fixed_row_D",
+   "pos": [
+    0.6,
+    -0.3,
+    0.0
+   ]
+  },
+  "rack_D05": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "D",
+   "number": 5,
+   "units": 42,
+   "parent": "fixed_row_D",
+   "pos": [
+    0.6,
+    0.3,
+    0.0
+   ]
+  },
+  "rack_D06": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "D",
+   "number": 6,
+   "units": 42,
+   "parent": "fixed_row_D",
+   "pos": [
+    0.6,
+    0.9,
+    0.0
+   ]
+  },
+  "rack_D07": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "D",
+   "number": 7,
+   "units": 42,
+   "parent": "fixed_row_D",
+   "pos": [
+    0.6,
+    1.5,
+    0.0
+   ]
+  },
+  "rack_D08": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "D",
+   "number": 8,
+   "units": 42,
+   "parent": "fixed_row_D",
+   "pos": [
+    0.6,
+    2.1,
+    0.0
+   ]
+  },
+  "empty_pos_D09": {
+   "role": "slot",
+   "tip": "empty_rack_position",
+   "row": "D",
+   "number": 9,
+   "parent": "fixed_row_D",
+   "pos": [
+    0.98,
+    2.7,
+    0.0
+   ]
+  },
+  "whip_D09_1_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_D09_1",
+   "pos": [
+    0.98,
+    2.587,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_D09_2_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_D09_2",
+   "pos": [
+    0.98,
+    2.737,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_D09_3_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_D09_3",
+   "pos": [
+    0.98,
+    2.887,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_blank_D09": {
+   "role": "asset",
+   "tip": "containment_blank",
+   "note": "remove before a rack goes in",
+   "parent": "empty_pos_D09",
+   "pos": [
+    0.6,
+    2.7,
+    0.0
+   ]
+  },
+  "rack_D10": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "D",
+   "number": 10,
+   "units": 42,
+   "parent": "fixed_row_D",
+   "pos": [
+    0.6,
+    3.3,
+    0.0
+   ]
+  },
+  "fixed_row_E": {
+   "role": "fixed",
+   "tip": "rack_row",
+   "row": "E",
+   "faces": "west",
+   "parent": "fixed_racks",
+   "pos": [
+    4.8,
+    -2.4,
+    0.0
+   ]
+  },
+  "rack_E01": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "E",
+   "number": 1,
+   "units": 42,
+   "parent": "fixed_row_E",
+   "pos": [
+    4.8,
+    -2.1,
+    0.0
+   ]
+  },
+  "empty_pos_E02": {
+   "role": "slot",
+   "tip": "empty_rack_position",
+   "row": "E",
+   "number": 2,
+   "parent": "fixed_row_E",
+   "pos": [
+    4.42,
+    -1.5,
+    0.0
+   ]
+  },
+  "whip_E02_1_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_E02_1",
+   "pos": [
+    4.42,
+    -1.613,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_E02_2_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_E02_2",
+   "pos": [
+    4.42,
+    -1.463,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_E02_3_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_E02_3",
+   "pos": [
+    4.42,
+    -1.313,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_blank_E02": {
+   "role": "asset",
+   "tip": "containment_blank",
+   "note": "remove before a rack goes in",
+   "parent": "empty_pos_E02",
+   "pos": [
+    4.8,
+    -1.5,
+    0.0
+   ]
+  },
+  "rack_E03": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "E",
+   "number": 3,
+   "units": 42,
+   "parent": "fixed_row_E",
+   "pos": [
+    4.8,
+    -0.9,
+    0.0
+   ]
+  },
+  "rack_E04": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "E",
+   "number": 4,
+   "units": 42,
+   "parent": "fixed_row_E",
+   "pos": [
+    4.8,
+    -0.3,
+    0.0
+   ]
+  },
+  "rack_E05": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "E",
+   "number": 5,
+   "units": 42,
+   "parent": "fixed_row_E",
+   "pos": [
+    4.8,
+    0.3,
+    0.0
+   ]
+  },
+  "rack_E06": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "E",
+   "number": 6,
+   "units": 42,
+   "parent": "fixed_row_E",
+   "pos": [
+    4.8,
+    0.9,
+    0.0
+   ]
+  },
+  "rack_E07": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "E",
+   "number": 7,
+   "units": 42,
+   "parent": "fixed_row_E",
+   "pos": [
+    4.8,
+    1.5,
+    0.0
+   ]
+  },
+  "rack_E08": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "E",
+   "number": 8,
+   "units": 42,
+   "parent": "fixed_row_E",
+   "pos": [
+    4.8,
+    2.1,
+    0.0
+   ]
+  },
+  "rack_E09": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "E",
+   "number": 9,
+   "units": 42,
+   "parent": "fixed_row_E",
+   "pos": [
+    4.8,
+    2.7,
+    0.0
+   ]
+  },
+  "rack_E10": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "E",
+   "number": 10,
+   "units": 42,
+   "parent": "fixed_row_E",
+   "pos": [
+    4.8,
+    3.3,
+    0.0
+   ]
+  },
+  "fixed_row_F": {
+   "role": "fixed",
+   "tip": "rack_row",
+   "row": "F",
+   "faces": "east",
+   "parent": "fixed_racks",
+   "pos": [
+    6.0,
+    -2.4,
+    0.0
+   ]
+  },
+  "rack_F01": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "F",
+   "number": 1,
+   "units": 42,
+   "parent": "fixed_row_F",
+   "pos": [
+    6.0,
+    -2.1,
+    0.0
+   ]
+  },
+  "rack_F02": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "F",
+   "number": 2,
+   "units": 42,
+   "parent": "fixed_row_F",
+   "pos": [
+    6.0,
+    -1.5,
+    0.0
+   ]
+  },
+  "rack_F03": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "F",
+   "number": 3,
+   "units": 42,
+   "parent": "fixed_row_F",
+   "pos": [
+    6.0,
+    -0.9,
+    0.0
+   ]
+  },
+  "rack_F04": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "F",
+   "number": 4,
+   "units": 42,
+   "parent": "fixed_row_F",
+   "pos": [
+    6.0,
+    -0.3,
+    0.0
+   ]
+  },
+  "rack_F05": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "F",
+   "number": 5,
+   "units": 42,
+   "parent": "fixed_row_F",
+   "pos": [
+    6.0,
+    0.3,
+    0.0
+   ]
+  },
+  "rack_F06": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "F",
+   "number": 6,
+   "units": 42,
+   "parent": "fixed_row_F",
+   "pos": [
+    6.0,
+    0.9,
+    0.0
+   ]
+  },
+  "rack_F07": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "F",
+   "number": 7,
+   "units": 42,
+   "parent": "fixed_row_F",
+   "pos": [
+    6.0,
+    1.5,
+    0.0
+   ]
+  },
+  "empty_pos_F08": {
+   "role": "slot",
+   "tip": "empty_rack_position",
+   "row": "F",
+   "number": 8,
+   "parent": "fixed_row_F",
+   "pos": [
+    6.38,
+    2.1,
+    0.0
+   ]
+  },
+  "whip_F08_1_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_F08_1",
+   "pos": [
+    6.38,
+    1.987,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_F08_2_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_F08_2",
+   "pos": [
+    6.38,
+    2.137,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "whip_F08_3_flap": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "X",
+   "limits": [
+    0,
+    100
+   ],
+   "tip": "commando_flap",
+   "note": "spring flap over the socket face",
+   "parent": "whip_F08_3",
+   "pos": [
+    6.38,
+    2.287,
+    2.3805
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_blank_F08": {
+   "role": "asset",
+   "tip": "containment_blank",
+   "note": "remove before a rack goes in",
+   "parent": "empty_pos_F08",
+   "pos": [
+    6.0,
+    2.1,
+    0.0
+   ]
+  },
+  "rack_F09": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "F",
+   "number": 9,
+   "units": 42,
+   "parent": "fixed_row_F",
+   "pos": [
+    6.0,
+    2.7,
+    0.0
+   ]
+  },
+  "rack_F10": {
+   "role": "fixed",
+   "tip": "rack",
+   "row": "F",
+   "number": 10,
+   "units": 42,
+   "parent": "fixed_row_F",
+   "pos": [
+    6.0,
+    3.3,
+    0.0
+   ]
+  },
+  "fixed_containment": {
+   "role": "fixed",
+   "parent": "hall_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_hot_aisle_1": {
+   "role": "fixed",
+   "tip": "hot_aisle",
+   "parent": "fixed_containment",
+   "pos": [
+    -5.4,
+    0.6,
+    0.0
+   ]
+  },
+  "hot_aisle_1_door_S_W": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_1",
+   "pos": [
+    -5.97,
+    -2.478,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_1_door_S_E": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_1",
+   "pos": [
+    -4.83,
+    -2.478,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_1_door_N_W": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_1",
+   "pos": [
+    -5.97,
+    3.678,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_1_door_N_E": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_1",
+   "pos": [
+    -4.83,
+    3.678,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_1_vents": {
+   "role": "fixed",
+   "note": "hot air extract vents",
+   "parent": "fixed_hot_aisle_1",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_hot_aisle_2": {
+   "role": "fixed",
+   "tip": "hot_aisle",
+   "parent": "fixed_containment",
+   "pos": [
+    -0.0,
+    0.6,
+    0.0
+   ]
+  },
+  "hot_aisle_2_door_S_W": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_2",
+   "pos": [
+    -0.57,
+    -2.478,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_2_door_S_E": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_2",
+   "pos": [
+    0.57,
+    -2.478,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_2_door_N_W": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_2",
+   "pos": [
+    -0.57,
+    3.678,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_2_door_N_E": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_2",
+   "pos": [
+    0.57,
+    3.678,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_2_vents": {
+   "role": "fixed",
+   "note": "hot air extract vents",
+   "parent": "fixed_hot_aisle_2",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_hot_aisle_3": {
+   "role": "fixed",
+   "tip": "hot_aisle",
+   "parent": "fixed_containment",
+   "pos": [
+    5.4,
+    0.6,
+    0.0
+   ]
+  },
+  "hot_aisle_3_door_S_W": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_3",
+   "pos": [
+    4.83,
+    -2.478,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_3_door_S_E": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_3",
+   "pos": [
+    5.97,
+    -2.478,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_3_door_N_W": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    -0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_3",
+   "pos": [
+    4.83,
+    3.678,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_3_door_N_E": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    0.55
+   ],
+   "tip": "containment_door",
+   "parent": "fixed_hot_aisle_3",
+   "pos": [
+    5.97,
+    3.678,
+    0.0
+   ],
+   "axis_world": [
+    1.0,
+    0.0,
+    0.0
+   ]
+  },
+  "hot_aisle_3_vents": {
+   "role": "fixed",
+   "note": "hot air extract vents",
+   "parent": "fixed_hot_aisle_3",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_baskets": {
+   "role": "fixed",
+   "parent": "hall_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_baskets_A": {
+   "role": "fixed",
+   "tip": "cable_basket",
+   "row": "A",
+   "parent": "fixed_baskets",
+   "pos": [
+    -6.38,
+    0.475,
+    0.0
+   ]
+  },
+  "basket_A_power": {
+   "role": "fixed",
+   "tip": "basket_power",
+   "carries": "power",
+   "parent": "fixed_baskets_A",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_A_fibre": {
+   "role": "fixed",
+   "tip": "basket_fibre",
+   "carries": "fibre",
+   "parent": "fixed_baskets_A",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_A_ethernet": {
+   "role": "fixed",
+   "tip": "basket_ethernet",
+   "carries": "ethernet",
+   "parent": "fixed_baskets_A",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_baskets_B": {
+   "role": "fixed",
+   "tip": "cable_basket",
+   "row": "B",
+   "parent": "fixed_baskets",
+   "pos": [
+    -4.42,
+    0.475,
+    0.0
+   ]
+  },
+  "basket_B_power": {
+   "role": "fixed",
+   "tip": "basket_power",
+   "carries": "power",
+   "parent": "fixed_baskets_B",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_B_fibre": {
+   "role": "fixed",
+   "tip": "basket_fibre",
+   "carries": "fibre",
+   "parent": "fixed_baskets_B",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_B_ethernet": {
+   "role": "fixed",
+   "tip": "basket_ethernet",
+   "carries": "ethernet",
+   "parent": "fixed_baskets_B",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_baskets_C": {
+   "role": "fixed",
+   "tip": "cable_basket",
+   "row": "C",
+   "parent": "fixed_baskets",
+   "pos": [
+    -0.98,
+    0.475,
+    0.0
+   ]
+  },
+  "basket_C_power": {
+   "role": "fixed",
+   "tip": "basket_power",
+   "carries": "power",
+   "parent": "fixed_baskets_C",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_C_fibre": {
+   "role": "fixed",
+   "tip": "basket_fibre",
+   "carries": "fibre",
+   "parent": "fixed_baskets_C",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_C_ethernet": {
+   "role": "fixed",
+   "tip": "basket_ethernet",
+   "carries": "ethernet",
+   "parent": "fixed_baskets_C",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_baskets_D": {
+   "role": "fixed",
+   "tip": "cable_basket",
+   "row": "D",
+   "parent": "fixed_baskets",
+   "pos": [
+    0.98,
+    0.475,
+    0.0
+   ]
+  },
+  "basket_D_power": {
+   "role": "fixed",
+   "tip": "basket_power",
+   "carries": "power",
+   "parent": "fixed_baskets_D",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_D_fibre": {
+   "role": "fixed",
+   "tip": "basket_fibre",
+   "carries": "fibre",
+   "parent": "fixed_baskets_D",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_D_ethernet": {
+   "role": "fixed",
+   "tip": "basket_ethernet",
+   "carries": "ethernet",
+   "parent": "fixed_baskets_D",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_baskets_E": {
+   "role": "fixed",
+   "tip": "cable_basket",
+   "row": "E",
+   "parent": "fixed_baskets",
+   "pos": [
+    4.42,
+    0.475,
+    0.0
+   ]
+  },
+  "basket_E_power": {
+   "role": "fixed",
+   "tip": "basket_power",
+   "carries": "power",
+   "parent": "fixed_baskets_E",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_E_fibre": {
+   "role": "fixed",
+   "tip": "basket_fibre",
+   "carries": "fibre",
+   "parent": "fixed_baskets_E",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_E_ethernet": {
+   "role": "fixed",
+   "tip": "basket_ethernet",
+   "carries": "ethernet",
+   "parent": "fixed_baskets_E",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_baskets_F": {
+   "role": "fixed",
+   "tip": "cable_basket",
+   "row": "F",
+   "parent": "fixed_baskets",
+   "pos": [
+    6.38,
+    0.475,
+    0.0
+   ]
+  },
+  "basket_F_power": {
+   "role": "fixed",
+   "tip": "basket_power",
+   "carries": "power",
+   "parent": "fixed_baskets_F",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_F_fibre": {
+   "role": "fixed",
+   "tip": "basket_fibre",
+   "carries": "fibre",
+   "parent": "fixed_baskets_F",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_F_ethernet": {
+   "role": "fixed",
+   "tip": "basket_ethernet",
+   "carries": "ethernet",
+   "parent": "fixed_baskets_F",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_pdc": {
+   "role": "fixed",
+   "parent": "hall_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_pdc_A": {
+   "role": "fixed",
+   "tip": "pdc",
+   "row": "A",
+   "parent": "fixed_pdc",
+   "pos": [
+    -6.6,
+    -2.85,
+    0.0
+   ]
+  },
+  "pdc_A_master_L1": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L1",
+   "note": "turns off strip L1",
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_01": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 1,
+   "feeds": "rack_A01",
+   "whip": 1,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_02": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 2,
+   "feeds": "rack_A02",
+   "whip": 1,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_03": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 3,
+   "feeds": "rack_A03",
+   "whip": 1,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_04": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 4,
+   "feeds": "rack_A04",
+   "whip": 1,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_05": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 5,
+   "feeds": "rack_A05",
+   "whip": 1,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_06": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 6,
+   "feeds": "rack_A06",
+   "whip": 1,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_07": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 7,
+   "feeds": "rack_A07",
+   "whip": 1,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_08": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 8,
+   "feeds": "rack_A08",
+   "whip": 1,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_09": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 9,
+   "feeds": "rack_A09",
+   "whip": 1,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_10": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 10,
+   "feeds": "rack_A10",
+   "whip": 1,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.055,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_master_L2": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L2",
+   "note": "turns off strip L2",
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_11": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 11,
+   "feeds": "rack_A01",
+   "whip": 2,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_12": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 12,
+   "feeds": "rack_A02",
+   "whip": 2,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_13": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 13,
+   "feeds": "rack_A03",
+   "whip": 2,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_14": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 14,
+   "feeds": "rack_A04",
+   "whip": 2,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_15": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 15,
+   "feeds": "rack_A05",
+   "whip": 2,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_16": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 16,
+   "feeds": "rack_A06",
+   "whip": 2,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_17": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 17,
+   "feeds": "rack_A07",
+   "whip": 2,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_18": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 18,
+   "feeds": "rack_A08",
+   "whip": 2,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_19": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 19,
+   "feeds": "rack_A09",
+   "whip": 2,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_20": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 20,
+   "feeds": "rack_A10",
+   "whip": 2,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.831,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_master_L3": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L3",
+   "note": "turns off strip L3",
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_21": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 21,
+   "feeds": "rack_A01",
+   "whip": 3,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_22": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 22,
+   "feeds": "rack_A02",
+   "whip": 3,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_23": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 23,
+   "feeds": "rack_A03",
+   "whip": 3,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_24": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 24,
+   "feeds": "rack_A04",
+   "whip": 3,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_25": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 25,
+   "feeds": "rack_A05",
+   "whip": 3,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_26": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 26,
+   "feeds": "rack_A06",
+   "whip": 3,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_27": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 27,
+   "feeds": "rack_A07",
+   "whip": 3,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_28": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 28,
+   "feeds": "rack_A08",
+   "whip": 3,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_29": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 29,
+   "feeds": "rack_A09",
+   "whip": 3,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_brk_30": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 30,
+   "feeds": "rack_A10",
+   "whip": 3,
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -6.607,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_door_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -110,
+    0
+   ],
+   "tip": "pdc_door",
+   "note": "glass door: rack breakers behind it",
+   "parent": "fixed_pdc_A",
+   "pos": [
+    -7.197,
+    -3.1375,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_A_whip_basket": {
+   "role": "fixed",
+   "tip": "whip_basket",
+   "note": "carries the whips from the output glands to the power basket",
+   "parent": "fixed_pdc_A",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_pdc_B": {
+   "role": "fixed",
+   "tip": "pdc",
+   "row": "B",
+   "parent": "fixed_pdc",
+   "pos": [
+    -4.2,
+    -2.85,
+    0.0
+   ]
+  },
+  "pdc_B_master_L1": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L1",
+   "note": "turns off strip L1",
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_01": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 1,
+   "feeds": "rack_B01",
+   "whip": 1,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_02": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 2,
+   "feeds": "rack_B02",
+   "whip": 1,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_03": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 3,
+   "feeds": "rack_B03",
+   "whip": 1,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_04": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 4,
+   "feeds": "rack_B04",
+   "whip": 1,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_05": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 5,
+   "feeds": "rack_B05",
+   "whip": 1,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_06": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 6,
+   "feeds": "rack_B06",
+   "whip": 1,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_07": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 7,
+   "feeds": "rack_B07",
+   "whip": 1,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_08": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 8,
+   "feeds": "rack_B08",
+   "whip": 1,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_09": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 9,
+   "feeds": "rack_B09",
+   "whip": 1,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_10": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 10,
+   "feeds": "rack_B10",
+   "whip": 1,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.655,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_master_L2": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L2",
+   "note": "turns off strip L2",
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_11": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 11,
+   "feeds": "rack_B01",
+   "whip": 2,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_12": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 12,
+   "feeds": "rack_B02",
+   "whip": 2,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_13": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 13,
+   "feeds": "rack_B03",
+   "whip": 2,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_14": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 14,
+   "feeds": "rack_B04",
+   "whip": 2,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_15": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 15,
+   "feeds": "rack_B05",
+   "whip": 2,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_16": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 16,
+   "feeds": "rack_B06",
+   "whip": 2,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_17": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 17,
+   "feeds": "rack_B07",
+   "whip": 2,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_18": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 18,
+   "feeds": "rack_B08",
+   "whip": 2,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_19": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 19,
+   "feeds": "rack_B09",
+   "whip": 2,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_20": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 20,
+   "feeds": "rack_B10",
+   "whip": 2,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.431,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_master_L3": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L3",
+   "note": "turns off strip L3",
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_21": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 21,
+   "feeds": "rack_B01",
+   "whip": 3,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_22": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 22,
+   "feeds": "rack_B02",
+   "whip": 3,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_23": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 23,
+   "feeds": "rack_B03",
+   "whip": 3,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_24": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 24,
+   "feeds": "rack_B04",
+   "whip": 3,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_25": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 25,
+   "feeds": "rack_B05",
+   "whip": 3,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_26": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 26,
+   "feeds": "rack_B06",
+   "whip": 3,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_27": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 27,
+   "feeds": "rack_B07",
+   "whip": 3,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_28": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 28,
+   "feeds": "rack_B08",
+   "whip": 3,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_29": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 29,
+   "feeds": "rack_B09",
+   "whip": 3,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_brk_30": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 30,
+   "feeds": "rack_B10",
+   "whip": 3,
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.207,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_door_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -110,
+    0
+   ],
+   "tip": "pdc_door",
+   "note": "glass door: rack breakers behind it",
+   "parent": "fixed_pdc_B",
+   "pos": [
+    -4.797,
+    -3.1375,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_B_whip_basket": {
+   "role": "fixed",
+   "tip": "whip_basket",
+   "note": "carries the whips from the output glands to the power basket",
+   "parent": "fixed_pdc_B",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_pdc_C": {
+   "role": "fixed",
+   "tip": "pdc",
+   "row": "C",
+   "parent": "fixed_pdc",
+   "pos": [
+    -1.2,
+    -2.85,
+    0.0
+   ]
+  },
+  "pdc_C_master_L1": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L1",
+   "note": "turns off strip L1",
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_01": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 1,
+   "feeds": "rack_C01",
+   "whip": 1,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_02": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 2,
+   "feeds": "rack_C02",
+   "whip": 1,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_03": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 3,
+   "feeds": "rack_C03",
+   "whip": 1,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_04": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 4,
+   "feeds": "rack_C04",
+   "whip": 1,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_05": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 5,
+   "feeds": "rack_C05",
+   "whip": 1,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_06": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 6,
+   "feeds": "rack_C06",
+   "whip": 1,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_07": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 7,
+   "feeds": "rack_C07",
+   "whip": 1,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_08": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 8,
+   "feeds": "rack_C08",
+   "whip": 1,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_09": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 9,
+   "feeds": "rack_C09",
+   "whip": 1,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_10": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 10,
+   "feeds": "rack_C10",
+   "whip": 1,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.655,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_master_L2": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L2",
+   "note": "turns off strip L2",
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_11": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 11,
+   "feeds": "rack_C01",
+   "whip": 2,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_12": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 12,
+   "feeds": "rack_C02",
+   "whip": 2,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_13": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 13,
+   "feeds": "rack_C03",
+   "whip": 2,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_14": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 14,
+   "feeds": "rack_C04",
+   "whip": 2,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_15": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 15,
+   "feeds": "rack_C05",
+   "whip": 2,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_16": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 16,
+   "feeds": "rack_C06",
+   "whip": 2,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_17": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 17,
+   "feeds": "rack_C07",
+   "whip": 2,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_18": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 18,
+   "feeds": "rack_C08",
+   "whip": 2,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_19": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 19,
+   "feeds": "rack_C09",
+   "whip": 2,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_20": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 20,
+   "feeds": "rack_C10",
+   "whip": 2,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.431,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_master_L3": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L3",
+   "note": "turns off strip L3",
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_21": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 21,
+   "feeds": "rack_C01",
+   "whip": 3,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_22": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 22,
+   "feeds": "rack_C02",
+   "whip": 3,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_23": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 23,
+   "feeds": "rack_C03",
+   "whip": 3,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_24": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 24,
+   "feeds": "rack_C04",
+   "whip": 3,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_25": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 25,
+   "feeds": "rack_C05",
+   "whip": 3,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_26": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 26,
+   "feeds": "rack_C06",
+   "whip": 3,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_27": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 27,
+   "feeds": "rack_C07",
+   "whip": 3,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_28": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 28,
+   "feeds": "rack_C08",
+   "whip": 3,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_29": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 29,
+   "feeds": "rack_C09",
+   "whip": 3,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_brk_30": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 30,
+   "feeds": "rack_C10",
+   "whip": 3,
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.207,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_door_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -110,
+    0
+   ],
+   "tip": "pdc_door",
+   "note": "glass door: rack breakers behind it",
+   "parent": "fixed_pdc_C",
+   "pos": [
+    -1.797,
+    -3.1375,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_C_whip_basket": {
+   "role": "fixed",
+   "tip": "whip_basket",
+   "note": "carries the whips from the output glands to the power basket",
+   "parent": "fixed_pdc_C",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_pdc_D": {
+   "role": "fixed",
+   "tip": "pdc",
+   "row": "D",
+   "parent": "fixed_pdc",
+   "pos": [
+    1.2,
+    -2.85,
+    0.0
+   ]
+  },
+  "pdc_D_master_L1": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L1",
+   "note": "turns off strip L1",
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_01": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 1,
+   "feeds": "rack_D01",
+   "whip": 1,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_02": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 2,
+   "feeds": "rack_D02",
+   "whip": 1,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_03": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 3,
+   "feeds": "rack_D03",
+   "whip": 1,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_04": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 4,
+   "feeds": "rack_D04",
+   "whip": 1,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_05": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 5,
+   "feeds": "rack_D05",
+   "whip": 1,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_06": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 6,
+   "feeds": "rack_D06",
+   "whip": 1,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_07": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 7,
+   "feeds": "rack_D07",
+   "whip": 1,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_08": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 8,
+   "feeds": "rack_D08",
+   "whip": 1,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_09": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 9,
+   "feeds": "rack_D09",
+   "whip": 1,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_10": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 10,
+   "feeds": "rack_D10",
+   "whip": 1,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.745,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_master_L2": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L2",
+   "note": "turns off strip L2",
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_11": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 11,
+   "feeds": "rack_D01",
+   "whip": 2,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_12": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 12,
+   "feeds": "rack_D02",
+   "whip": 2,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_13": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 13,
+   "feeds": "rack_D03",
+   "whip": 2,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_14": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 14,
+   "feeds": "rack_D04",
+   "whip": 2,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_15": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 15,
+   "feeds": "rack_D05",
+   "whip": 2,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_16": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 16,
+   "feeds": "rack_D06",
+   "whip": 2,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_17": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 17,
+   "feeds": "rack_D07",
+   "whip": 2,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_18": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 18,
+   "feeds": "rack_D08",
+   "whip": 2,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_19": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 19,
+   "feeds": "rack_D09",
+   "whip": 2,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_20": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 20,
+   "feeds": "rack_D10",
+   "whip": 2,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.969,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_master_L3": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L3",
+   "note": "turns off strip L3",
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_21": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 21,
+   "feeds": "rack_D01",
+   "whip": 3,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_22": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 22,
+   "feeds": "rack_D02",
+   "whip": 3,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_23": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 23,
+   "feeds": "rack_D03",
+   "whip": 3,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_24": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 24,
+   "feeds": "rack_D04",
+   "whip": 3,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_25": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 25,
+   "feeds": "rack_D05",
+   "whip": 3,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_26": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 26,
+   "feeds": "rack_D06",
+   "whip": 3,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_27": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 27,
+   "feeds": "rack_D07",
+   "whip": 3,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_28": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 28,
+   "feeds": "rack_D08",
+   "whip": 3,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_29": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 29,
+   "feeds": "rack_D09",
+   "whip": 3,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_brk_30": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 30,
+   "feeds": "rack_D10",
+   "whip": 3,
+   "parent": "fixed_pdc_D",
+   "pos": [
+    1.193,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_door_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -110,
+    0
+   ],
+   "tip": "pdc_door",
+   "note": "glass door: rack breakers behind it",
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.603,
+    -3.1375,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_D_whip_basket": {
+   "role": "fixed",
+   "tip": "whip_basket",
+   "note": "carries the whips from the output glands to the power basket",
+   "parent": "fixed_pdc_D",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_pdc_E": {
+   "role": "fixed",
+   "tip": "pdc",
+   "row": "E",
+   "parent": "fixed_pdc",
+   "pos": [
+    4.2,
+    -2.85,
+    0.0
+   ]
+  },
+  "pdc_E_master_L1": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L1",
+   "note": "turns off strip L1",
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_01": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 1,
+   "feeds": "rack_E01",
+   "whip": 1,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_02": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 2,
+   "feeds": "rack_E02",
+   "whip": 1,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_03": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 3,
+   "feeds": "rack_E03",
+   "whip": 1,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_04": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 4,
+   "feeds": "rack_E04",
+   "whip": 1,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_05": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 5,
+   "feeds": "rack_E05",
+   "whip": 1,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_06": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 6,
+   "feeds": "rack_E06",
+   "whip": 1,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_07": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 7,
+   "feeds": "rack_E07",
+   "whip": 1,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_08": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 8,
+   "feeds": "rack_E08",
+   "whip": 1,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_09": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 9,
+   "feeds": "rack_E09",
+   "whip": 1,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_10": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 10,
+   "feeds": "rack_E10",
+   "whip": 1,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.745,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_master_L2": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L2",
+   "note": "turns off strip L2",
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_11": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 11,
+   "feeds": "rack_E01",
+   "whip": 2,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_12": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 12,
+   "feeds": "rack_E02",
+   "whip": 2,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_13": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 13,
+   "feeds": "rack_E03",
+   "whip": 2,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_14": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 14,
+   "feeds": "rack_E04",
+   "whip": 2,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_15": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 15,
+   "feeds": "rack_E05",
+   "whip": 2,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_16": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 16,
+   "feeds": "rack_E06",
+   "whip": 2,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_17": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 17,
+   "feeds": "rack_E07",
+   "whip": 2,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_18": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 18,
+   "feeds": "rack_E08",
+   "whip": 2,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_19": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 19,
+   "feeds": "rack_E09",
+   "whip": 2,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_20": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 20,
+   "feeds": "rack_E10",
+   "whip": 2,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.969,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_master_L3": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L3",
+   "note": "turns off strip L3",
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_21": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 21,
+   "feeds": "rack_E01",
+   "whip": 3,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_22": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 22,
+   "feeds": "rack_E02",
+   "whip": 3,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_23": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 23,
+   "feeds": "rack_E03",
+   "whip": 3,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_24": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 24,
+   "feeds": "rack_E04",
+   "whip": 3,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_25": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 25,
+   "feeds": "rack_E05",
+   "whip": 3,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_26": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 26,
+   "feeds": "rack_E06",
+   "whip": 3,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_27": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 27,
+   "feeds": "rack_E07",
+   "whip": 3,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_28": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 28,
+   "feeds": "rack_E08",
+   "whip": 3,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_29": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 29,
+   "feeds": "rack_E09",
+   "whip": 3,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_brk_30": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 30,
+   "feeds": "rack_E10",
+   "whip": 3,
+   "parent": "fixed_pdc_E",
+   "pos": [
+    4.193,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_door_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -110,
+    0
+   ],
+   "tip": "pdc_door",
+   "note": "glass door: rack breakers behind it",
+   "parent": "fixed_pdc_E",
+   "pos": [
+    3.603,
+    -3.1375,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_E_whip_basket": {
+   "role": "fixed",
+   "tip": "whip_basket",
+   "note": "carries the whips from the output glands to the power basket",
+   "parent": "fixed_pdc_E",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_pdc_F": {
+   "role": "fixed",
+   "tip": "pdc",
+   "row": "F",
+   "parent": "fixed_pdc",
+   "pos": [
+    6.6,
+    -2.85,
+    0.0
+   ]
+  },
+  "pdc_F_master_L1": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L1",
+   "note": "turns off strip L1",
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_01": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 1,
+   "feeds": "rack_F01",
+   "whip": 1,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_02": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 2,
+   "feeds": "rack_F02",
+   "whip": 1,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_03": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 3,
+   "feeds": "rack_F03",
+   "whip": 1,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_04": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 4,
+   "feeds": "rack_F04",
+   "whip": 1,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_05": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 5,
+   "feeds": "rack_F05",
+   "whip": 1,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_06": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 6,
+   "feeds": "rack_F06",
+   "whip": 1,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_07": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 7,
+   "feeds": "rack_F07",
+   "whip": 1,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_08": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 8,
+   "feeds": "rack_F08",
+   "whip": 1,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_09": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 9,
+   "feeds": "rack_F09",
+   "whip": 1,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_10": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L1",
+   "circuit": 10,
+   "feeds": "rack_F10",
+   "whip": 1,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.145,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_master_L2": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L2",
+   "note": "turns off strip L2",
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_11": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 11,
+   "feeds": "rack_F01",
+   "whip": 2,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_12": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 12,
+   "feeds": "rack_F02",
+   "whip": 2,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_13": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 13,
+   "feeds": "rack_F03",
+   "whip": 2,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_14": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 14,
+   "feeds": "rack_F04",
+   "whip": 2,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_15": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 15,
+   "feeds": "rack_F05",
+   "whip": 2,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_16": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 16,
+   "feeds": "rack_F06",
+   "whip": 2,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_17": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 17,
+   "feeds": "rack_F07",
+   "whip": 2,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_18": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 18,
+   "feeds": "rack_F08",
+   "whip": 2,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_19": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 19,
+   "feeds": "rack_F09",
+   "whip": 2,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_20": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L2",
+   "circuit": 20,
+   "feeds": "rack_F10",
+   "whip": 2,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.369,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_master_L3": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_master_breaker",
+   "phase": "L3",
+   "note": "turns off strip L3",
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    1.315
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_21": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 21,
+   "feeds": "rack_F01",
+   "whip": 3,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    1.085
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_22": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 22,
+   "feeds": "rack_F02",
+   "whip": 3,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    1.055
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_23": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 23,
+   "feeds": "rack_F03",
+   "whip": 3,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    1.025
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_24": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 24,
+   "feeds": "rack_F04",
+   "whip": 3,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    0.995
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_25": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 25,
+   "feeds": "rack_F05",
+   "whip": 3,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    0.965
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_26": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 26,
+   "feeds": "rack_F06",
+   "whip": 3,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    0.935
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_27": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 27,
+   "feeds": "rack_F07",
+   "whip": 3,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    0.905
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_28": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 28,
+   "feeds": "rack_F08",
+   "whip": 3,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    0.875
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_29": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 29,
+   "feeds": "rack_F09",
+   "whip": 3,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    0.845
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_brk_30": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -25,
+    25
+   ],
+   "state": "on",
+   "tip": "pdc_breaker",
+   "phase": "L3",
+   "circuit": 30,
+   "feeds": "rack_F10",
+   "whip": 3,
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.593,
+    -2.907,
+    0.815
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_door_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -110,
+    0
+   ],
+   "tip": "pdc_door",
+   "note": "glass door: rack breakers behind it",
+   "parent": "fixed_pdc_F",
+   "pos": [
+    6.003,
+    -3.1375,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "pdc_F_whip_basket": {
+   "role": "fixed",
+   "tip": "whip_basket",
+   "note": "carries the whips from the output glands to the power basket",
+   "parent": "fixed_pdc_F",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "basket_incoming": {
+   "role": "fixed",
+   "tip": "basket_incoming",
+   "note": "one incoming basket over the PDCs, fed from the left and right entries",
+   "parent": "fixed_pdc",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "incoming_cables": {
+   "role": "fixed",
+   "tip": "incoming_feeders",
+   "note": "diverse: L1 left entry, L2 right, L3 alternating",
+   "parent": "fixed_pdc",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_cabinets": {
+   "role": "fixed",
+   "parent": "hall_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "fixed_parts_cabinet_1": {
+   "role": "fixed",
+   "tip": "tool_cabinet",
+   "number": 1,
+   "parent": "fixed_cabinets",
+   "pos": [
+    -1.0,
+    5.93,
+    0.0
+   ]
+  },
+  "parts_cabinet_1_door_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    90
+   ],
+   "tip": "cabinet_door",
+   "parent": "fixed_parts_cabinet_1",
+   "pos": [
+    -0.5,
+    5.93,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "parts_cabinet_1_door_R": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -90,
+    0
+   ],
+   "tip": "cabinet_door",
+   "parent": "fixed_parts_cabinet_1",
+   "pos": [
+    -1.5,
+    5.93,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "parts_cabinet_1_drawer_1": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_1",
+   "pos": [
+    -1.0,
+    5.93,
+    0.065
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_1_drawer_2": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_1",
+   "pos": [
+    -1.0,
+    5.93,
+    0.202
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_1_drawer_3": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_1",
+   "pos": [
+    -1.0,
+    5.93,
+    0.339
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_1_drawer_4": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_1",
+   "pos": [
+    -1.0,
+    5.93,
+    0.476
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_1_drawer_5": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_1",
+   "pos": [
+    -1.0,
+    5.93,
+    0.613
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_1_drawer_6": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_1",
+   "pos": [
+    -1.0,
+    5.93,
+    0.75
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_1_drawer_7": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_1",
+   "pos": [
+    -1.0,
+    5.93,
+    0.887
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "fixed_parts_cabinet_2": {
+   "role": "fixed",
+   "tip": "tool_cabinet",
+   "number": 2,
+   "parent": "fixed_cabinets",
+   "pos": [
+    0.0,
+    5.93,
+    0.0
+   ]
+  },
+  "parts_cabinet_2_door_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    90
+   ],
+   "tip": "cabinet_door",
+   "parent": "fixed_parts_cabinet_2",
+   "pos": [
+    0.5,
+    5.93,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "parts_cabinet_2_door_R": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -90,
+    0
+   ],
+   "tip": "cabinet_door",
+   "parent": "fixed_parts_cabinet_2",
+   "pos": [
+    -0.5,
+    5.93,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "parts_cabinet_2_drawer_1": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_2",
+   "pos": [
+    0.0,
+    5.93,
+    0.065
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_2_drawer_2": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_2",
+   "pos": [
+    0.0,
+    5.93,
+    0.202
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_2_drawer_3": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_2",
+   "pos": [
+    0.0,
+    5.93,
+    0.339
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_2_drawer_4": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_2",
+   "pos": [
+    0.0,
+    5.93,
+    0.476
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_2_drawer_5": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_2",
+   "pos": [
+    0.0,
+    5.93,
+    0.613
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_2_drawer_6": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_2",
+   "pos": [
+    0.0,
+    5.93,
+    0.75
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_2_drawer_7": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_2",
+   "pos": [
+    0.0,
+    5.93,
+    0.887
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "fixed_parts_cabinet_3": {
+   "role": "fixed",
+   "tip": "tool_cabinet",
+   "number": 3,
+   "parent": "fixed_cabinets",
+   "pos": [
+    1.0,
+    5.93,
+    0.0
+   ]
+  },
+  "parts_cabinet_3_door_L": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    0,
+    90
+   ],
+   "tip": "cabinet_door",
+   "parent": "fixed_parts_cabinet_3",
+   "pos": [
+    1.5,
+    5.93,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "parts_cabinet_3_door_R": {
+   "role": "moving",
+   "motion": "hinge",
+   "axis": "Z",
+   "limits": [
+    -90,
+    0
+   ],
+   "tip": "cabinet_door",
+   "parent": "fixed_parts_cabinet_3",
+   "pos": [
+    0.5,
+    5.93,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "parts_cabinet_3_drawer_1": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_3",
+   "pos": [
+    1.0,
+    5.93,
+    0.065
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_3_drawer_2": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_3",
+   "pos": [
+    1.0,
+    5.93,
+    0.202
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_3_drawer_3": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_3",
+   "pos": [
+    1.0,
+    5.93,
+    0.339
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_3_drawer_4": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_3",
+   "pos": [
+    1.0,
+    5.93,
+    0.476
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_3_drawer_5": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_3",
+   "pos": [
+    1.0,
+    5.93,
+    0.613
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_3_drawer_6": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_3",
+   "pos": [
+    1.0,
+    5.93,
+    0.75
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "parts_cabinet_3_drawer_7": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-X",
+   "limits": [
+    0.0,
+    0.45
+   ],
+   "tip": "cabinet_drawer",
+   "holds": "parts",
+   "note": "pull-out drawer for spare parts; contents travel with the drawer",
+   "parent": "fixed_parts_cabinet_3",
+   "pos": [
+    1.0,
+    5.93,
+    0.887
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    -0.0
+   ]
+  },
+  "fixed_devices": {
+   "role": "fixed",
+   "parent": "hall_root",
+   "pos": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "asset_laptop_cart": {
+   "role": "asset",
+   "tip": "crash_cart_laptop",
+   "note": "laptop crash cart: laptop on the worksurface, monitor, keyboard + mouse trays, UPS; height adjusts",
+   "parent": "fixed_devices",
+   "pos": [
+    -5.2,
+    -6.0,
+    0.0
+   ]
+  },
+  "laptop_cart_lift": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Z",
+   "limits": [
+    -0.3,
+    0.33
+   ],
+   "tip": "crash_cart_height",
+   "note": "counterbalanced, tool-free: 63 cm of travel",
+   "parent": "asset_laptop_cart",
+   "pos": [
+    -5.2,
+    -6.0,
+    0.0
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "laptop_cart_keyboard_tray": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-Y",
+   "limits": [
+    0.0,
+    0.12
+   ],
+   "tip": "keyboard_tray",
+   "parent": "laptop_cart_lift",
+   "pos": [
+    -5.2,
+    -5.7,
+    0.93
+   ],
+   "axis_world": [
+    -0.0,
+    1.0,
+    -0.0
+   ]
+  },
+  "laptop_cart_mouse_tray": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "X",
+   "limits": [
+    0.0,
+    0.18
+   ],
+   "tip": "mouse_tray",
+   "parent": "laptop_cart_lift",
+   "pos": [
+    -5.3,
+    -5.57,
+    0.92
+   ],
+   "axis_world": [
+    -1.0,
+    -0.0,
+    0.0
+   ]
+  },
+  "slot_laptop_cart_laptop": {
+   "role": "slot",
+   "tip": "laptop_place",
+   "note": "put your work laptop here",
+   "parent": "laptop_cart_lift",
+   "pos": [
+    -5.2,
+    -5.8,
+    1.02
+   ]
+  },
+  "asset_tool_cart_1": {
+   "role": "asset",
+   "tip": "crash_cart_tools",
+   "note": "tool crash cart: tools in the drawers, a server can sit on the top, monitor on the pole",
+   "parent": "fixed_devices",
+   "pos": [
+    -1.3,
+    -6.0,
+    0.0
+   ]
+  },
+  "tool_cart_1_drawer_1": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-Y",
+   "limits": [
+    0.0,
+    0.4
+   ],
+   "tip": "tool_drawer",
+   "holds": "tools",
+   "parent": "asset_tool_cart_1",
+   "pos": [
+    -1.3,
+    -5.7,
+    0.86
+   ],
+   "axis_world": [
+    -0.0,
+    1.0,
+    -0.0
+   ]
+  },
+  "tool_cart_1_drawer_2": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-Y",
+   "limits": [
+    0.0,
+    0.4
+   ],
+   "tip": "tool_drawer",
+   "holds": "tools",
+   "parent": "asset_tool_cart_1",
+   "pos": [
+    -1.3,
+    -5.7,
+    0.73
+   ],
+   "axis_world": [
+    -0.0,
+    1.0,
+    -0.0
+   ]
+  },
+  "tool_cart_1_drawer_3": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-Y",
+   "limits": [
+    0.0,
+    0.4
+   ],
+   "tip": "tool_drawer",
+   "holds": "tools",
+   "parent": "asset_tool_cart_1",
+   "pos": [
+    -1.3,
+    -5.7,
+    0.58
+   ],
+   "axis_world": [
+    -0.0,
+    1.0,
+    -0.0
+   ]
+  },
+  "tool_cart_1_drawer_4": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-Y",
+   "limits": [
+    0.0,
+    0.4
+   ],
+   "tip": "tool_drawer",
+   "holds": "tools",
+   "parent": "asset_tool_cart_1",
+   "pos": [
+    -1.3,
+    -5.7,
+    0.4
+   ],
+   "axis_world": [
+    -0.0,
+    1.0,
+    -0.0
+   ]
+  },
+  "slot_tool_cart_1_server": {
+   "role": "slot",
+   "tip": "crash_cart_server",
+   "note": "a 2U server can sit on the top",
+   "parent": "asset_tool_cart_1",
+   "pos": [
+    -1.3,
+    -6.0,
+    1.0
+   ]
+  },
+  "asset_tool_cart_2": {
+   "role": "asset",
+   "tip": "crash_cart_tools",
+   "note": "tool crash cart: tools in the drawers, a server can sit on the top, monitor on the pole",
+   "parent": "fixed_devices",
+   "pos": [
+    0.1,
+    -6.0,
+    0.0
+   ]
+  },
+  "tool_cart_2_drawer_1": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-Y",
+   "limits": [
+    0.0,
+    0.4
+   ],
+   "tip": "tool_drawer",
+   "holds": "tools",
+   "parent": "asset_tool_cart_2",
+   "pos": [
+    0.1,
+    -5.7,
+    0.86
+   ],
+   "axis_world": [
+    -0.0,
+    1.0,
+    -0.0
+   ]
+  },
+  "tool_cart_2_drawer_2": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-Y",
+   "limits": [
+    0.0,
+    0.4
+   ],
+   "tip": "tool_drawer",
+   "holds": "tools",
+   "parent": "asset_tool_cart_2",
+   "pos": [
+    0.1,
+    -5.7,
+    0.73
+   ],
+   "axis_world": [
+    -0.0,
+    1.0,
+    -0.0
+   ]
+  },
+  "tool_cart_2_drawer_3": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-Y",
+   "limits": [
+    0.0,
+    0.4
+   ],
+   "tip": "tool_drawer",
+   "holds": "tools",
+   "parent": "asset_tool_cart_2",
+   "pos": [
+    0.1,
+    -5.7,
+    0.58
+   ],
+   "axis_world": [
+    -0.0,
+    1.0,
+    -0.0
+   ]
+  },
+  "tool_cart_2_drawer_4": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-Y",
+   "limits": [
+    0.0,
+    0.4
+   ],
+   "tip": "tool_drawer",
+   "holds": "tools",
+   "parent": "asset_tool_cart_2",
+   "pos": [
+    0.1,
+    -5.7,
+    0.4
+   ],
+   "axis_world": [
+    -0.0,
+    1.0,
+    -0.0
+   ]
+  },
+  "slot_tool_cart_2_server": {
+   "role": "slot",
+   "tip": "crash_cart_server",
+   "note": "a 2U server can sit on the top",
+   "parent": "asset_tool_cart_2",
+   "pos": [
+    0.1,
+    -6.0,
+    1.0
+   ]
+  },
+  "asset_media_trolley": {
+   "role": "asset",
+   "tip": "media_trolley",
+   "note": "red trolley for the degausser and the drive crusher",
+   "parent": "fixed_devices",
+   "pos": [
+    4.6,
+    -5.97,
+    0.0
+   ]
+  },
+  "asset_media_trolley_degausser": {
+   "role": "asset",
+   "tip": "degausser",
+   "note": "drawer out, drop a drive in, close, it erases the drive, drawer out, take the drive out",
+   "parent": "asset_media_trolley",
+   "pos": [
+    4.79,
+    -5.97,
+    0.86
+   ]
+  },
+  "media_trolley_degausser_drawer": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "-Y",
+   "limits": [
+    0.0,
+    0.2
+   ],
+   "tip": "degausser_drawer",
+   "parent": "asset_media_trolley_degausser",
+   "pos": [
+    4.79,
+    -5.6555,
+    1.2
+   ],
+   "axis_world": [
+    -0.0,
+    1.0,
+    -0.0
+   ]
+  },
+  "slot_media_trolley_degausser_drive": {
+   "role": "slot",
+   "tip": "degausser_drive",
+   "note": "3.5 or 2.5 inch drive goes here",
+   "parent": "media_trolley_degausser_drawer",
+   "pos": [
+    4.79,
+    -5.8,
+    1.178
+   ]
+  },
+  "asset_media_trolley_crusher": {
+   "role": "asset",
+   "tip": "drive_crusher",
+   "note": "open the window, put the drive in, close, press DESTROY: the V ram bends the drive into a V; take it out",
+   "parent": "asset_media_trolley",
+   "pos": [
+    4.39,
+    -6.01,
+    0.86
+   ]
+  },
+  "media_trolley_crusher_ram": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Z",
+   "limits": [
+    -0.075,
+    0.0
+   ],
+   "tip": "crusher_ram",
+   "note": "V ram comes down and bends the drive into a V",
+   "parent": "asset_media_trolley_crusher",
+   "pos": [
+    4.39,
+    -5.92,
+    1.06
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "media_trolley_crusher_destroy_button": {
+   "role": "moving",
+   "motion": "press",
+   "axis": "Y",
+   "limits": [
+    0.0,
+    0.004
+   ],
+   "tip": "crusher_destroy",
+   "note": "only works with the window shut",
+   "parent": "asset_media_trolley_crusher",
+   "pos": [
+    4.347,
+    -5.769,
+    1.177
+   ],
+   "axis_world": [
+    0.0,
+    -1.0,
+    0.0
+   ]
+  },
+  "media_trolley_crusher_window": {
+   "role": "moving",
+   "motion": "slide",
+   "axis": "Z",
+   "limits": [
+    0.0,
+    0.155
+   ],
+   "tip": "crusher_window",
+   "note": "safety window lifts up into the unit to load the drive",
+   "parent": "asset_media_trolley_crusher",
+   "pos": [
+    4.39,
+    -5.781,
+    0.91
+   ],
+   "axis_world": [
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  "slot_media_trolley_crusher_drive": {
+   "role": "slot",
+   "tip": "crusher_drive",
+   "note": "drive lies on the V anvil",
+   "parent": "asset_media_trolley_crusher",
+   "pos": [
+    4.39,
+    -5.92,
+    0.945
+   ]
+  }
+ }
+}

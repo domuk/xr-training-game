@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.2.0 (2026-10-04)
+
+- New: the data hall. Click the lab's double door to walk into it; click either hall door to go back to the lab
+- Only one room is loaded at a time, to save memory and loading
+- Updated lab model (rack fixes, door closer arm moves with the door)
+- Blender build scripts for the lab and the data hall added to model/scripts
+
 ## v1.1.2 (2026-10-04)
 
 - Server comes out of the rack: grab its side (or hold the trigger on its case) and it slides out along the rails; line it up in front of a slot and it slides back in
